@@ -20,23 +20,30 @@ body{
 	display: none;
 }
 
-#header{
-	height: 65px;
+.header{
+	position: fixed;
+	z-index: 100;
+	left: 0;
+	top: 0;
+	height: 3vw;
 	width: 100%;
 	box-sizing: border-box;
-	padding: 0px 32px 0px 27px;
+	padding: 0px 1.5vw 0px 1.5vw;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	background: #000;
+	nav{
+		display: block;
+	}
 	#menu{
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
-		margin-left: 126px;
-		margin-top: -2px;
+		margin-left: 6.9vw;
 		a{
-			font-size: 30px;
+			display: block;
+			font-size: 1.6vw;
 			font-family: $Beba-reg;
 			text-transform: uppercase;
 			color: #fff;
@@ -46,150 +53,121 @@ body{
 		}
 		li:nth-child(1){
 			a{
-				margin-right: 25px;
+				margin-right: 1.3vw;
 			}
 		}
 		li:nth-child(2){
 			a{
-				margin-right: 25px;
+				margin-right: 1.3vw;
 			}
 		}
 	}
 	#soc-link{
-		width: 262px;
+		width: 14vw;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		a{
 			display: block;
-			background: center / auto url(./../img/soc-link.png) no-repeat;
+			img{
+				display: block;
+				width: 100%;
+			}
 		}
 		li{
 			&:nth-child(1){
 				a{
-					height: 20px;
-					width: 23px;
-					background-position: 0 -4px;
+					width: 1.2vw;
 				}
 			}
 		}
 		li{
 			&:nth-child(2){
 				a{
-					height: 24px;
-					width: 15px;
-					background-position: -86px 0px;
+					width: .8vw;
 				}
 			}
 		}
 		li{
 			&:nth-child(3){
 				a{
-					height: 24px;
-					width: 13px;
-					background-position: -168px 0px;
+					width: .8vw;
 				}
 			}
 		}
 		li{
 			&:nth-child(4){
 				a{
-					height: 18px;
-					width: 17px;
-					background-position: -245px -3px;
+					width: 1vw;
 				}
 			}
 		}
 	}
-}
-@media screen and (max-width:1000px){
-	#header{
-		height: auto;
-		padding: 20px;
-		flex-direction: column;
-		#menu{
-			margin:20px 0;
+	.logo{
+		width: 7.5vw;
+		img{
+			display: block;
+			width: 100%;
 		}
 	}
 }
-@media screen and (max-width:576px){
-	#header #menu a{
-		font-size: 24px;
-	}
-}
 
-#main-page{
+.section{
+	box-sizing: border-box;
+	padding-top: 3vw;
+}
+#section-1{
 	position: relative;
-	overflow: hidden;
-	&:before{
-		content: '';
-		display: block;
-		position: absolute;
-		right: 0px;
-		bottom: 0px;
-		width: 1207px;
-		height: 841px;
-		background: center/ auto url(./../images/hq.png) no-repeat;
-	}
 	.top-block{
 		display: flex;
 		flex-wrap: wrap;
 		> div {
-			width: 50%;
+			width: 50vw;
 		}
 		.tagline{
 			position: relative;
 			box-sizing: border-box;
-			padding-top: 20px;
-			padding-left: 60px;
-			padding-right: 46px;
-			padding-bottom: 160px;
+			padding-top: 1.5vw;
+			padding-left: 3vw;
+			padding-right: 2.5vw;
+			padding-bottom:8.5vw;
+			background: 26% 50% / 30vw url(./../images/before-logo.png) no-repeat;
 			img{
 				width: 100%;
-			}
-			&:before{
-				content: "";
-				display: block;
-				position: absolute;
-				left: 10%;
-				top: 60px;
-				width: 520px;
-				height: 436px;
-				background: center / cover url(./../images/before-logo.png) no-repeat;
 			}
 		}
 		.title{
 			box-sizing: border-box;
-			padding-top: 24px;
-			padding-left: 141px;
+			padding-top: 1.7vw;
+			padding-left: 7.4vw;
+			padding-right: 6vw;
 			img{
 				display: block;
 				width: 100%;
-				max-width: 705px;
 			}
 		}
 	}
 	.text-block{
-		max-width: 685px;
-		width: 100%;
+		position: relative;
+		width: 35vw;
+		height: 22vw;
 		text-align: center;
-		margin-left: 120px;
-		padding-bottom: 40px;
+		margin-left: 6.5vw;
 		z-index: 1;
 		p{
 			font-family: $Nova-reg;
-			font-size: 24px;
-			line-height: 36px;
+			font-size: 1.25vw;
+			line-height: 1.8vw;
 			color: #000;
 			.bold{
 				font-family: $Nova-bold;
 			}
 			&:nth-child(1){
-				margin-bottom: 35px;
+				margin-bottom: 1.9vw;
 			}
 			&:nth-child(2){
-				font-size: 28px;
-				line-height: 33px;
+				font-size: 1.45vw;
+				line-height: 1.8vw;
 				color: #000;
 			}
 			.b{
@@ -201,58 +179,209 @@ body{
 			}
 		}
 		.arrow{
+			position: absolute;
+			left: 50%;
+			bottom: 0.6vw;
+			margin-left: -0.8vw;
 			display: block;
-			margin-top: 123px;
+			width: 1.2vw;
+			img{
+				display: block;
+				width: 100%;
+			}
 		}
 	}
+		.hq-block{
+			position: absolute;
+			right: 0;
+			bottom: 3vw;
+			width: 60vw;
+			img{
+				display: block;
+				width: 100%;
+			}
+		}
 	.bottom-block{
 		display: flex;
 		justify-content: center;
 		align-items: flex-end;
 		width: 100%;
-		.date{
-			z-index: 1;
-			margin-left: auto;
-			margin-bottom: 20px;
-		}
-		.pag{
-			z-index: 1;
-			margin-right: 32px;
-			margin-left: 22%;
-			margin-bottom: 10px;
-		}
-	}
-	.bottom-big-block{
-		display: flex;
 	}
 }
 .brand{
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	margin-bottom: 10px;
-	margin-left: 20px;
+	margin-bottom: 3.4vw;
+	margin-left: 1vw;
+	width: 0.6vw;
+	img{
+		display: block;
+		width: 100%;
+	}
 }
 .date{
 	position: absolute;
-	right: 290px;
-	bottom: 35px;
+	right: 18.5vw;
+	bottom: 4.3vw;
+	width: 12vw;
+	img{
+		display: block;
+		width: 100%;
+	}
 }
 .pagi{
 	position: absolute;
-	right: 21px;
-	bottom: 21px;
+	right: 1.7vw;
+	bottom: 3.7vw;
+	width: 4vw;
+	img{
+		display: block;
+		width: 100%;
+	}
 }
 .y-button{
 	display: block;
 	text-align: center;
 	color: #111815;
 	background-color: #fff001;
-	font-size: 37px;
-	line-height: 70px;
+	font-size: 2vw;
+	line-height: 3.5vw;
 	font-family: $Marker;
-	width: 280px;
-	height: 70px;
-	border-radius: 10px;
+	width: 14.6vw;
+	height: 3.5vw;
+	border-radius: .7vw;
 	cursor: pointer;
+}
+
+#section-2{
+    position: relative;
+    background: 0 3vw /  101vw  url(./../images/bg2.jpg) no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .bottom-block{
+        margin-top: auto;
+        padding-bottom: 2.6vw;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .text-block{
+			margin-top: 1.5vw;
+            margin-left: 6vw;
+			margin-right: 8vw;
+			width: 29vw;
+			img{
+				display: block;
+				width: 100%;
+			}
+            .text{
+                font-size: 1.08vw;
+                line-height: 1.3vw;
+                font-family: $Nova-reg;
+                width: 30vw;
+                padding-left: 0.5vw;
+                margin-top: 1vw;
+                .b{
+                    display: block;
+                }
+            }
+        }
+        .logo-block{
+			width: 32vw;
+			margin-right: 3.3vw;
+			margin-bottom: 3vw;
+            img{
+                display: block;
+                width: 100%;
+            }
+        }
+        .y-button{
+            margin-top: auto;
+        }
+    }
+    .abs{
+        position: absolute;
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        span{
+            display: block;
+        }
+        .big{
+            font-family: $Marker;
+            font-size: 48px;
+            text-align: center;
+        }
+        .small{
+            font-family: $Nova-reg;
+            font-size: 24px;
+            line-height: 28px;
+            color:#fff001;
+        }
+        &.abs-1{
+            top: 205px;
+            left: 76px;
+            width: 374px;
+            height: 163px;
+            background-image: url(./../images/abs1.png);
+            padding-right: 115px;
+            padding-top: 22px;
+        }
+        &.abs-2{
+            top: 492px;
+            left: 228px;
+            width: 318px;
+            height: 224px;
+            background-image: url(./../images/abs2.png);
+            padding-top: 130px;
+        }
+        &.abs-3{
+            top: 260px;
+            left: 595px;
+            width: 346px;
+            height: 329px;
+            background-image: url(./../images/abs3.png);
+            padding-top: 190px;
+            .big{
+                padding: 0 5px;
+            }
+        }
+        &.abs-4{
+            bottom: 220px;
+            right: 746px;
+            width: 296px;
+            height: 292px;
+            background-image: url(./../images/abs4.png);
+            padding-top: 200px;
+            .big{
+                padding: 0 5px;
+            }
+        }
+        &.abs-5{
+            bottom: 504px;
+            right: 190px;
+            width: 446px;
+            height: 162px;
+            background-image: url(./../images/abs5.png);
+            padding-top: 70px;
+            padding-right: 125px;
+            .big{
+                padding: 0 5px;
+            }
+        }
+	}
+	.pagi{
+		bottom: 0.9vw;
+	}
+	.date{
+		right: 13.5vw;
+		bottom: 2vw;
+	}
+	.brand{
+		margin-bottom: 0.6vw;
+	}
 }
