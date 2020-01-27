@@ -7,3 +7,4 @@
 /* my scripts */
 
 //= partials/main.js
+//= partials/main2.js

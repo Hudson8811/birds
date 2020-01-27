@@ -1,0 +1,115 @@
+#main-page2{
+    position: relative;
+    height: calc(100vh - 60px);
+    background: center / cover url(./../images/bg2.jpg) no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .bottom-block{
+        margin-top: auto;
+        margin-bottom: 55px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .text-block{
+            margin-left: 110px;
+            margin-right: 138px;
+            .text{
+                font-size: 21px;
+                line-height: 24px;
+                font-family: $Nova-reg;
+                width: 570px;
+                padding-left: 20px;
+                margin-top: 30px;
+                .b{
+                    display: block;
+                }
+            }
+        }
+        .logo-block{
+            margin-right: 65px;
+            img{
+                display: block;
+                max-width: 625px;
+                width: 100%;
+            }
+        }
+        .y-button{
+            margin-top: auto;
+        }
+    }
+    .abs{
+        position: absolute;
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        span{
+            display: block;
+        }
+        .big{
+            font-family: $Marker;
+            font-size: 48px;
+            text-align: center;
+        }
+        .small{
+            font-family: $Nova-reg;
+            font-size: 24px;
+            line-height: 28px;
+            color:#fff001;
+        }
+        &.abs-1{
+            top: 205px;
+            left: 76px;
+            width: 374px;
+            height: 163px;
+            background-image: url(./../images/abs1.png);
+            padding-right: 115px;
+            padding-top: 22px;
+        }
+        &.abs-2{
+            top: 492px;
+            left: 228px;
+            width: 318px;
+            height: 224px;
+            background-image: url(./../images/abs2.png);
+            padding-top: 130px;
+        }
+        &.abs-3{
+            top: 260px;
+            left: 595px;
+            width: 346px;
+            height: 329px;
+            background-image: url(./../images/abs3.png);
+            padding-top: 190px;
+            .big{
+                padding: 0 5px;
+            }
+        }
+        &.abs-4{
+            bottom: 220px;
+            right: 746px;
+            width: 296px;
+            height: 292px;
+            background-image: url(./../images/abs4.png);
+            padding-top: 200px;
+            .big{
+                padding: 0 5px;
+            }
+        }
+        &.abs-5{
+            bottom: 504px;
+            right: 190px;
+            width: 446px;
+            height: 162px;
+            background-image: url(./../images/abs5.png);
+            padding-top: 70px;
+            padding-right: 125px;
+            .big{
+                padding: 0 5px;
+            }
+        }
+    }
+}

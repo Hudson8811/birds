@@ -1,6 +1,7 @@
 $Beba-reg: "Conv_BebasNeue Regular", sans-serif;
 $Nova-bold: "Conv_ProximaNova-Bold", sans-serif;
 $Nova-reg: "Conv_ProximaNova-Reg", sans-serif;
+$Marker: "Conv_MarkerFelt-Thin_0", sans-serif;
 
 
 a{
@@ -174,6 +175,7 @@ body{
 		text-align: center;
 		margin-left: 120px;
 		padding-bottom: 40px;
+		z-index: 1;
 		p{
 			font-family: $Nova-reg;
 			font-size: 24px;
@@ -223,11 +225,34 @@ body{
 	.bottom-big-block{
 		display: flex;
 	}
-	.brand{
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		margin-bottom: 10px;
-		margin-left: 20px;
-	}
+}
+.brand{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin-bottom: 10px;
+	margin-left: 20px;
+}
+.date{
+	position: absolute;
+	right: 290px;
+	bottom: 35px;
+}
+.pagi{
+	position: absolute;
+	right: 21px;
+	bottom: 21px;
+}
+.y-button{
+	display: block;
+	text-align: center;
+	color: #111815;
+	background-color: #fff001;
+	font-size: 37px;
+	line-height: 70px;
+	font-family: $Marker;
+	width: 280px;
+	height: 70px;
+	border-radius: 10px;
+	cursor: pointer;
 }
