@@ -7,6 +7,7 @@ a{
 	text-decoration: none;
 }
 body{
+	background: #edc200;
 	color: #fff;
 	font-size: 24px;
 	margin: 0;
@@ -23,7 +24,8 @@ body{
 	width: 100%;
 	box-sizing: border-box;
 	padding: 0px 32px 0px 27px;
-	display: flex;justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	background: #000;
 	#menu{
@@ -117,14 +119,13 @@ body{
 
 #main-page{
 	position: relative;
-	height: calc(100vh - 65px);
-	background: #edc200;
+	overflow: hidden;
 	&:before{
 		content: '';
 		display: block;
 		position: absolute;
-		right: -40px;
-		bottom: 20px;
+		right: 0px;
+		bottom: 0px;
 		width: 1207px;
 		height: 841px;
 		background: center/ auto url(./../images/hq.png) no-repeat;
@@ -171,6 +172,8 @@ body{
 		max-width: 685px;
 		width: 100%;
 		text-align: center;
+		margin-left: 120px;
+		padding-bottom: 40px;
 		p{
 			font-family: $Nova-reg;
 			font-size: 24px;
@@ -179,21 +182,52 @@ body{
 			.bold{
 				font-family: $Nova-bold;
 			}
+			&:nth-child(1){
+				margin-bottom: 35px;
+			}
 			&:nth-child(2){
 				font-size: 28px;
 				line-height: 33px;
 				color: #000;
 			}
+			.b{
+				display: block;
+				height: 0;
+				width: 0;
+				margin: 0;
+				padding: 0;
+			}
+		}
+		.arrow{
+			display: block;
+			margin-top: 123px;
 		}
 	}
 	.bottom-block{
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		justify-content: center;
+		align-items: flex-end;
+		width: 100%;
+		.date{
+			z-index: 1;
+			margin-left: auto;
+			margin-bottom: 20px;
+		}
+		.pag{
+			z-index: 1;
+			margin-right: 32px;
+			margin-left: 22%;
+			margin-bottom: 10px;
+		}
+	}
+	.bottom-big-block{
+		display: flex;
 	}
 	.brand{
 		position: absolute;
 		left: 0;
 		bottom: 0;
+		margin-bottom: 10px;
+		margin-left: 20px;
 	}
 }
