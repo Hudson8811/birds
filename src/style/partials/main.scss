@@ -313,65 +313,61 @@ body{
         }
         .big{
             font-family: $Marker;
-            font-size: 48px;
+            font-size: 2.5vw;
             text-align: center;
         }
         .small{
             font-family: $Nova-reg;
-            font-size: 24px;
-            line-height: 28px;
+            font-size: 1.25vw;
+            line-height: 2vw;
             color:#fff001;
         }
         &.abs-1{
-            top: 205px;
-            left: 76px;
-            width: 374px;
-            height: 163px;
+            top: 13vw;
+            left: 7vw;
+			width: 19.5vw;
+			height: 8.5vw;
             background-image: url(./../images/abs1.png);
-            padding-right: 115px;
-            padding-top: 22px;
+            padding-right: 6vw;
+			padding-top: 1vw;
+			padding-bottom: 0.6vw;
         }
         &.abs-2{
-            top: 492px;
-            left: 228px;
-            width: 318px;
-            height: 224px;
+            top: 28vw;
+            left: 13.5vw;
+            width: 16.5vw;
+            height: 11.7vw;
             background-image: url(./../images/abs2.png);
-            padding-top: 130px;
+            padding-top: 7vw;
         }
         &.abs-3{
-            top: 260px;
-            left: 595px;
-            width: 346px;
-            height: 329px;
+            top: 15vw;
+            left: 31.5vw;
+            width: 18vw;
+            height: 17.2vw;
             background-image: url(./../images/abs3.png);
-            padding-top: 190px;
+            padding-top: 10vw;
             .big{
-                padding: 0 5px;
+                padding: 0 0.2vw;
             }
         }
         &.abs-4{
-            bottom: 220px;
-            right: 746px;
-            width: 296px;
-            height: 292px;
+            bottom: 13vw;
+            right: 38vw;
+            width: 15.5vw;
+            height: 15.3vw;
             background-image: url(./../images/abs4.png);
-            padding-top: 200px;
-            .big{
-                padding: 0 5px;
-            }
+            padding-top: 10.5vw;
         }
         &.abs-5{
-            bottom: 504px;
-            right: 190px;
-            width: 446px;
-            height: 162px;
+            bottom: 27.5vw;
+            right: 9vw;
+            width: 23.5vw;
+            height: 8.5vw;
             background-image: url(./../images/abs5.png);
-            padding-top: 70px;
-            padding-right: 125px;
-            .big{
-                padding: 0 5px;
-            }
+            padding-top: 3.7vw;
+			padding-right: 6vw;
+			padding-bottom: 2vw;
         }
 	}
 	.pagi{
@@ -383,5 +379,32 @@ body{
 	}
 	.brand{
 		margin-bottom: 0.6vw;
+	}
+}
+
+.game {
+    position: fixed;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    will-change: transform;
+    -webkit-transition: -webkit-transform .8s cubic-bezier(.645, .045, .355, 1);
+    transition: transform .8s cubic-bezier(.645, .045, .355, 1);
+    transition: transform .8s cubic-bezier(.645, .045, .355, 1), -webkit-transform .8s cubic-bezier(.645, .045, .355, 1)
+
+}
+.game.active {
+    -webkit-transform: none;
+    transform: none
+}
+.game{
+	.description{
+		display: block!important;
+		width: 40vw!important;
+		height: auto!important;
+		background-color: #fff001;
 	}
 }

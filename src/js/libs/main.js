@@ -10,13 +10,13 @@ $('body').on('click', '.header__button', function () {
   $('.nav').toggleClass('active');
 });
 
-// Главная
+// Р“Р»Р°РІРЅР°СЏ
 
 if ($('.wrapper--main').length) {
   var nextButton = $('.next-button');
   var headerItem = $('.header__item');
 
-  var nextButtonText = ['Как вдохновляются <br>дизайнеры?', 'Секреты ухода <br>за модной одеждой', 'Собрать свежий образ'];
+  var nextButtonText = ['РљР°Рє РІРґРѕС…РЅРѕРІР»СЏСЋС‚СЃСЏ <br>РґРёР·Р°Р№РЅРµСЂС‹?', 'РЎРµРєСЂРµС‚С‹ СѓС…РѕРґР° <br>Р·Р° РјРѕРґРЅРѕР№ РѕРґРµР¶РґРѕР№', 'РЎРѕР±СЂР°С‚СЊ СЃРІРµР¶РёР№ РѕР±СЂР°Р·'];
 
   $('.slider').fullpage({
     anchors: ['first', 'second', 'third', 'contest'],
@@ -66,9 +66,100 @@ if ($('.wrapper--main').length) {
   nextButton.on('click', function () {
     $.fn.fullpage.moveSectionDown();
   });
+
+  var closeButton = $('.close-button');
+  var gameButton = $('.next-button-game');
+
+  $('.js-game, .js-winners').on('click', function (e) {
+    e.preventDefault();
+    $('.overlay').show();
+    $('.game').addClass('active');
+    $.fn.fullpage.setAllowScrolling(false);
+  });
+
+  $('.overlay, .close-button').on('click', function () {
+    $('.overlay').hide();
+    $('.game').removeClass('active');
+    $.fn.fullpage.setAllowScrolling(true);
+  });
+
+  if (window.innerWidth < 768) {
+    $('.nav a').on('click', function () {
+      $('.header__button').removeClass('is-active');
+      $('.nav').removeClass('active');
+    });
+  }
+
+  var interviewNames = [{
+    name: 'Igor Gulyaev',
+    href: '/interview#igor_gulyaev',
+    src: '/img/interview/gulyaev/cover.jpg',
+    mark: 'designer_1'
+  }, {
+    name: 'Yuliya Bazhina',
+    href: '/interview#yuliya_bazhina',
+    src: '/img/interview/bazhina/cover.jpg',
+    mark: 'designer_2'
+  }, {
+    name: 'Julia Dalakian',
+    href: '/interview#julia_dalakian',
+    src: '/img/interview/dalakian/cover.jpg',
+    mark: 'designer_3'
+  }, {
+    name: 'BellaВ Potemkina',
+    href: '/interview#bella_potemkina',
+    src: '/img/interview/potemkina/cover.jpg',
+    mark: 'designer_4'
+  }, {
+    name: 'Elena Zemtsova',
+    href: '/interview#elena_zemtsova',
+    src: '/img/interview/zemtsova/cover.jpg',
+    mark: 'designer_5'
+  }, {
+    name: 'ChloС‘',
+    href: '/interview#chloe',
+    src: '/img/interview/chloe/cover.jpg',
+    mark: 'designer_6'
+  }];
+
+  // interviewNames.sort(function () {
+  //   return Math.random() - 0.5;
+  // });
+
+  var app2 = new Vue({
+    el: '.interview__list',
+    data: {
+      interviews: interviewNames
+    },
+    methods: {
+      ga: function (_ga) {
+        function ga(_x) {
+          return _ga.apply(this, arguments);
+        }
+
+        ga.toString = function () {
+          return _ga.toString();
+        };
+
+        return ga;
+      }(function (mark) {
+        ga('send', 'event', mark);
+      })
+    }
+  });
+
+  // if (window.innerWidth > 767) {
+  //   $('.interview__name').hover(function () {
+  //     $('.interview__photo').removeClass('active');
+  //     $(this).parent().find('.interview__photo').addClass('active');
+  //   }, function () {
+  //     $('.interview__photo').removeClass('active');
+  //     $('.interview__list li:first-child .interview__photo').addClass('active');
+  //   });
+  // }
 }
 
-// Интервью
+// РРЅС‚РµСЂРІСЊСЋ
 
 if ($('.wrapper--iv').length) {
   var hashListener = function hashListener() {

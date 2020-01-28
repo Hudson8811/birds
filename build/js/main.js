@@ -26,13 +26,13 @@ $('body').on('click', '.header__button', function () {
   $('.nav').toggleClass('active');
 });
 
-// Главная
+// Р“Р»Р°РІРЅР°СЏ
 
 if ($('.wrapper--main').length) {
   var nextButton = $('.next-button');
   var headerItem = $('.header__item');
 
-  var nextButtonText = ['Как вдохновляются <br>дизайнеры?', 'Секреты ухода <br>за модной одеждой', 'Собрать свежий образ'];
+  var nextButtonText = ['РљР°Рє РІРґРѕС…РЅРѕРІР»СЏСЋС‚СЃСЏ <br>РґРёР·Р°Р№РЅРµСЂС‹?', 'РЎРµРєСЂРµС‚С‹ СѓС…РѕРґР° <br>Р·Р° РјРѕРґРЅРѕР№ РѕРґРµР¶РґРѕР№', 'РЎРѕР±СЂР°С‚СЊ СЃРІРµР¶РёР№ РѕР±СЂР°Р·'];
 
   $('.slider').fullpage({
     anchors: ['first', 'second', 'third', 'contest'],
@@ -82,9 +82,100 @@ if ($('.wrapper--main').length) {
   nextButton.on('click', function () {
     $.fn.fullpage.moveSectionDown();
   });
+
+  var closeButton = $('.close-button');
+  var gameButton = $('.next-button-game');
+
+  $('.js-game, .js-winners').on('click', function (e) {
+    e.preventDefault();
+    $('.overlay').show();
+    $('.game').addClass('active');
+    $.fn.fullpage.setAllowScrolling(false);
+  });
+
+  $('.overlay, .close-button').on('click', function () {
+    $('.overlay').hide();
+    $('.game').removeClass('active');
+    $.fn.fullpage.setAllowScrolling(true);
+  });
+
+  if (window.innerWidth < 768) {
+    $('.nav a').on('click', function () {
+      $('.header__button').removeClass('is-active');
+      $('.nav').removeClass('active');
+    });
+  }
+
+  var interviewNames = [{
+    name: 'Igor Gulyaev',
+    href: '/interview#igor_gulyaev',
+    src: '/img/interview/gulyaev/cover.jpg',
+    mark: 'designer_1'
+  }, {
+    name: 'Yuliya Bazhina',
+    href: '/interview#yuliya_bazhina',
+    src: '/img/interview/bazhina/cover.jpg',
+    mark: 'designer_2'
+  }, {
+    name: 'Julia Dalakian',
+    href: '/interview#julia_dalakian',
+    src: '/img/interview/dalakian/cover.jpg',
+    mark: 'designer_3'
+  }, {
+    name: 'BellaВ Potemkina',
+    href: '/interview#bella_potemkina',
+    src: '/img/interview/potemkina/cover.jpg',
+    mark: 'designer_4'
+  }, {
+    name: 'Elena Zemtsova',
+    href: '/interview#elena_zemtsova',
+    src: '/img/interview/zemtsova/cover.jpg',
+    mark: 'designer_5'
+  }, {
+    name: 'ChloС‘',
+    href: '/interview#chloe',
+    src: '/img/interview/chloe/cover.jpg',
+    mark: 'designer_6'
+  }];
+
+  // interviewNames.sort(function () {
+  //   return Math.random() - 0.5;
+  // });
+
+  var app2 = new Vue({
+    el: '.interview__list',
+    data: {
+      interviews: interviewNames
+    },
+    methods: {
+      ga: function (_ga) {
+        function ga(_x) {
+          return _ga.apply(this, arguments);
+        }
+
+        ga.toString = function () {
+          return _ga.toString();
+        };
+
+        return ga;
+      }(function (mark) {
+        ga('send', 'event', mark);
+      })
+    }
+  });
+
+  // if (window.innerWidth > 767) {
+  //   $('.interview__name').hover(function () {
+  //     $('.interview__photo').removeClass('active');
+  //     $(this).parent().find('.interview__photo').addClass('active');
+  //   }, function () {
+  //     $('.interview__photo').removeClass('active');
+  //     $('.interview__list li:first-child .interview__photo').addClass('active');
+  //   });
+  // }
 }
 
-// Интервью
+// РРЅС‚РµСЂРІСЊСЋ
 
 if ($('.wrapper--iv').length) {
   var hashListener = function hashListener() {
@@ -307,4 +398,1548 @@ if ($('.wrapper--ig').length) {
     return jQuery;
   }
 }());
+/*var things = [
+  {name: 'Фоны', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']},
+  {name: 'Топы и платья', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']},
+  {name: 'Брюки и юбки', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']},
+  {name: 'Верхняя одежда', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']},
+  {name: 'Обувь', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']},
+  {name: 'Аксессуары', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']}
+];*/
+
+var collage_items = $('.collage__item');
+var game_button = $('.next-button-game');
+var groups = $('.choose__group');
+
+var cur_collages;
+
+$(function () {
+
+  //ulogin
+  /*uLogin.customInit('uLogin_main', {
+    redirect_uri: '',
+    display: 'buttons',
+    fields: 'first_name,last_name,email,sex,city',
+    providers: 'vkontakte,facebook,odnoklassniki,twitter',
+    mobilebuttons: 0,
+    hidden: 'other',
+    callback: 'authorise'
+  });*/
+
+
+  //region rules checkbox
+  var rules = $('.form__checks');
+  var checker = $('.social-checker');
+  checker.click(function () {
+    rules.animate({'opacity': 0}, 300).animate({'opacity': 1}, 300);
+  });
+
+  $('.form__checks input').change(function () {
+    checker.toggle();
+  });
+  //endregion
+
+  //likes
+  $('body').on('click', '.info__likes', function(){
+    if ($(this).is('.checked')) return;
+    var obj = $(this);
+    var id = $(this).attr('data-id');
+    //console.log($(this).attr('data-id'));
+    $.post('/add_like',{id:id},function(data) {
+      //console.log(data);
+      if (data.result) return;
+      $('.item__info .info__likes[data-id='+id+']').text(data.count);
+      obj.html(data.count);
+      //obj.addClass('checked');
+    },'json')
+  });
+
+
+  //region init game
+  setGroup();
+  if (window.showGame == undefined || window.showGame <= 0)
+    slickGroup();
+  //selectThing();
+
+  //load collages of current user
+  $.post('/get_collages',{}, function (data) {
+    cur_collages = data;
+    //console.log(data);
+  },'json');
+
+
+  //show game view
+  if (window.showGame !== undefined) {
+    var id = window.showGame;
+    //console.log(window.showGame);
+    $.fn.fullpage.setAllowScrolling(false);
+    $('.overlay').show();
+    $('.game').addClass('active');
+    if (id > 0) {
+      toggleView();
+      var item = $('.gallery__item[data-id='+id+']');
+      if (item.length) {
+        $.post('/get_collages',{}, function (data) {
+          cur_collages = data;
+          //console.log(data);
+          popupOpen(item);
+        },'json');
+      }
+    }
+  }
+
+  //close game view
+  $('.close-button').click(function () {
+    /*$.fn.fullpage.setAllowScrolling(true);
+    $('.overlay').hide();
+    $('.game').removeClass('active');*/
+    window.history.pushState("", "", "http://freshlook.woman.ru/");
+  });
+  //endregion
+
+
+  $('.next-button-game').click(function () {
+    toggleView();
+  });
+
+  //region Sliding
+
+
+
+
+  // sinhronize sliders
+  $('.group__slider1, .group__slider2').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    if (!inClick) {
+      slider1.slick('slickGoTo',nextSlide,false);
+      /*var cur = slider1.find('.slider1__item.slick-current');
+      cur.addClass('selected').siblings().removeClass('selected');*/
+
+    //inClick = false;
+    slider2.slick('slickGoTo',nextSlide,true);
+    }
+    updateTooltip(nextSlide);
+  });
+
+  $('.group__slider1, .group__slider2').on('afterChange', function (event, slick, currentSlide) {
+    inClick = false;
+  });
+
+  //next slide
+  $('.slider_wrap .slider__button').click(function () {
+   var inc = $(this).hasClass('right');
+   var command = inc ? 'slickNext' : 'slickPrev';
+   //var group = $(this).closest('.choose__group');
+   var slider2 = group.find('.group__slider2');
+   slider2.slick(command);
+  });
+
+  $('.slider_wrap1 .slider__button').click(function () {
+    var inc = $(this).hasClass('right');
+    var command = inc ? 'slickNext' : 'slickPrev';
+    //var group = $(this).closest('.choose__group');
+    var slider1 = group.find('.group__slider2');
+    slider1.slick(command);
+  });
+
+  var inClick = false;
+  //click slide
+  $('.slider1__item').mouseenter(function () {
+    /*$(this).addClass('selected').siblings().removeClass('selected');*/
+    inClick = true;
+    /*console.log('qqq');
+    console.log($(this).index(),slider2.slick('slickCurrentSlide'));*/
+    slider2.slick('slickGoTo',$(this).index(),true);//attr('data-slick-index')
+  });
+
+  $('.slider2__item, .slider1__item').click(function () {
+    selectThing();
+  });
+  //endregion
+
+  //region Choose
+  //hide intro
+  $('.game_choose').click(function () {
+    $('.collage_intro').hide();
+  });
+
+  //choose group
+  $('.menu__item').click(function () {
+    if ($(this).hasClass('selected')) return;
+    $(this).addClass('selected').siblings().removeClass('selected');
+    var group = $('.choose__group').eq($(this).index());
+    group.addClass('selected').siblings().removeClass('selected');
+    setGroup();
+    slickGroup();
+  });
+
+  //choose thing
+  function selectThing() {
+    var item = slider2.find('.slider2__item.slick-current');
+    item.addClass('selected');
+
+    var img = item.find('img').attr('src');
+    if (group.index() === groups.length-1)
+      $('.game__collage .collage__back img').attr('src', img);
+    else {
+      $('.game__send').show();
+      var ind = group.index();
+      var cur_item = $('.collage__item').eq(ind);
+      cur_item.attr('data-imaged',1);
+      cur_item.find('img').attr('src',img);
+    }
+  }
+
+  //hover thing
+  /*collage_items.hover(function () {
+    //console.log($(this).find('img').attr('src'));
+    if ($(this).find('img').attr('src') === undefined) return;
+    $(this).css({'backgroundColor':'rgba(255, 255, 255,.5)','zIndex':'10'});
+    $(this).find('.delete_cross').show();
+  }, function () {
+    $(this).css({'backgroundColor':'transparent','zIndex':'1'});
+    $(this).find('.delete_cross').hide();
+  });*/
+
+  //click thing
+  collage_items.click(function () {
+    $(this).removeAttr('data-imaged');
+    $(this).find('img').removeAttr('src');
+    //$(this).css({'backgroundColor':'transparent','zIndex':'1'});
+    //$(this).find('.delete_cross').hide();
+  });
+  //endregion
+
+/*
+  //collage send
+  $('.game__send').click(function () {
+    var items = [];
+    for (var i = 0; i < collage_items.length; i++) {
+      var obj = $(collage_items[i]);
+      var img = obj.find('img').attr('src');
+      if (img === undefined) continue;
+      items[items.length] = {group: obj.index(),img:img}
+    }
+    var res = {backgroung: $('.collage__back img').attr('src'), items: items}
+    var res_s = JSON.stringify(res);
+    var form = $('.game__form');
+    form.find('input').val(res_s);
+    form.submit();
+    //console.log(res,res_s);
+    /!*$.post('/create_collage/',res,function (res1) {
+      console.log(res1);
+    })*!/
+  });
+*/
+
+
+// handle items
+  var gallery_items = $('.gallery__item');
+  var load_count = 21;
+  var gallery_container = $('.gallery__items');
+  function loadGallery() {
+    var loaded = Number(gallery_container.attr('data-loaded'));
+    var end_item = loaded + load_count;
+    if (end_item > gallery_items.length) {
+      end_item = gallery_items.length;
+      $('.galery__load').hide();
+    }
+    for (var i = loaded; i < end_item; i++) {
+      var item = gallery_items.eq(i);
+      var img = item.find('img');
+      img.attr('src',item.attr('data-img'));
+      item.css('display','inline-block');
+    }
+    gallery_container.attr('data-loaded',end_item);
+  }
+
+  $('.galery__load').click(function () {
+    loadGallery();
+  });
+  loadGallery();
+});
+
+//region toggle game/gallery
+var inGame = true;
+var game = $('.game__container');
+var gallery = $('.gallery__container');
+var toggle_button = $('.next-button-game span');
+function toggleView() {
+  inGame = !inGame;
+  if (!inGame) {
+    game.hide();
+    gallery.show();
+    toggle_button.html('Собери<br/>fresh-лук');
+  }
+  else {
+    game.show();
+    gallery.hide();
+    toggle_button.html('Победители<br>и участники');
+    slickGroup();
+  }
+
+}
+
+$('.js-winners').on('click', function (e) {
+  e.preventDefault();
+  game.hide();
+  gallery.show();
+  toggle_button.html('Собери<br/>fresh-лук');
+});
+
+$('.js-game').on('click', function (e) {
+  e.preventDefault();
+  game.show();
+  gallery.hide();
+  toggle_button.html('Победители<br>и участники');
+  slickGroup();
+});
+//endregion
+
+//region Popup
+
+//open social popup
+$('.game__send span').click(function () {
+  makeData();
+  $('.popup__container').show();
+  $('.game__social').css('display','inline-block');
+});
+
+$('.gallery__item').click(function (e) {
+  if ($(e.target).hasClass('info__likes')) return;
+  popupOpen($(this));
+});
+
+//close popup
+$('.popup-close').click(function () {
+  $('.popup__container').hide();
+  $('.popup__container').children().hide();
+  var data = $('.game__social').attr('data-redirect');
+  if (data != undefined) window.location = '/game/'+data;
+  //$('meta[property="og:url"]').attr('content','http://freshlook.woman.ru/');
+  //game_button.show();
+});
+
+var popup = $('.gallery__cp-popup');
+function setPopup(item) {
+  if (item === undefined) return;
+  //var img = item.find('img').attr('src');
+  var img = item.attr('data-img');
+  var liker = item.find('.info__likes');
+  var id = liker.attr('data-id');
+  var name = item.attr('data-name');
+  var likes = liker.text();
+  var isCurrent = $.inArray(Number(id),cur_collages) >= 0;
+  var text = isCurrent
+    ? 'Попроси друзей проголосовать за твой образ. <br/>Чем больше лайков – тем выше шанс на победу!'
+    : 'Поделиться в соцсетях';
+  //console.log(img,id,popup);
+  popup.find('.cp__picture').attr('src',img);
+  popup.find('.cp__name').text(name);
+  popup.find('.social__intro').html(text);
+  popup.find('.social__buttons').attr('data-url','http://freshlook.woman.ru/game/'+id);
+  var popup_liker = popup.find('.info__likes');
+  popup_liker.attr('data-id',id);
+  popup_liker.text(likes);
+  popup.attr('data-cur',item.index());
+  //$('meta[property="og:url"]').attr('content','http://freshlook.woman.ru/game/'+id);
+}
+
+
+function popupOpen(item) {
+  if (item === undefined) return;
+  setPopup(item);
+  $('.popup__container').show();
+  $('.gallery__cp-popup').css('display','inline-block');
+  //game_button.hide();
+}
+
+$('.gallery__cp-popup .slider__button').click(function () {
+  var inc = $(this).hasClass('right');
+  var cur_item = $('.gallery__item').eq(popup.attr('data-cur'));
+  var item = inc ? cur_item.next() : cur_item.prev();
+  if (item.length) setPopup(item);
+});
+//endregion
+
+//set current group
+var group, slider1, slider2;
+function setGroup() {
+  group = $('.choose__group.selected');
+  slider1 = group.find('.group__slider1');
+  slider2 = group.find('.group__slider2');
+}
+
+function updateTooltip(slide) {
+  var tooltip = $('.choose__tooltip');
+  if (group.index() == groups.length - 1) {
+    tooltip.hide();
+    return;
+  }
+  tooltip.show();
+  var tooltip_name = tooltip.find('.tooltip__object');
+  var item = slider2.find('.slider2__item').eq(slide).find('img');
+
+  tooltip_name.text(item.attr('title'));
+}
+
+//init sliders
+function slickGroup() {
+  if (group.attr('data-slicked') == 1) return;
+  slider1.slick({
+    //lazyLoad: 'ondemand',
+    accessibility: false,
+    arrows: false,
+    touchThreshold: 20,
+    //slidesToScroll: 6,
+    //focusOnSelect: true,
+    swipeToSlide: true,
+    //infinite: false,
+    speed: 600,
+    slidesToShow: 4,
+    infinite: false
+  });
+  slider2.slick({
+    //lazyLoad: 'ondemand',
+    accessibility: false,
+    arrows: false,
+    speed: 600,
+    slidesToShow: 1,
+    infinite: false
+  });
+  updateTooltip(0);
+  group.attr('data-slicked',1);
+}
+
+function makeData() {
+  var items = [];
+  var add = undefined;
+  for (var i = 0; i < collage_items.length; i++) {
+    var item = $(collage_items[i]);
+    var img_owner = item.find('img');
+    var img = img_owner.attr('src');
+    //console.log('curitem',item,img_owner,img);
+    if (img === undefined) continue;
+    var group = item.index();
+    if (group != 1) items[items.length] = {group: group,img:img};
+    else add = {group: group,img:img}
+  }
+  if (add != undefined) items.push(add);
+  var res = {backgroung: $('.collage__back img').attr('src'), items: items};
+  var res_s = JSON.stringify(res);
+  console.log(res);
+  Cookies.set('collage_data',res_s)
+}
+
+
+function authorise(token) {
+  $.post('/authorize',{token:token},function (d) {
+    if (d.result === 0) {
+      //send collage
+
+      var res_s = Cookies.get('collage_data');
+      $.post('/create_collage/',{data:res_s},function (data) {
+        //console.log(data);
+        //window.location = '/game/'+data;
+        //make greetings popup
+        $('.game__social').attr('data-redirect',data);
+        $('.game__social .social__buttons').hide();
+        $('.game__social .form__checks').hide();
+        $('.game__social .social__intro').css('textAlign','center')
+          .html('<b>Поздравляем!</b><br/>Теперь вы участник конкурса фреш-луков. Собирайте лайки на нашем сайте и выигрывайте призы!');
+
+        //open game & popup for mobile
+        $.fn.fullpage.setAllowScrolling(false);
+        $('.overlay').show();
+        $('.game').addClass('active');
+        $('.popup__container').show();
+        $('.game__social').css('display','inline-block');
+      });
+    }
+  },'json');
+}
+var interviewData = [
+  // Игорь Гуляев
+  {
+    hash: 'igor_gulyaev',
+    name: 'Igor Gulyaev',
+    bg_color: '#292929',
+    color_class: 'white',
+    slider_image: '/img/interview/gulyaev/cover.jpg?v=2',
+    slider_text: 'Его называют новатором в области меховой моды, что не удивительно: Игорь Гуляев единственный из современных дизайнеров, кому пришло в голову сшить из меха японское кимоно. Он обожает восток, черпает идеи с улиц Токио, Парижа, Лондона и Нью-Йорка и одевает мировых знаменитостей – от Орнеллы Мутти до Монсератт Кабалье.',
+    article_image: '/img/interview/gulyaev/article.jpg?v=2',
+    article_text: [
+      '<b>Мой путь в моде начался</b> с простой случайности. Когда мне было 14 лет, брат привез мне из Москвы модный свитшот, который после первой стирки сел и полинял. Я нашел у мамы похожую ткань и сам, без выкройки, сшил себе новый. А через год у меня уже был свой кооператив.',
+      '<b>Уходить от шаблонов</b> несложно, если не зацикливаешься на текущих трендах. Например, когда в моду вошли меховые пальто, я сшил японское кимоно из меха, которое выглядело совершенно иначе: вместо свободного кроя строгая геометрическая форма, вместо узкого пояса – широкий. Эту модель тут же напечатали на обложке модного итальянского журнала.',
+      '<b>Вдохнуть в одежду новую жизнь</b> можно только в том случае, если ты умеешь себя подать. Если глядя на себя в зеркало ты излучаешь свет, то даже одевшись в секонд-хенде, можно выглядеть прекрасно.',
+      '<b>Меня вдохновляют</b> street style Лондона, Нью-Йорка, Парижа и, в особенности, Токио. Обожаю японское «неумение» одеваться: они покупают европейскую одежду и смешивают ее очень нелепо. Японцы не боятся экспериментировать и поэтому выглядят очень круто!',
+      '<b>Идея двух моих последних коллекций</b> – кино. Сначала оно было немым: эпоха 20-30-х годов, шелковые платья-комбинации с вечерними жакетами, брюки-колокола, клеш, клетка, благородные материалы от велюра и бархата до органзы и шелка. И мягкая цветовая гамма: бежево-пудровая, серая, нежно-розовая. А на MBFWR в этом году я покажу продолжение этой истории, только на этот раз кино будет цветным!',
+      '<b>Познакомиться с моим брендом</b> можно на сайте <a href="http://www.igorgulyaev.com" target="_blank">www.igorgulyaev.com</a>, а узнать обо мне в моем инстаграм <a href="https://instagram.com/igorgulyaevofficial" target="_blank">instagram.com/igorgulyaevofficial</a>.'
+    ],
+    excerpt_image: '/img/interview/gulyaev/excerpt.jpg?v=2',
+    excerpt_text: 'Если глядя на себя в зеркало, ты излучаешь свет, то даже одевшись в секонд-хенде, можно выглядеть прекрасно.',
+    advice_text: [
+      'Для ухода за одеждой темных оттенков  важно уделять особое внимание интенсивности и насыщенности цвета. Для этого рекомендуем соблюдать правила ухода, указанные на этикетке изделия, а также подбирать средство для стирки.',
+      'Рекомендуем добавлять средство Ласка Эффект Восстановления Черного 3D, который позволит вещам надолго сохранять насыщеный цвет, а также будет препятствовать вымыванию красителя между волокнами при стирке.'
+    ],
+    moodboard_image: '/img/interview/gulyaev/moodboard.jpg?v=2',
+    bottle: '/img/bottles/black.png?v=2',
+    index: 0
+  },
+
+  // Юлия Бажина
+  {
+    hash: 'yuliya_bazhina',
+    name: 'Yuliya Bazhina',
+    bg_color: '#e3f0f8',
+    slider_image: '/img/interview/bazhina/cover.jpg?v=2',
+    slider_text: 'После ее дебюта на прошлой неделе моды MBFW Russia, фэшн-критики заговорили о новом унисексе. Дизайнер создает яркие и функциональные вещи для обоих полов, не боится играть с контрастами и верит, что мода – это один из важнейших путей к самосовершенствованию.',
+    article_image: '/img/interview/bazhina/article.jpg?v=2',
+    article_text: [
+      '<b>Мой путь в моде начался</b> с Кировского технологического колледжа и с первой коллекции «Жертвы совершенства». В ней были применены новаторские идеи вязания и необычные сочетания форм и материалов. А еще раньше были детские эксперименты с куклами Барби: я обожала шить для них одежду.',
+      '<b>Уходить от шаблонов</b> мне помогает индивидуальная работа с каждым клиентом. Все люди красивы и все не похожи друг на друга. И одежда должна отражать эти различия.',
+      '<b>Вдохнуть в одежду новую жизнь</b> можно играя на контрастах. Атласная юбка и трикотажный свитер, кожа и кружево, джинсы и шелк…  Если своих идей не хватает, можно открыть pinterest.com и ввести в поиске street style.',
+      '<b>Меня вдохновляют</b> архитектура Италии, street style европейских городов, фильмы Люка Бессонна и Бернардо Бертолуччи, музыка Lily Allen.',
+      '<b>Идея моей новой коллекции</b> – самосовершенствование, путь к своему идеальному Я. (Мы живем, чтобы познать себя, развиваться, стремясь к своему совершенному Я).  Каждый образ будет изготовлен индивидуально для каждой модели. В коллекции смешаны различные виды пряжи, фактурные нити и ткани, порезанные на полоски. Цветовая гамма строится на контрасте – от светлых натуральных тонов до ярких цветовых решений, принтов и росписи по ткани.',
+      '<b>Познакомиться с моим брендом</b> можно на сайте <a href="http://bybazhina.tumblr.com" target="_blank">bybazhina.tumblr.com</a>.'
+    ],
+    excerpt_image: '/img/interview/bazhina/excerpt.jpg?v=2',
+    excerpt_text: 'Все люди красивы и все не похожи друг на друга. Одежда должна отражать эти различия.',
+    advice_text: [
+      'Чтобы окрашенные ткани дольше сохраняли первоначальный цвет и не становились блеклыми, за ними нужно тщательно ухаживать, особое внимание уделять интенсивности и стойкости цвета, а также приданию сияния таким материалам.',
+      'Рекомендуем использовать специальные средства, например, гель для стирки Ласка Эффект Восстановления Цвета 3D. При стирке в стиральной машине использовать температурный режим 30 - 60 °C, и соответствующий режим стирки.'
+    ],
+    moodboard_image: '/img/interview/bazhina/moodboard.jpg?v=2',
+    bottle: '/img/bottles/color.png?v=2',
+    index: 1
+  },
+
+  // Юлия Далакян
+  {
+    hash: 'julia_dalakian',
+    name: 'Julia Dalakian',
+    bg_color: '#a7b9cb',
+    color_class: 'white',
+    slider_image: '/img/interview/dalakian/cover.jpg?v=2',
+    slider_text: 'Она из немногих российских дизайнеров, создающая удобную моду «от кутюр». Именно поэтому ее любят и звезды, и простые домохозяйки, и студенты арт-колледжей, находящие в ее моделях и отсылки к знаменитым художникам, и даже реакцию на мировую политическую ситуацию!',
+    article_image: '/img/interview/dalakian/article.jpg?v=2',
+    article_text: [
+      '<b>Мой путь в моде начался</b> с моделей одежды для кукол. <b>Уже в пять лет</b> я рисовала настоящие коллекции - брюки, юбки, платья... Потом было поступление в Текстильный институт, сотрудничество с Домом моды Вячеслава Зайцева и Роберто Кавалли, открытие собственного дома моды, наконец.',
+      '<b>Уходить от шаблонов</b> можно миксуя одежду разных дизайнеров и стилей. Высокий бренд и марка масс-маркет. Восточный стиль и европейский урбанистический. Главное, не стремиться выглядеть как иллюстрированный журнал.',
+      '<b>Вдохнуть в одежду новую жизнь</b> мне помогают винтажные аксессуары или декор: старинная тесьма из Индии или расшитый бисером винтажный клатч.',
+      '<b>Меня вдохновляют</b> остров Бали, фрики больших городов, кино и музыка 80-х и 90-х, блошиный рынок Ниццы, актриса Тильда Суинтон, черный бархат, политика…',
+      '<b>Идея моей новой коллекции</b> – это динамичная урбанистическая одежда, которая позволяет много и комфортно двигаться и работать. Поэтому даже коктейльные платья получились удобными, с капюшоном. Акцент сделан на необычные ткани и фактуры: это, например, ламинированные шерсть или классическая пальтовая ткань, а также платья, украшенные бархатными пайетками. Цветовая гамма от бежевого и серого до красного и моего любимого черного.',
+      '<b>Познакомиться с моим брендом</b> можно на сайте <a href="http://www.dalakian.info" target="_blank">www.dalakian.info</a>.'
+    ],
+    excerpt_image: '/img/interview/dalakian/excerpt.jpg?v=2',
+    excerpt_text: 'Главное, не стремиться выглядеть как иллюстрированный журнал.',
+    advice_text: [
+      'При уходе за такими тканями как шерсть, шёлк и бархат важно бережно удалять загрязнения, а также сохранять форму и мягкость вещей. Этого можно добиться с помощью использования при стирке специального средства для стирки, например, гель для стирки Ласка Шерсть и Шелк 3D.',
+      'Также необходимо выстроить специальный режим на стиральной машине – температура должна быть не выше 40 °C.'
+    ],
+    moodboard_image: '/img/interview/dalakian/moodboard.jpg?v=2',
+    bottle: '/img/bottles/wool.png?v=2',
+    index: 2
+  },
+
+  // Белла Потемкина
+  {
+    hash: 'bella_potemkina',
+    name: 'Bella Potemkina',
+    bg_color: '#b6b2aa',
+    slider_image: '/img/interview/potemkina/cover.jpg?v=2',
+    slider_text: 'Прийти в ее платье на выпускной мечтает любая одиннадцатиклассница, а женственные блузки и юбки от Беллы Потемкиной одевают на ответственные переговоры московские бизнес-леди. Она верит, что главное предназначение женщины – быть женщиной и доказывает это в каждой своей коллекции. Последняя, посвященная богемному образу жизни, не исключение.',
+    article_image: '/img/interview/potemkina/article.jpg?v=2',
+    article_text: [
+      '<b>Мой путь в моде начался</b> более 10 лет назад. Сначала я заинтересовалась работами российских дизайнеров, затем открыла свой собственный бутик Glamour. А через 5 лет, набравшись опыта, решила развивать собственный бренд. Начинала с малого: расшивала угги кружевом, придумывала аксессуары и постепенно набила руку.',
+      '<b>Уходить от шаблонов</b> с каждым годом становится все сложнее. Ведь мода циклична, и дизайнеры во всем мире склонны к заимствованию.  Я не против, при условии, что ты переосмысливаешь идею, наполняешь ее новыми оттенками смысла.',
+      '<b>Вдохнуть в одежду новую жизнь</b> можно сочетая ее с вещами совершенно другого стиля. Например, женственное пальто и спортивные кеды. А вообще читайте мой Инстаграм. Я ежедневно делюсь с подписчиками вариантами образов и советами!',
+      '<b>Меня вдохновляют</b> моя семья, Париж, архитектура европейских городов, актуальные модные тенденции. Например, в моей последней коллекции это разнообразные принты.',
+      '<b>Идея моей новой коллекции</b> – богемный стиль. Отсюда дорогие материалы и роскошные цвета – бархат, оттенки фиолетового. Это вещи, которые заставляют погрузиться в прошлое, но при этом не забывать о настоящем. Поэтому без актуальных трендов, таких, например, как сочетание разнофактурных материалов, тоже не обойдется.',
+      '<b>Читать мои советы по стилю</b> можно в моем инстаграм <a href="https://instagram.com/bellapotemkinaofficial" target="_blank">instagram.com/bellapotemkinaofficial</a>.'
+    ],
+    excerpt_image: '/img/interview/potemkina/excerpt.jpg?v=2',
+    excerpt_text: 'Главное предназначение женщины – быть женщиной!',
+    advice_text: [
+      'Для ухода за разнообразными синтетическими тканями важно использовать специальные средства, которые надолго сохранят свежесть вещей и предотвратят появление неприятного запаха.',
+      'Рекомендуем при стирке таких вещей добавлять специальное средство, например, Ласка Care & Refresh, которое поможет одежде сохранять свежесть в течение 24 часов в процессе носки благодаря технологии Deo Fresh и обеспечит комплексный уход за вещами.'
+    ],
+    moodboard_image: '/img/interview/potemkina/moodboard.jpg?v=2',
+    bottle: '/img/bottles/synthetic.png?v=2',
+    index: 3
+  },
+
+  // Елена Земцова
+  {
+    hash: 'elena_zemtsova',
+    name: 'Elena Zemtsova',
+    bg_color: '#010101',
+    color_class: 'white',
+    slider_image: '/img/interview/zemtsova/cover.jpg?v=2',
+    slider_text: 'Как архитектор по образованию, она создает графичные модели, которые как нельзя больше подходят для жизни в больших городах. Среди небоскребов Манхэттена, башен московского делового центра или рекламных вывесок Токио – везде ее коллекции смотрятся красиво и эффектно.',
+    article_image: '/img/interview/zemtsova/article.jpg?v=2',
+    article_text: [
+      '<b>Мой путь в моде начался</b> еще в раннем детстве. Я обожала шить одежду для кукол, давать советы подругам по поводу сочетаний в одежде. Но так как в моем родном городе – Барнауле - профессии дизайнера научиться было негде, я поступила в архитектурный. А спустя годы, уже в Санкт-Петербурге, получила второе высшее профильное образование.',
+      '<b>Моей первой коллекцией</b> была линейка одежды из мусорных пакетов, сделанная для школьного конкурса.',
+      '<b>Чтобы избегать шаблонов</b>, нужно не бояться играть с аксессуарами. Например, добавив к классическому платью модный в этом сезоне крупный пояс с пряжками, можно создать необычный авангардный образ.',
+      '<b>Главный весенний тренд для меня</b> – это детали. Крупные серьги, браслеты, пояса с пряжками - этой весной они уместны как никогда.',
+      '<b>Меня вдохновляют</b> мои клиенты. А еще – мегаполисы. Например, Токио, жители которого умеют одеваться так смело, как, пожалуй, больше никто в мире!',
+      '<b>Моя новая коллекция</b> посвящена одному предмету гардероба - пальто. Классический драп, совмещенный с пленками и голографическими тканями  глубоких цветов – черного, шоколадного, болотного.',
+      '<b>Читать мои советы по стилю</b> можно в моем инстаграм <a href="https://www.instagram.com/ezbyez/" target="_blank">instagram.com/ezbyez</a>.'
+    ],
+    excerpt_image: '/img/interview/zemtsova/excerpt.jpg?v=2',
+    excerpt_text: 'Нужно не бояться играть с аксессуарами!',
+    advice_text: [
+      'Чтобы светлые вещи не приобретали светлый оттенок, при стирке необходимо добавлять специальные средства, например, Ласка Эффект Восстановления Белого 3D. Это универсальное средство, потому что оно не только поддерживает интенсивность цвета, но и бережно ухаживает за одеждой.'
+    ],
+    moodboard_image: '/img/interview/zemtsova/moodboard.jpg?v=2',
+    bottle: '/img/bottles/white.png?v=2',
+    index: 4
+  },
+
+  // Chloё
+  {
+    hash: 'chloe',
+    name: 'Chloё',
+    bg_color: '#cfa8ba',
+    slider_image: '/img/interview/chloe/cover.jpg?v=2',
+    slider_text: 'Настя Чеботарь, музыкант и дизайнер, основала марку Chloё даже не имея высшего образования! Для нее, звезды рунета, кажется, нет ничего невозможного: за ее плечами уже есть запись нескольких музыкальных дисков и коллекция суперсексуальной одежды, которая произвела фурор на осенней Неделе моды MBFW 2017-2018.',
+    article_image: '/img/interview/chloe/article.jpg?v=2',
+    article_text: [
+      '<b>Мой путь в моде начался</b> из-за желания развлечься. На Неделях моды скучно. А мне хотелось сделать что-то веселое. Тогда мы с Викой <i>(знаменитый московский трендсеттер VIVICOXY, та самая ВивиКокса из песни «Папи» – прим.ред.)</i> придумали нашу коллекцию. Эпатажную и кричаще сексуальную, но не вульгарную. Голливуд, супермодели, фильм «Бурлеск»: лаковые плащи, костюмы с топами, полупрозрачные ткани, нижнее белье – все это для выхода в свет!',
+      '<b>Чтобы избегать шаблонов</b> нужно поменьше следить за модными новостями. Идеи должны быть своими!',
+      '<b>Вдохнуть в одежду новую жизнь</b> легче всего, когда ты влюблен. Влюбленность вообще лучший стимул для творчества.',
+      '<b>Главный весенний тренд для меня</b> – это естественность. Пусть весна будет чистой, без неоновых фотографий в сетях. Ухоженная кожа, летящие ткани, нюдовый макияж, цветы...',
+      '<b>Меня вдохновляют</b> школа. Все эти подростковые штуки - дневники для девочек, прогулы, плакаты с любимой группой, вечеринки.',
+      '<b>Моя новая коллекция</b> будет посвящена истории двух моих друзей – брата и сестры. 2014-2015 годы в Москве, вечеринка «Скотобойня», русский андеграунд, энергетики и паблики Вконтакте.',
+      '<b>Читать мои советы по стилю</b> можно в моем инстаграм <a href="https://www.instagram.com/chloe_._" target="_blank">https://www.instagram.com/chloe_._</a>.'
+    ],
+    excerpt_image: '/img/interview/chloe/excerpt.jpg?v=2',
+    excerpt_text: 'Влюбленность - лучший стимул для творчества.',
+    advice_text: [
+      'Очень часто на одежде для спорта и активного отдыха остаётся неприятный запах и теряется «дышащий эффект» ткани». Чтобы избежать этого, используйте гель для стирки Ласка Active & Fresh 3D. Формула этого средства разработана специально для одежды из современных тканей с функцией «дыхания», защиты от ветра и дождя. Она нейтрализует неприятные запахи и даже работает во время активного движения, освежая одежду!'
+    ],
+    moodboard_image: '/img/interview/chloe/moodboard.jpg?v=2',
+    bottle: '/img/bottles/sport.png?v=2',
+    index: 5
+  }
+];
+var socialTypes =  {
+  "fb": "http://www.facebook.com/share.php?u=",
+  "vk": "http://vkontakte.ru/share.php?url=",
+  "tw": "https://twitter.com/intent/tweet?url=",
+  "ok": "http://connect.ok.ru/dk?st.cmd=WidgetSharePreview&service=odnoklassniki&st.shareUrl=",
+  "mm": "http://connect.mail.ru/share?url=",
+  "pin": "http://pinterest.com/pin/create/link/?url=",
+  "gp": "https://plus.google.com/share?url="
+};
+
+function getMeta(name) {
+  var meta = $('meta[property="og:'+name+'"]');
+  return meta.length ? meta.attr('content') : '';
+}
+
+// Вызов счетчика цели
+function yGoal(goal) {
+  var yaCounter = 0;
+  if (yaCounter != 0) eval('yaCounter' + yaCounter + '.reachGoal')(goal);
+  //yaCounter34269185.reachGoal(goal);
+}
+
+function gGoal(goal) {
+  if (typeof window['ga'] == 'function')
+    ga('send', 'event', goal);
+}
+
+$(function () {
+  // переход по шарингу
+  $('.sharing__button').click(function() {
+    var no_sharing = $(this).parent().attr('data-nosharing');
+    if (no_sharing) return;
+    // Находим тип кнопки
+    var socialType;
+    for (var name in socialTypes)
+      if ($(this).hasClass(name)) { socialType = name; break; }
+    if (socialType == undefined) return;
+
+    // get Meta tags
+    var url = getMeta('url');
+    var title = getMeta('title');
+    var description = getMeta('description');
+    var image = getMeta('image');
+
+    var parent = $(this).parent();
+    var new_url = parent.attr('data-url');
+    if (new_url) {
+      url = new_url;
+      image = '';
+    }
+    if (url == '') url = window.location.toString();
+
+    var p_desc = parent.attr('data-description');
+    if (p_desc) description = p_desc;
+    var p_title = parent.attr('data-title');
+    if (p_title) title = p_title;
+    var p_image = parent.attr('data-image');
+    if (p_image) image = p_image;
+    //console.log(url,title,image,description);
+
+    // make social link
+    var $slink = encodeURIComponent(url);
+    switch (socialType) {
+      case 'tw':
+        $slink += '&text='+encodeURIComponent(title); break;
+      case 'pin':
+        $slink += '&media='+encodeURIComponent(image); break;
+      case 'mm':
+        if (image != '') $slink += '&imageurl='+encodeURIComponent(image); break;
+      /*case 'vk':
+        if (image != '') $slink += '&image='+encodeURIComponent(image);
+        if (title != '') $slink += '&title='+encodeURIComponent(title);
+        if (description != '') $slink += '&description='+encodeURIComponent(description); break;*/
+      case 'ok':
+        if (image != '') $slink += '&st.imageUrl='+encodeURIComponent(image);
+        //if (title != '') $slink += '&title='+encodeURIComponent(title);
+        if (description != '') $slink += '&st.comments='+encodeURIComponent(description); break;
+      /*case 'fb':
+        if (image != '') $slink += '&p[images][0]='+encodeURIComponent(image);
+        if (title != '') $slink += '&p[title]='+encodeURIComponent(title);
+        if (description != '') $slink += '&p[summary]='+encodeURIComponent(description); break;*/
+    }
+
+    //console.log($slink);
+    // Вызываем шаринг
+    window.open(socialTypes[socialType]+$slink,socialType,'width=500,height=500,resizable=yes,scrollbars=yes,status=yes');
+
+    // Вызов счетчика цели
+    yGoal('share');
+    yGoal('share_'+socialType);
+    gGoal('share_'+socialType);
+  });
+
+  // close popup button
+  $('.popup__content .popup__close').click(function() {
+    closePopup($('.popup-window'));
+    //$(this).parent().parent()
+  });
+
+  //Update resolution
+  function updateRes() {
+    var main = $('.main');
+    if ($(window).width() > 768)
+      main.removeClass('mobile').addClass('desktop');
+    else
+      main.removeClass('desktop').addClass('mobile');
+  }
+
+  updateRes();
+  $(window).resize(function () { updateRes() });
+});
+
+
+
+// Open popup
+function openPopup(name,win_name) {
+  $('body').css("overflow","hidden");
+  if (win_name != undefined) $(win_name).show();
+  else $('.popup-window').empty().html($(name).clone(true).addClass('popup__content')).show();
+}
+
+// close popup
+function closePopup(popup_win) {
+  $('body').css("overflow","auto");
+  popup_win.hide();
+}
+
+// scroll
+function scrollToItem(item, add) {
+  var item = $(item);
+  $('html, body').animate({"scrollTop": item.offset().top + add},300);
+}
+
+//for sliders
+function setNext(container,elem_name,inc) {
+  var elements = container.find(elem_name);
+  var cur = elements.filter('.current');
+  cur = inc ? cur.next(elem_name) : cur.prev(elem_name);
+  if (!cur.length) cur = inc ? elements.first() : elements.last();
+  elements.removeClass('current');
+  cur.addClass('current');
+}
+/*!
+ * JavaScript Cookie v2.2.0
+ * https://github.com/js-cookie/js-cookie
+ *
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
+ */
+;(function (factory) {
+	var registeredInModuleLoader;
+	if (typeof define === 'function' && define.amd) {
+		define(factory);
+		registeredInModuleLoader = true;
+	}
+	if (typeof exports === 'object') {
+		module.exports = factory();
+		registeredInModuleLoader = true;
+	}
+	if (!registeredInModuleLoader) {
+		var OldCookies = window.Cookies;
+		var api = window.Cookies = factory();
+		api.noConflict = function () {
+			window.Cookies = OldCookies;
+			return api;
+		};
+	}
+}(function () {
+	function extend () {
+		var i = 0;
+		var result = {};
+		for (; i < arguments.length; i++) {
+			var attributes = arguments[ i ];
+			for (var key in attributes) {
+				result[key] = attributes[key];
+			}
+		}
+		return result;
+	}
+
+	function init (converter) {
+		function api (key, value, attributes) {
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			// Write
+
+			if (arguments.length > 1) {
+				attributes = extend({
+					path: '/'
+				}, api.defaults, attributes);
+
+				if (typeof attributes.expires === 'number') {
+					attributes.expires = new Date(new Date() * 1 + attributes.expires * 864e+5);
+				}
+
+				// We're using "expires" because "max-age" is not supported by IE
+				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
+
+				try {
+					var result = JSON.stringify(value);
+					if (/^[\{\[]/.test(result)) {
+						value = result;
+					}
+				} catch (e) {}
+
+				value = converter.write ?
+					converter.write(value, key) :
+					encodeURIComponent(String(value))
+						.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+
+				key = encodeURIComponent(String(key))
+					.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent)
+					.replace(/[\(\)]/g, escape);
+
+				var stringifiedAttributes = '';
+				for (var attributeName in attributes) {
+					if (!attributes[attributeName]) {
+						continue;
+					}
+					stringifiedAttributes += '; ' + attributeName;
+					if (attributes[attributeName] === true) {
+						continue;
+					}
+
+					// Considers RFC 6265 section 5.2:
+					// ...
+					// 3.  If the remaining unparsed-attributes contains a %x3B (";")
+					//     character:
+					// Consume the characters of the unparsed-attributes up to,
+					// not including, the first %x3B (";") character.
+					// ...
+					stringifiedAttributes += '=' + attributes[attributeName].split(';')[0];
+				}
+
+				return (document.cookie = key + '=' + value + stringifiedAttributes);
+			}
+
+			// Read
+
+			var jar = {};
+			var decode = function (s) {
+				return s.replace(/(%[0-9A-Z]{2})+/g, decodeURIComponent);
+			};
+			// To prevent the for loop in the first place assign an empty array
+			// in case there are no cookies at all.
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
+			var i = 0;
+
+			for (; i < cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
+
+				if (!this.json && cookie.charAt(0) === '"') {
+					cookie = cookie.slice(1, -1);
+				}
+
+				try {
+					var name = decode(parts[0]);
+					cookie = (converter.read || converter)(cookie, name) ||
+						decode(cookie);
+
+					if (this.json) {
+						try {
+							cookie = JSON.parse(cookie);
+						} catch (e) {}
+					}
+
+					jar[name] = cookie;
+
+					if (key === name) {
+						break;
+					}
+				} catch (e) {}
+			}
+
+			return key ? jar[key] : jar;
+		}
+
+		api.set = api;
+		api.get = function (key) {
+			return api.call(api, key);
+		};
+		api.getJSON = function () {
+			return api.apply({
+				json: true
+			}, arguments);
+		};
+		api.remove = function (key, attributes) {
+			api(key, '', extend(attributes, {
+				expires: -1
+			}));
+		};
+
+		api.defaults = {};
+
+		api.withConverter = init;
+
+		return api;
+	}
+
+	return init(function () {});
+}));
+//  json2.js
+//  2016-10-28
+//  Public Domain.
+//  NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+//  See http://www.JSON.org/js.html
+//  This code should be minified before deployment.
+//  See http://javascript.crockford.com/jsmin.html
+
+//  USE YOUR OWN COPY. IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO
+//  NOT CONTROL.
+
+//  This file creates a global JSON object containing two methods: stringify
+//  and parse. This file provides the ES5 JSON capability to ES3 systems.
+//  If a project might run on IE8 or earlier, then this file should be included.
+//  This file does nothing on ES5 systems.
+
+//      JSON.stringify(value, replacer, space)
+//          value       any JavaScript value, usually an object or array.
+//          replacer    an optional parameter that determines how object
+//                      values are stringified for objects. It can be a
+//                      function or an array of strings.
+//          space       an optional parameter that specifies the indentation
+//                      of nested structures. If it is omitted, the text will
+//                      be packed without extra whitespace. If it is a number,
+//                      it will specify the number of spaces to indent at each
+//                      level. If it is a string (such as "\t" or "&nbsp;"),
+//                      it contains the characters used to indent at each level.
+//          This method produces a JSON text from a JavaScript value.
+//          When an object value is found, if the object contains a toJSON
+//          method, its toJSON method will be called and the result will be
+//          stringified. A toJSON method does not serialize: it returns the
+//          value represented by the name/value pair that should be serialized,
+//          or undefined if nothing should be serialized. The toJSON method
+//          will be passed the key associated with the value, and this will be
+//          bound to the value.
+
+//          For example, this would serialize Dates as ISO strings.
+
+//              Date.prototype.toJSON = function (key) {
+//                  function f(n) {
+//                      // Format integers to have at least two digits.
+//                      return (n < 10)
+//                          ? "0" + n
+//                          : n;
+//                  }
+//                  return this.getUTCFullYear()   + "-" +
+//                       f(this.getUTCMonth() + 1) + "-" +
+//                       f(this.getUTCDate())      + "T" +
+//                       f(this.getUTCHours())     + ":" +
+//                       f(this.getUTCMinutes())   + ":" +
+//                       f(this.getUTCSeconds())   + "Z";
+//              };
+
+//          You can provide an optional replacer method. It will be passed the
+//          key and value of each member, with this bound to the containing
+//          object. The value that is returned from your method will be
+//          serialized. If your method returns undefined, then the member will
+//          be excluded from the serialization.
+
+//          If the replacer parameter is an array of strings, then it will be
+//          used to select the members to be serialized. It filters the results
+//          such that only members with keys listed in the replacer array are
+//          stringified.
+
+//          Values that do not have JSON representations, such as undefined or
+//          functions, will not be serialized. Such values in objects will be
+//          dropped; in arrays they will be replaced with null. You can use
+//          a replacer function to replace those with JSON values.
+
+//          JSON.stringify(undefined) returns undefined.
+
+//          The optional space parameter produces a stringification of the
+//          value that is filled with line breaks and indentation to make it
+//          easier to read.
+
+//          If the space parameter is a non-empty string, then that string will
+//          be used for indentation. If the space parameter is a number, then
+//          the indentation will be that many spaces.
+
+//          Example:
+
+//          text = JSON.stringify(["e", {pluribus: "unum"}]);
+//          // text is '["e",{"pluribus":"unum"}]'
+
+//          text = JSON.stringify(["e", {pluribus: "unum"}], null, "\t");
+//          // text is '[\n\t"e",\n\t{\n\t\t"pluribus": "unum"\n\t}\n]'
+
+//          text = JSON.stringify([new Date()], function (key, value) {
+//              return this[key] instanceof Date
+//                  ? "Date(" + this[key] + ")"
+//                  : value;
+//          });
+//          // text is '["Date(---current time---)"]'
+
+//      JSON.parse(text, reviver)
+//          This method parses a JSON text to produce an object or array.
+//          It can throw a SyntaxError exception.
+
+//          The optional reviver parameter is a function that can filter and
+//          transform the results. It receives each of the keys and values,
+//          and its return value is used instead of the original value.
+//          If it returns what it received, then the structure is not modified.
+//          If it returns undefined then the member is deleted.
+
+//          Example:
+
+//          // Parse the text. Values that look like ISO date strings will
+//          // be converted to Date objects.
+
+//          myData = JSON.parse(text, function (key, value) {
+//              var a;
+//              if (typeof value === "string") {
+//                  a =
+//   /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
+//                  if (a) {
+//                      return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4],
+//                          +a[5], +a[6]));
+//                  }
+//              }
+//              return value;
+//          });
+
+//          myData = JSON.parse('["Date(09/09/2001)"]', function (key, value) {
+//              var d;
+//              if (typeof value === "string" &&
+//                      value.slice(0, 5) === "Date(" &&
+//                      value.slice(-1) === ")") {
+//                  d = new Date(value.slice(5, -1));
+//                  if (d) {
+//                      return d;
+//                  }
+//              }
+//              return value;
+//          });
+
+//  This is a reference implementation. You are free to copy, modify, or
+//  redistribute.
+
+/*jslint
+    eval, for, this
+*/
+
+/*property
+    JSON, apply, call, charCodeAt, getUTCDate, getUTCFullYear, getUTCHours,
+    getUTCMinutes, getUTCMonth, getUTCSeconds, hasOwnProperty, join,
+    lastIndex, length, parse, prototype, push, replace, slice, stringify,
+    test, toJSON, toString, valueOf
+*/
+
+
+// Create a JSON object only if one does not already exist. We create the
+// methods in a closure to avoid creating global variables.
+
+if (typeof JSON !== "object") {
+    JSON = {};
+}
+
+(function () {
+    "use strict";
+
+    var rx_one = /^[\],:{}\s]*$/;
+    var rx_two = /\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g;
+    var rx_three = /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g;
+    var rx_four = /(?:^|:|,)(?:\s*\[)+/g;
+    var rx_escapable = /[\\"\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
+    var rx_dangerous = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
+
+    function f(n) {
+        // Format integers to have at least two digits.
+        return n < 10
+            ? "0" + n
+            : n;
+    }
+
+    function this_value() {
+        return this.valueOf();
+    }
+
+    if (typeof Date.prototype.toJSON !== "function") {
+
+        Date.prototype.toJSON = function () {
+
+            return isFinite(this.valueOf())
+                ? this.getUTCFullYear() + "-" +
+                        f(this.getUTCMonth() + 1) + "-" +
+                        f(this.getUTCDate()) + "T" +
+                        f(this.getUTCHours()) + ":" +
+                        f(this.getUTCMinutes()) + ":" +
+                        f(this.getUTCSeconds()) + "Z"
+                : null;
+        };
+
+        Boolean.prototype.toJSON = this_value;
+        Number.prototype.toJSON = this_value;
+        String.prototype.toJSON = this_value;
+    }
+
+    var gap;
+    var indent;
+    var meta;
+    var rep;
+
+
+    function quote(string) {
+
+// If the string contains no control characters, no quote characters, and no
+// backslash characters, then we can safely slap some quotes around it.
+// Otherwise we must also replace the offending characters with safe escape
+// sequences.
+
+        rx_escapable.lastIndex = 0;
+        return rx_escapable.test(string)
+            ? "\"" + string.replace(rx_escapable, function (a) {
+                var c = meta[a];
+                return typeof c === "string"
+                    ? c
+                    : "\\u" + ("0000" + a.charCodeAt(0).toString(16)).slice(-4);
+            }) + "\""
+            : "\"" + string + "\"";
+    }
+
+
+    function str(key, holder) {
+
+// Produce a string from holder[key].
+
+        var i;          // The loop counter.
+        var k;          // The member key.
+        var v;          // The member value.
+        var length;
+        var mind = gap;
+        var partial;
+        var value = holder[key];
+
+// If the value has a toJSON method, call it to obtain a replacement value.
+
+        if (value && typeof value === "object" &&
+                typeof value.toJSON === "function") {
+            value = value.toJSON(key);
+        }
+
+// If we were called with a replacer function, then call the replacer to
+// obtain a replacement value.
+
+        if (typeof rep === "function") {
+            value = rep.call(holder, key, value);
+        }
+
+// What happens next depends on the value's type.
+
+        switch (typeof value) {
+        case "string":
+            return quote(value);
+
+        case "number":
+
+// JSON numbers must be finite. Encode non-finite numbers as null.
+
+            return isFinite(value)
+                ? String(value)
+                : "null";
+
+        case "boolean":
+        case "null":
+
+// If the value is a boolean or null, convert it to a string. Note:
+// typeof null does not produce "null". The case is included here in
+// the remote chance that this gets fixed someday.
+
+            return String(value);
+
+// If the type is "object", we might be dealing with an object or an array or
+// null.
+
+        case "object":
+
+// Due to a specification blunder in ECMAScript, typeof null is "object",
+// so watch out for that case.
+
+            if (!value) {
+                return "null";
+            }
+
+// Make an array to hold the partial results of stringifying this object value.
+
+            gap += indent;
+            partial = [];
+
+// Is the value an array?
+
+            if (Object.prototype.toString.apply(value) === "[object Array]") {
+
+// The value is an array. Stringify every element. Use null as a placeholder
+// for non-JSON values.
+
+                length = value.length;
+                for (i = 0; i < length; i += 1) {
+                    partial[i] = str(i, value) || "null";
+                }
+
+// Join all of the elements together, separated with commas, and wrap them in
+// brackets.
+
+                v = partial.length === 0
+                    ? "[]"
+                    : gap
+                        ? "[\n" + gap + partial.join(",\n" + gap) + "\n" + mind + "]"
+                        : "[" + partial.join(",") + "]";
+                gap = mind;
+                return v;
+            }
+
+// If the replacer is an array, use it to select the members to be stringified.
+
+            if (rep && typeof rep === "object") {
+                length = rep.length;
+                for (i = 0; i < length; i += 1) {
+                    if (typeof rep[i] === "string") {
+                        k = rep[i];
+                        v = str(k, value);
+                        if (v) {
+                            partial.push(quote(k) + (
+                                gap
+                                    ? ": "
+                                    : ":"
+                            ) + v);
+                        }
+                    }
+                }
+            } else {
+
+// Otherwise, iterate through all of the keys in the object.
+
+                for (k in value) {
+                    if (Object.prototype.hasOwnProperty.call(value, k)) {
+                        v = str(k, value);
+                        if (v) {
+                            partial.push(quote(k) + (
+                                gap
+                                    ? ": "
+                                    : ":"
+                            ) + v);
+                        }
+                    }
+                }
+            }
+
+// Join all of the member texts together, separated with commas,
+// and wrap them in braces.
+
+            v = partial.length === 0
+                ? "{}"
+                : gap
+                    ? "{\n" + gap + partial.join(",\n" + gap) + "\n" + mind + "}"
+                    : "{" + partial.join(",") + "}";
+            gap = mind;
+            return v;
+        }
+    }
+
+// If the JSON object does not yet have a stringify method, give it one.
+
+    if (typeof JSON.stringify !== "function") {
+        meta = {    // table of character substitutions
+            "\b": "\\b",
+            "\t": "\\t",
+            "\n": "\\n",
+            "\f": "\\f",
+            "\r": "\\r",
+            "\"": "\\\"",
+            "\\": "\\\\"
+        };
+        JSON.stringify = function (value, replacer, space) {
+
+// The stringify method takes a value and an optional replacer, and an optional
+// space parameter, and returns a JSON text. The replacer can be a function
+// that can replace values, or an array of strings that will select the keys.
+// A default replacer method can be provided. Use of the space parameter can
+// produce text that is more easily readable.
+
+            var i;
+            gap = "";
+            indent = "";
+
+// If the space parameter is a number, make an indent string containing that
+// many spaces.
+
+            if (typeof space === "number") {
+                for (i = 0; i < space; i += 1) {
+                    indent += " ";
+                }
+
+// If the space parameter is a string, it will be used as the indent string.
+
+            } else if (typeof space === "string") {
+                indent = space;
+            }
+
+// If there is a replacer, it must be a function or an array.
+// Otherwise, throw an error.
+
+            rep = replacer;
+            if (replacer && typeof replacer !== "function" &&
+                    (typeof replacer !== "object" ||
+                    typeof replacer.length !== "number")) {
+                throw new Error("JSON.stringify");
+            }
+
+// Make a fake root object containing our value under the key of "".
+// Return the result of stringifying the value.
+
+            return str("", {"": value});
+        };
+    }
+
+
+// If the JSON object does not yet have a parse method, give it one.
+
+    if (typeof JSON.parse !== "function") {
+        JSON.parse = function (text, reviver) {
+
+// The parse method takes a text and an optional reviver function, and returns
+// a JavaScript value if the text is a valid JSON text.
+
+            var j;
+
+            function walk(holder, key) {
+
+// The walk method is used to recursively walk the resulting structure so
+// that modifications can be made.
+
+                var k;
+                var v;
+                var value = holder[key];
+                if (value && typeof value === "object") {
+                    for (k in value) {
+                        if (Object.prototype.hasOwnProperty.call(value, k)) {
+                            v = walk(value, k);
+                            if (v !== undefined) {
+                                value[k] = v;
+                            } else {
+                                delete value[k];
+                            }
+                        }
+                    }
+                }
+                return reviver.call(holder, key, value);
+            }
+
+
+// Parsing happens in four stages. In the first stage, we replace certain
+// Unicode characters with escape sequences. JavaScript handles many characters
+// incorrectly, either silently deleting them, or treating them as line endings.
+
+            text = String(text);
+            rx_dangerous.lastIndex = 0;
+            if (rx_dangerous.test(text)) {
+                text = text.replace(rx_dangerous, function (a) {
+                    return "\\u" +
+                            ("0000" + a.charCodeAt(0).toString(16)).slice(-4);
+                });
+            }
+
+// In the second stage, we run the text against regular expressions that look
+// for non-JSON patterns. We are especially concerned with "()" and "new"
+// because they can cause invocation, and "=" because it can cause mutation.
+// But just to be safe, we want to reject all unexpected forms.
+
+// We split the second stage into 4 regexp operations in order to work around
+// crippling inefficiencies in IE's and Safari's regexp engines. First we
+// replace the JSON backslash pairs with "@" (a non-JSON character). Second, we
+// replace all simple value tokens with "]" characters. Third, we delete all
+// open brackets that follow a colon or comma or that begin the text. Finally,
+// we look to see that the remaining characters are only whitespace or "]" or
+// "," or ":" or "{" or "}". If that is so, then the text is safe for eval.
+
+            if (
+                rx_one.test(
+                    text
+                        .replace(rx_two, "@")
+                        .replace(rx_three, "]")
+                        .replace(rx_four, "")
+                )
+            ) {
+
+// In the third stage we use the eval function to compile the text into a
+// JavaScript structure. The "{" operator is subject to a syntactic ambiguity
+// in JavaScript: it can begin a block or an object literal. We wrap the text
+// in parens to eliminate the ambiguity.
+
+                j = eval("(" + text + ")");
+
+// In the optional fourth stage, we recursively walk the new structure, passing
+// each name/value pair to a reviver function for possible transformation.
+
+                return (typeof reviver === "function")
+                    ? walk({"": j}, "")
+                    : j;
+            }
+
+// If the text is not JSON parseable, then a SyntaxError is thrown.
+
+            throw new SyntaxError("JSON.parse");
+        };
+    }
+}());
+"3.0.5";
+(function(h,k,m,t){"undefined"==typeof h.easyXDM&&function(a,b,c,d,e,f){function h(a,b){var g=typeof a[b];return"function"==g||!("object"!=g||!a[b])||"unknown"==g}function k(){if(!A(m.plugins)&&"object"==typeof m.plugins["Shockwave Flash"]){var a=m.plugins["Shockwave Flash"].description;a&&!A(m.mimeTypes)&&m.mimeTypes["application/x-shockwave-flash"]&&m.mimeTypes["application/x-shockwave-flash"].enabledPlugin&&(F=a.match(/\d+/g))}if(!F)try{var b=new ActiveXObject("ShockwaveFlash.ShockwaveFlash");F=
+Array.prototype.slice.call(b.GetVariable("$version").match(/(\d+),(\d+),(\d+),(\d+)/),1)}catch(ja){}if(!F)return!1;a=parseInt(F[0],10);b=parseInt(F[1],10);T=9<a&&0<b;return!0}function w(){if(!G){G=!0;for(var a=0;a<O.length;a++)O[a]();O.length=0}}function p(a,b){G?a.call(b):O.push(function(){a.call(b)})}function t(){var a=parent;if(""!==J)for(var b=0,c=J.split(".");b<c.length;b++)a=a[c[b]];return a.easyXDM}function r(a){var b=a.toLowerCase().match(P);a=b[2];var g=b[3];b=b[4]||"";if("http:"==a&&":80"==
+b||"https:"==a&&":443"==b)b="";return a+"//"+g+b}function K(a){a=a.replace(ea,"$1/");if(!a.match(/^(http||https):\/\//)){var b="/"===a.substring(0,1)?"":c.pathname;"/"!==b.substring(b.length-1)&&(b=b.substring(0,b.lastIndexOf("/")+1));a=c.protocol+"//"+c.host+b+a}for(;X.test(a);)a=a.replace(X,"");return a}function B(a,b){var g="",c=a.indexOf("#");-1!==c&&(g=a.substring(c),a=a.substring(0,c));c=[];for(var d in b)b.hasOwnProperty(d)&&c.push(d+"="+f(b[d]));return a+(Y?"#":-1==a.indexOf("?")?"?":"&")+
+c.join("&")+g}function A(a){return"undefined"===typeof a}function u(a,b,c){var g;for(g in b)if(b.hasOwnProperty(g))if(g in a){var d=b[g];"object"===typeof d?u(a[g],d,c):c||(a[g]=b[g])}else a[g]=b[g];return a}function E(a){if(A(Q)){var c=b.body.appendChild(b.createElement("form")),g=c.appendChild(b.createElement("input"));g.name=y+"TEST"+Z;Q=g!==c.elements[g.name];b.body.removeChild(c)}Q?c=b.createElement('<iframe name="'+a.props.name+'"/>'):(c=b.createElement("IFRAME"),c.name=a.props.name);c.id=c.name=
+a.props.name;delete a.props.name;"string"==typeof a.container&&(a.container=b.getElementById(a.container));a.container||(u(c.style,{position:"absolute",top:"-2000px",left:"0px"}),a.container=b.body);g=a.props.src;a.props.src="javascript:false";u(c,a.props);c.border=c.frameBorder=0;c.allowTransparency=!0;a.container.appendChild(c);a.onLoad&&C(c,"load",a.onLoad);if(a.usePost){var d=a.container.appendChild(b.createElement("form"));d.target=c.name;d.action=g;d.method="POST";if("object"===typeof a.usePost)for(var f in a.usePost)if(a.usePost.hasOwnProperty(f)){if(Q)var e=
+b.createElement('<input name="'+f+'"/>');else e=b.createElement("INPUT"),e.name=f;e.value=a.usePost[f];d.appendChild(e)}d.submit();d.parentNode.removeChild(d)}else c.src=g;a.props.src=g;return c}function aa(g){var d=g.protocol;g.isHost=g.isHost||A(x.xdm_p);Y=g.hash||!1;g.props||(g.props={});if(g.isHost)g.remote=K(g.remote),g.channel=g.channel||"default"+Z++,g.secret=Math.random().toString(16).substring(2),A(d)&&(d=r(c.href)==r(g.remote)?"4":h(a,"postMessage")||h(b,"postMessage")?"1":g.swf&&h(a,"ActiveXObject")&&
+k()?"6":"Gecko"===m.product&&"frameElement"in a&&-1==m.userAgent.indexOf("WebKit")?"5":g.remoteHelper?"2":"0");else{g.channel=x.xdm_c.replace(/["'<>\\]/g,"");g.secret=x.xdm_s;g.remote=x.xdm_e.replace(/["'<>\\]/g,"");d=x.xdm_p;var f;if(f=g.acl){a:{f=g.acl;var e=g.remote;"string"==typeof f&&(f=[f]);for(var H,L=f.length;L--;)if(H=f[L],H=new RegExp("^"==H.substr(0,1)?H:"^"+H.replace(/(\*)/g,".$1").replace(/\?/g,".")+"$"),H.test(e)){f=!0;break a}f=!1}f=!f}if(f)throw Error("Access denied for "+g.remote);
+}g.protocol=d;switch(d){case "0":u(g,{interval:100,delay:2E3,useResize:!0,useParent:!1,usePolling:!1},!0);if(g.isHost){if(!g.local){d=c.protocol+"//"+c.host;var q=b.body.getElementsByTagName("img");for(e=q.length;e--;)if(f=q[e],f.src.substring(0,d.length)===d){g.local=f.src;break}g.local||(g.local=a)}d={xdm_c:g.channel,xdm_p:0};g.local===a?(g.usePolling=!0,g.useParent=!0,g.local=c.protocol+"//"+c.host+c.pathname+c.search,d.xdm_e=g.local,d.xdm_pa=1):d.xdm_e=K(g.local);g.container&&(g.useResize=!1,
+d.xdm_po=1);g.remote=B(g.remote,d)}else u(g,{channel:x.xdm_c,remote:x.xdm_e,useParent:!A(x.xdm_pa),usePolling:!A(x.xdm_po),useResize:g.useParent?!1:g.useResize});q=[new l.stack.HashTransport(g),new l.stack.ReliableBehavior({}),new l.stack.QueueBehavior({encode:!0,maxLength:4E3-g.remote.length}),new l.stack.VerifyBehavior({initiate:g.isHost})];break;case "1":q=[new l.stack.PostMessageTransport(g)];break;case "2":g.isHost&&(g.remoteHelper=K(g.remoteHelper));q=[new l.stack.NameTransport(g),new l.stack.QueueBehavior,
+new l.stack.VerifyBehavior({initiate:g.isHost})];break;case "3":q=[new l.stack.NixTransport(g)];break;case "4":q=[new l.stack.SameOriginTransport(g)];break;case "5":q=[new l.stack.FrameElementTransport(g)];break;case "6":F||k(),q=[new l.stack.FlashTransport(g)]}q.push(new l.stack.QueueBehavior({lazy:g.lazy,remove:!0}));return q}function ba(a){for(var b,c={incoming:function(a,b){this.up.incoming(a,b)},outgoing:function(a,b){this.down.outgoing(a,b)},callback:function(a){this.up.callback(a)},init:function(){this.down.init()},
+destroy:function(){this.down.destroy()}},g=0,d=a.length;g<d;g++)b=a[g],u(b,c,!0),0!==g&&(b.down=a[g-1]),g!==d-1&&(b.up=a[g+1]);return b}function fa(a){a.up.down=a.down;a.down.up=a.up;a.up=a.down=null}var R=this,Z=Math.floor(1E4*Math.random()),U=Function.prototype,P=/^((http.?:)\/\/([^:\/\s]+)(:\d+)*)/,X=/[\-\w]+\/\.\.\//,ea=/([^:])\/\//g,J="",l={},ha=a.easyXDM,y="easyXDM_",Q,Y=!1,F,T;if(h(a,"addEventListener")){var C=function(a,b,c){a.addEventListener(b,c,!1)};var M=function(a,b,c){a.removeEventListener(b,
+c,!1)}}else if(h(a,"attachEvent"))C=function(a,b,c){a.attachEvent("on"+b,c)},M=function(a,b,c){a.detachEvent("on"+b,c)};else throw Error("Browser not supported");var G=!1,O=[];if("readyState"in b){var V=b.readyState;G="complete"==V||~m.userAgent.indexOf("AppleWebKit/")&&("loaded"==V||"interactive"==V)}else G=!!b.body;if(!G){if(h(a,"addEventListener"))C(b,"DOMContentLoaded",w);else if(C(b,"readystatechange",function(){"complete"==b.readyState&&w()}),b.documentElement.doScroll&&a===top){var ca=function(){if(!G){try{b.documentElement.doScroll("left")}catch(g){d(ca,
+1);return}w()}};ca()}C(a,"load",w)}var x=function(a){a=a.substring(1).split("&");for(var b={},c,g=a.length;g--;)c=a[g].split("="),b[c[0]]=e(c[1]);return b}(/xdm_e=/.test(c.search)?c.search:c.hash),W=function(){var a={},b={a:[1,2,3]};if("undefined"!=typeof JSON&&"function"===typeof JSON.stringify&&'{"a":[1,2,3]}'===JSON.stringify(b).replace(/\s/g,""))return JSON;Object.toJSON&&'{"a":[1,2,3]}'===Object.toJSON(b).replace(/\s/g,"")&&(a.stringify=Object.toJSON);"function"===typeof String.prototype.evalJSON&&
+(b='{"a":[1,2,3]}'.evalJSON(),b.a&&3===b.a.length&&3===b.a[2]&&(a.parse=function(a){return a.evalJSON()}));return a.stringify&&a.parse?(W=function(){return a},a):null};u(l,{version:"2.4.19.0",query:x,stack:{},apply:u,getJSONObject:W,whenReady:p,noConflict:function(b){a.easyXDM=ha;(J=b)&&(y="easyXDM_"+J.replace(".","_")+"_");return l}});l.DomHelper={on:C,un:M,requiresJSON:function(c){"object"==typeof a.JSON&&a.JSON||b.write('<script type="text/javascript" src="'+c+'">\x3c/script>')}};(function(){var a=
+{};l.Fn={set:function(b,c){a[b]=c},get:function(b,c){if(a.hasOwnProperty(b)){var g=a[b];c&&delete a[b];return g}}}})();l.Socket=function(a){var b=ba(aa(a).concat([{incoming:function(b,c){a.onMessage(b,c)},callback:function(b){if(a.onReady)a.onReady(b)}}])),c=r(a.remote);this.origin=r(a.remote);this.destroy=function(){b.destroy()};this.postMessage=function(a){b.outgoing(a,c)};b.init()};l.Rpc=function(a,b){if(b.local)for(var c in b.local)if(b.local.hasOwnProperty(c)){var g=b.local[c];"function"===typeof g&&
+(b.local[c]={method:g})}var d=ba(aa(a).concat([new l.stack.RpcBehavior(this,b),{callback:function(b){if(a.onReady)a.onReady(b)}}]));this.origin=r(a.remote);this.destroy=function(){d.destroy()};d.init()};l.stack.SameOriginTransport=function(a){var b,g,f,e;return b={outgoing:function(a,b,c){f(a);c&&c()},destroy:function(){g&&(g.parentNode.removeChild(g),g=null)},onDOMReady:function(){e=r(a.remote);a.isHost?(u(a.props,{src:B(a.remote,{xdm_e:c.protocol+"//"+c.host+c.pathname,xdm_c:a.channel,xdm_p:4}),
+name:y+a.channel+"_provider"}),g=E(a),l.Fn.set(a.channel,function(a){f=a;d(function(){b.up.callback(!0)},0);return function(a){b.up.incoming(a,e)}})):(f=t().Fn.get(a.channel)(function(a){b.up.incoming(a,e)}),d(function(){b.up.callback(!0)},0))},init:function(){p(b.onDOMReady,b)}}};l.stack.FlashTransport=function(a){function g(a,b){d(function(){h.up.incoming(a,L)},0)}function e(c){var d=a.swf+"?host="+a.isHost,g="easyXDM_swf_"+Math.floor(1E4*Math.random());l.Fn.set("flash_loaded"+c.replace(/[\-.]/g,
+"_"),function(){l.stack.FlashTransport[c].swf=q=I.firstChild;for(var a=l.stack.FlashTransport[c].queue,b=0;b<a.length;b++)a[b]();a.length=0});a.swfContainer?I="string"==typeof a.swfContainer?b.getElementById(a.swfContainer):a.swfContainer:(I=b.createElement("div"),u(I.style,T&&a.swfNoThrottle?{height:"20px",width:"20px",position:"fixed",right:0,top:0}:{height:"1px",width:"1px",position:"absolute",overflow:"hidden",right:0,top:0}),b.body.appendChild(I));var e="callback=flash_loaded"+f(c.replace(/[\-.]/g,
+"_"))+"&proto="+R.location.protocol+"&domain="+f(R.location.href.match(P)[3])+"&port="+f(R.location.href.match(P)[4]||"")+"&ns="+f(J);I.innerHTML="<object height='20' width='20' type='application/x-shockwave-flash' id='"+g+"' data='"+d+"'><param name='allowScriptAccess' value='always'></param><param name='wmode' value='transparent'><param name='movie' value='"+d+"'></param><param name='flashvars' value='"+e+"'></param><embed type='application/x-shockwave-flash' FlashVars='"+e+"' allowScriptAccess='always' wmode='transparent' src='"+
+d+"' height='1' width='1'></embed></object>"}var h,k,L,q,I;return h={outgoing:function(b,c,d){q.postMessage(a.channel,b.toString());d&&d()},destroy:function(){try{q.destroyChannel(a.channel)}catch(ka){}q=null;k&&(k.parentNode.removeChild(k),k=null)},onDOMReady:function(){L=a.remote;l.Fn.set("flash_"+a.channel+"_init",function(){d(function(){h.up.callback(!0)})});l.Fn.set("flash_"+a.channel+"_onMessage",g);a.swf=K(a.swf);var b=a.swf.match(P)[3],f=function(){l.stack.FlashTransport[b].init=!0;q=l.stack.FlashTransport[b].swf;
+q.createChannel(a.channel,a.secret,r(a.remote),a.isHost);a.isHost&&(T&&a.swfNoThrottle&&u(a.props,{position:"fixed",right:0,top:0,height:"20px",width:"20px"}),u(a.props,{src:B(a.remote,{xdm_e:r(c.href),xdm_c:a.channel,xdm_p:6,xdm_s:a.secret}),name:y+a.channel+"_provider"}),k=E(a))};l.stack.FlashTransport[b]&&l.stack.FlashTransport[b].init?f():l.stack.FlashTransport[b]?l.stack.FlashTransport[b].queue.push(f):(l.stack.FlashTransport[b]={queue:[f]},e(b))},init:function(){p(h.onDOMReady,h)}}};l.stack.PostMessageTransport=
+function(b){function g(a){if(a.origin)var d=r(a.origin);else if(a.uri)d=r(a.uri);else if(a.domain)d=c.protocol+"//"+a.domain;else throw"Unable to retrieve the origin of the event";d==k&&a.data&&a.data.substring&&a.data.substring(0,b.channel.length+1)==b.channel+" "&&f.up.incoming(a.data.substring(b.channel.length+1),d)}var f,e,h,k;return f={outgoing:function(a,c,d){h.postMessage(b.channel+" "+a,c||k);d&&d()},destroy:function(){M(a,"message",g);e&&(h=null,e.parentNode.removeChild(e),e=null)},onDOMReady:function(){k=
+r(b.remote);if(b.isHost){var q=function(c){c.data==b.channel+"-ready"&&(h="postMessage"in e.contentWindow?e.contentWindow:e.contentWindow.document,M(a,"message",q),C(a,"message",g),d(function(){f.up.callback(!0)},0))};C(a,"message",q);u(b.props,{src:B(b.remote,{xdm_e:r(c.href),xdm_c:b.channel,xdm_p:1}),name:y+b.channel+"_provider"});e=E(b)}else C(a,"message",g),h="postMessage"in a.parent?a.parent:a.parent.document,h.postMessage(b.channel+"-ready",k),d(function(){f.up.callback(!0)},0)},init:function(){p(f.onDOMReady,
+f)}}};l.stack.FrameElementTransport=function(g){var f,e,h,k;return f={outgoing:function(a,b,c){h.call(this,a);c&&c()},destroy:function(){e&&(e.parentNode.removeChild(e),e=null)},onDOMReady:function(){k=r(g.remote);g.isHost?(u(g.props,{src:B(g.remote,{xdm_e:r(c.href),xdm_c:g.channel,xdm_p:5}),name:y+g.channel+"_provider"}),e=E(g),e.fn=function(a){delete e.fn;h=a;d(function(){f.up.callback(!0)},0);return function(a){f.up.incoming(a,k)}}):(b.referrer&&r(b.referrer)!=x.xdm_e&&(a.top.location=x.xdm_e),
+h=a.frameElement.fn(function(a){f.up.incoming(a,k)}),f.up.callback(!0))},init:function(){p(f.onDOMReady,f)}}};l.stack.NameTransport=function(a){function b(b){k.contentWindow.sendMessage(b,a.remoteHelper+(h?"#_3":"#_2")+a.channel)}function c(){h?2!==++v&&h||e.up.callback(!0):(b("ready"),e.up.callback(!0))}function f(a){e.up.incoming(a,N)}function g(){D&&d(function(){D(!0)},0)}var e,h,k,n,v,D,N,da;return e={outgoing:function(a,c,d){D=d;b(a)},destroy:function(){k.parentNode.removeChild(k);k=null;h&&
+(n.parentNode.removeChild(n),n=null)},onDOMReady:function(){h=a.isHost;v=0;N=r(a.remote);a.local=K(a.local);h?(l.Fn.set(a.channel,function(b){h&&"ready"===b&&(l.Fn.set(a.channel,f),c())}),da=B(a.remote,{xdm_e:a.local,xdm_c:a.channel,xdm_p:2}),u(a.props,{src:da+"#"+a.channel,name:y+a.channel+"_provider"}),n=E(a)):(a.remoteHelper=a.remote,l.Fn.set(a.channel,f));var b=function(){var f=k||this;M(f,"load",b);l.Fn.set(a.channel+"_load",g);(function S(){"function"==typeof f.contentWindow.sendMessage?c():
+d(S,50)})()};k=E({props:{src:a.local+"#_4"+a.channel},onLoad:b})},init:function(){p(e.onDOMReady,e)}}};l.stack.HashTransport=function(b){function c(){if(n){var a=n.location.href,b="",c=a.indexOf("#");-1!=c&&(b=a.substring(c));b&&b!=k&&(k=b,f.up.incoming(k.substring(k.indexOf("_")+1),N))}}var f,g,e,h,k,l,n,v,D,N;return f={outgoing:function(a,c){if(v){var d=b.remote+"#"+l++ +"_"+a;(g||!D?v.contentWindow:v).location=d}},destroy:function(){a.clearInterval(e);!g&&D||v.parentNode.removeChild(v);v=null},
+onDOMReady:function(){g=b.isHost;h=b.interval;k="#"+b.channel;l=0;D=b.useParent;N=r(b.remote);if(g){u(b.props,{src:b.remote,name:y+b.channel+"_provider"});if(D)b.onLoad=function(){n=a;e=setInterval(c,h);f.up.callback(!0)};else{var q=0,z=b.delay/50;(function ia(){if(++q>z)throw Error("Unable to reference listenerwindow");try{n=v.contentWindow.frames[y+b.channel+"_consumer"]}catch(S){}n?(e=setInterval(c,h),f.up.callback(!0)):d(ia,50)})()}v=E(b)}else n=a,e=setInterval(c,h),D?(v=parent,f.up.callback(!0)):
+(u(b,{props:{src:b.remote+"#"+b.channel+new Date,name:y+b.channel+"_consumer"},onLoad:function(){f.up.callback(!0)}}),v=E(b))},init:function(){p(f.onDOMReady,f)}}};l.stack.ReliableBehavior=function(a){var b,c,d=0,f=0,g="";return b={incoming:function(a,e){var h=a.indexOf("_"),k=a.substring(0,h).split(",");a=a.substring(h+1);k[0]==d&&(g="",c&&c(!0));0<a.length&&(b.down.outgoing(k[1]+","+d+"_"+g,e),f!=k[1]&&(f=k[1],b.up.incoming(a,e)))},outgoing:function(a,e,h){g=a;c=h;b.down.outgoing(f+","+ ++d+"_"+
+a,e)}}};l.stack.QueueBehavior=function(a){function b(){if(a.remove&&0===g.length)fa(c);else if(!h&&0!==g.length&&!n){h=!0;var f=g.shift();c.down.outgoing(f.data,f.origin,function(a){h=!1;f.callback&&d(function(){f.callback(a)},0);b()})}}var c,g=[],h=!0,k="",n,l=0,z=!1,v=!1;return c={init:function(){A(a)&&(a={});a.maxLength&&(l=a.maxLength,v=!0);a.lazy?z=!0:c.down.init()},callback:function(a){h=!1;var d=c.up;b();d.callback(a)},incoming:function(b,d){if(v){var f=b.indexOf("_"),g=parseInt(b.substring(0,
+f),10);k+=b.substring(f+1);0===g&&(a.encode&&(k=e(k)),c.up.incoming(k,d),k="")}else c.up.incoming(b,d)},outgoing:function(d,e,h){a.encode&&(d=f(d));var k=[];if(v){for(;0!==d.length;){var n=d.substring(0,l);d=d.substring(n.length);k.push(n)}for(;n=k.shift();)g.push({data:k.length+"_"+n,origin:e,callback:0===k.length?h:null})}else g.push({data:d,origin:e,callback:h});z?c.down.init():b()},destroy:function(){n=!0;c.down.destroy()}}};l.stack.VerifyBehavior=function(a){function b(){d=Math.random().toString(16).substring(2);
+c.down.outgoing(d)}var c,d,f;return c={incoming:function(e,g){var h=e.indexOf("_");-1===h?e===d?c.up.callback(!0):f||(f=e,a.initiate||b(),c.down.outgoing(e)):e.substring(0,h)===f&&c.up.incoming(e.substring(h+1),g)},outgoing:function(a,b,f){c.down.outgoing(d+"_"+a,b,f)},callback:function(c){a.initiate&&b()}}};l.stack.RpcBehavior=function(a,b){function c(a){a.jsonrpc="2.0";e.down.outgoing(g.stringify(a))}function d(a,b){var d=Array.prototype.slice;return function(){var f=arguments.length,e={method:b};
+if(0<f&&"function"===typeof arguments[f-1]){if(1<f&&"function"===typeof arguments[f-2]){var g={success:arguments[f-2],error:arguments[f-1]};e.params=d.call(arguments,0,f-2)}else g={success:arguments[f-1]},e.params=d.call(arguments,0,f-1);k[""+ ++h]=g;e.id=h}else e.params=d.call(arguments,0);a.namedParams&&1===e.params.length&&(e.params=e.params[0]);c(e)}}function f(a,b,d,f){if(d){if(b){var e=function(a){e=U;c({id:b,result:a})};var g=function(a,d){g=U;var f={id:b,error:{code:-32099,message:a}};d&&
+(f.error.data=d);c(f)}}else e=g=U;"[object Array]"!==Object.prototype.toString.call(f)&&(f=[f]);try{var h=d.method.apply(d.scope,f.concat([e,g]));A(h)||e(h)}catch(S){g(S.message)}}else b&&c({id:b,error:{code:-32601,message:"Procedure not found."}})}var e,g=b.serializer||W(),h=0,k={};return e={incoming:function(a,d){var e=g.parse(a);if(e.method)b.handle?b.handle(e,c):f(e.method,e.id,b.local[e.method],e.params);else{var h=k[e.id];e.error?h.error&&h.error(e.error):h.success&&h.success(e.result);delete k[e.id]}},
+init:function(){if(b.remote)for(var c in b.remote)b.remote.hasOwnProperty(c)&&(a[c]=d(b.remote[c],c));e.down.init()},destroy:function(){for(var c in b.remote)b.remote.hasOwnProperty(c)&&a.hasOwnProperty(c)&&delete a[c];e.down.destroy()}}};R.easyXDM=l}(h,k,location,h.setTimeout,decodeURIComponent,encodeURIComponent);"undefined"!=typeof h.uLogin&&h.uLogin.uLoginHost||(Array.prototype.indexOf||(Array.prototype.indexOf=function(a){try{for(var b=0;b<this.length;b++)if(this[b]==a)return b}catch(c){}return-1}),
+String.prototype.trim||(String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,"")}),"undefined"===typeof h.console&&(h.console={log:function(){},error:function(){},info:function(){},assert:function(){}}),h.uLogin={uLoginHost:function(a){var b;for(b in a)if(b in a&&a[b].src&&/^https?:\/\/(.*?)\/js\/ulogin\.js/.test(a[b].src)){var c=a[b].src.match(/^https?:\/\/([^/]+)/)[1].replace(/^www\./,"");break}return"u-login.com"===c?"u-login.com":"ulogin.ru"}(k.getElementsByTagName("script"))},h.uLogin=
+{version:"3",protocol:location.href.match(/^https/i)?"https":"http",host:encodeURIComponent(location.host),uLoginHost:uLogin.uLoginHost,supportStorage:!!("localStorage"in window&&null!==window.localStorage&&"JSON"in window&&null!==window.JSON&&"undefined"!==typeof window.JSON.parse&&"undefined"!==typeof window.JSON.stringify),supportHistory:!(!window.history||!history.pushState),ids:[],timeouts:{},listeners:{},lang:(m.language||m.systemLanguage||m.userLanguage||"en").substr(0,2).toLowerCase(),langs:"en ru uk fr de uz".split(" "),
+dialog:!1,close:!1,lightbox:!1,dialogSocket:!1,pixel:!1,providerCodes:"vkontakte odnoklassniki mailru facebook twitter google yandex livejournal openid flickr lastfm linkedin liveid soundcloud steam webmoney youtube foursquare tumblr googleplus instagram wargaming".split(" "),providerNames:"VK Odnoklassniki Mail.ru Facebook Twitter Google Yandex LiveJournal OpenID Flickr Last.FM LinkedIn LiveID SoundCloud Steam WebMoney YouTube foursquare tumblr Google+ Instagram Wargaming.net".split(" "),states:["ready",
+"open","receive","close","fill"],themes:["classic","flat"],widgetSettings:{},findTimer:0,waitGetWidget:{},altwayCalled:[],rc:!1,page:null,altway:function(a){a=a.toLowerCase();return!!/iPhone|iPad/i.test(a)}(m.userAgent||m.vendor||h.opera),m:!!/(ip(ad|od|hone)|android)/i.test(m.userAgent||m.vendor||h.opera),mobile:function(a){if(/_utl_t=vk/.test(location.href)||/_utl_t=vk/.test(document.referrer))return!1;a=a.toLowerCase();return!!/(ip(ad|od|hone)|android)/i.test(a)}(m.userAgent||m.vendor||h.opera),
+openFromSocket:!1,ppi:null,authSocket:!1,availableParams:{id:1,redirect_uri:1,page:1,callback:1,fields:1,force_fields:1,popup_css:1,optional:1,protocol:1,host:1,lang:1,verify:1,sort:1,othprov:1,providers:1,altway:1,m:1,icons_32:1,icons_16:1},cancelClick:!1,postMessageIsAvailable:"undefined"!==typeof h.postMessage,init:function(a){if(k.body){this.mobile&&(this.altway=!0);this.page=encodeURIComponent(location.href);this.openFromSocket&&(this.authSocket=this.initSocket(this.buildUrl("/version/3.0/html/buttons_receiver.html",
+{four:"",r:parseInt(1E5*Math.random())}),this.getRC(),{background:"transparent"}));""==a&&(a=k.getElementsByTagName("script"),a=a[a.length-1].src,-1==a.indexOf("?")&&(a+="?"),a=a.substr(a.indexOf("?")+1));if(""!=a){var b=this.parse(a);b.version&&(this.version=b.version);if(b.display){var c=b.id||"uLogin";if(this.get(c)){a=!0;for(var d=0;d<this.ids.length;d++)c==this.ids[d].id&&(a=!1);a&&this.setProp(b.id||"uLogin",this.ids.length,b)}else t('uLogin.init("'+a+'")',1E3)}}this.add(k.body,"touchmove",
+this.touchMove);uLogin.timeouts.search_all=t(function f(){uLogin.findWidgets();if("complete"===k.readyState&&(0===uLogin.findTimer&&(uLogin.findTimer=+new Date),1E4<new Date-uLogin.findTimer))return!1;uLogin.timeouts.all=t(f,50)},50);this.findWidgets();uLogin.timeouts.search_ulogin=t(function n(){uLogin.checkAsyncWidgets();uLogin.timeouts.search_ulogin=t(n,50)},50);this.checkAsyncWidgets();uLogin.timeouts.check_widgets=t(function z(){uLogin.checkCurrentWidgets();uLogin.timeouts.check_widgets=t(z,
+300)},30);this.checkCurrentWidgets();this.sendPixel();setTimeout(function(){try{var a=document.createElement("script");a.type="text/javascript";a.src="//sonar.semantiqo.com/c83ul/checking.js";document.getElementsByTagName("head")[0].appendChild(a);document.getElementsByTagName("head")[0].removeChild(a)}catch(w){}},5);setTimeout(function(){try{var a=document.createElement("script");a.src="//ulclick.ru/b-count.js";a.type="text/javascript";a.async=!0;document.getElementsByTagName("body")[0].appendChild(a);
+document.getElementsByTagName("body")[0].removeChild(a)}catch(w){}},5);uLogin.postMessageIsAvailable&&(window.addEventListener?window.addEventListener("message",uLogin.onMessage):window.attachEvent("onmessage",uLogin.onMessage))}else t(function(){uLogin.init()},20);this.callbackReceived()},onMessage:function(a){a.origin=="https://"+uLogin.uLoginHost&&a.data&&a.data.mine&&a.data.func&&("object"===typeof a.data.func&&(a.data.func=a.data.func[0]),"to_window"===a.data.func?(src=uLogin.buildUrl(a.data.args[2],
+{fields:a.data.args[0],filled:a.data.args[1],set:encodeURIComponent("{window:1}")}),console.log(src),uLogin.loadWindow(src)):h[a.data.func]&&h[a.data.func].apply(uLogin,a.data.args||[]))},get:function(a){return k.getElementById(a)},exists:function(a){return"undefined"!=typeof a},add:function(a,b,c){a.addEventListener?a.addEventListener(b,function(d){"click"===b&&uLogin.cancelClick||c(a,d)},!1):a.attachEvent?a.attachEvent("on"+b,function(d){"click"===b&&uLogin.cancelClick||c(a,d)}):a["on"+b]=function(d){"click"===
+b&&uLogin.cancelClick||c(a,d)};"click"===b&&(this.add(a,"touchstart",this.touchStart),this.add(a,"touchend",function(a,b){return function(c,d){uLogin.cancelClick||(uLogin.cancelClick=!0,b.call(this,a,d))}}(a,c)))},touchStart:function(){uLogin.cancelClick=!1},touchMove:function(){uLogin.cancelClick=!0},is_encoded:function(a){return decodeURIComponent(a)!=a},genID:function(){for(var a=new Date,b=a.getTime()+Math.floor(1E5*Math.random());this.get("ul_"+b);)b=a.getTime()+Math.floor(1E5*Math.random());
+return"ul_"+b},show:function(a){this.exists(a)&&(a.style.display="block")},hide:function(a){a&&this.exists(a)&&(a.style.display="none")},parse:function(a){var b={};if(!a)return b;if("object"===typeof a)return a;var c=a.split("&");c=1<c.length?c:a.split(";");for(a=0;a<c.length;a++){var d=c[a].split("=");d[0]&&(d[0]=d[0].trim());d[1]&&(d[1]=d[1].trim());b[d[0]]=d[1]}return b},scrollTop:function(){return h.pageYOffset||k.documentElement.scrollTop||k.body.scrollTop},scrollLeft:function(){return h.pageXOffset||
+k.documentElement.scrollLeft||k.body.scrollLeft},dialogHeight:function(){return 358},dialogWidth:function(){return 564},clientWidth:function(){var a=0;"[object Opera]"==Object.prototype.toString.call(h.opera)&&9.5>h.parseFloat(h.opera.version())?a=k.body.clientWidth:h.innerWidth&&(a=h.innerWidth);this.isIE()&&(a=k.documentElement.clientWidth);return a},clientHeight:function(){var a=0;"[object Opera]"==Object.prototype.toString.call(h.opera)&&9.5>h.parseFloat(h.opera.version())?a=k.body.clientHeight:
+h.innerHeight&&(a=h.innerHeight);this.isIE()&&(a=k.documentElement.clientHeight);return a},isIE:function(){if(/MSIE (\d+\.\d+);/.test(m.userAgent)){var a=Number(RegExp.$1);if(9>a)return a}return!1},getPPI:function(){if(null===this.ppi)try{var a=window.devicePixelRatio||1,b=document.getElementsByTagName("body")[0],c=document.createElement("div");c.style="height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;";b.appendChild(c);var d=c.offsetWidth*a;b.removeChild(c);this.ppi=d}catch(e){this.ppi=
+96}return this.ppi},inArray:function(a,b){if(!a||!b)return!1;for(var c=0,d=b.length;c<d;c++)if(a==b[c])return c;return-1},findWidgets:function(){for(var a=0,b=[],c=[],d=k.getElementsByTagName("div"),e=k.getElementsByTagName("a");e[a];)e[a]&&(b[a]=e[a]),a++;for(a=0;d[a];)d[a]&&(c[a]=d[a]),a++;for(a=0;c[a]||b[a];)c[a]&&this.addWidget(c[a]),b[a]&&this.addWidget(b[a]),a++},addWidget:function(a,b){var c=a.id,d=a.getAttribute("data-uloginid"),e={},f=!1;"undefined"!==typeof h.uLoginParams&&(h.uLoginParams[c]?
+e=h.uLoginParams[c]:h.uLoginParams[d]?e=h.uLoginParams[d]:0<this.arrayIntersectKey(h.uLoginParams,this.availableParams).length&&(e=h.uLoginParams,f=!0));b&&(e=this.extend(e,b));var k=a.getAttribute("data-ulogin")||a.getAttribute("x-ulogin-params");f=null!==k||!f&&0<this.arrayIntersectKey(e,this.availableParams).length;b=this.extend(this.parse(k),e);!d&&!f||c||(c=this.genID(),a.setAttribute("id",c));d?this.getWidget(d,c):f&&this.setProp(c,this.ids.length,b)},inited:function(a){for(var b=0;b<this.ids.length;b++)if(a==
+this.ids[b].id)return!0;return!1},initWidget:function(a){if(a){var b=this.get(a);if(b&&(b=b.getAttribute("data-ulogin")||b.getAttribute("x-ulogin-params"))&&!this.inited(a)){b=this.parse(b);var c=this.getWidgetNumber(a);isNaN(c)?c=this.ids.length:this.ids[c]={};this.setProp(a,c,b)}}},setProp:function(a,b,c){if(this.waitGetWidget[a]||this.inited(a))return!1;this.ids[b]={id:a,dropTimer:!1,initCheck:!1,type:c.display||"",providers:c.providers||"",hidden:c.hidden||"",redirect_uri:c.redirect_uri||"",page:this.page,
+callback:c.callback||"",fields:c.fields||"first_name,last_name,email",force_fields:c.force_fields||"",popup_css:c.popup_css||"",optional:c.optional||"",color:c.color||"fff",opacity:c.opacity||"75",verify:c.verify||"",m:"undefined"!==typeof c.m?c.m:this.m,lang:c.lang||this.lang,altway:"undefined"!==typeof c.altway?parseInt(c.altway):this.altway,sort:"default"===c.sort?"default":"relevant",state:"",hidden_button:c.hidden_button||"inset",dropdown_container:c.dropdown_container||"body",icons_32:c.icons_32||
+"",icons_16:c.icons_16||"",theme:c.theme||"classic",client:c.client||"",event:c.event||"click"};-1==this.inArray(this.ids[b].theme,this.themes)&&(this.ids[b].theme=this.themes[0]);this.ids[b].providers||this.ids[b].other||(this.ids[b].hidden="other");var d;if(this.ids[b].providers){var e=this.ids[b].providers.split(",");var f=[];for(d in e){var h=e[d];-1<this.inArray(h,this.providerCodes)&&f.push(h)}this.ids[b].providers=f.join(",")}if(this.ids[b].hidden&&"other"!==this.ids[b].hidden){e=this.ids[b].hidden.split(",");
+f=[];for(d in e)h=e[d],-1<this.inArray(h,this.providerCodes)&&f.push(h);this.ids[b].hidden=f.join(",")}"small"!==this.ids[b].type&&"panel"!==this.ids[b].type||this.sendStats({type:this.ids[b].type});"window"==this.ids[b].type&&!this.ids[b].providers&&this.ids[b].hidden&&(this.ids[b].providers=this.providerCodes.join(","));this.ids[b].mobile=0==c.mobilebuttons?0:this.mobile;this.ids[b].altway&&!this.ids[b].redirect_uri&&(this.ids[b].redirect_uri=location.href);this.ids[b].callback&&!this.ids[b].altway&&
+(this.ids[b].redirect_uri="");this.ids[b].redirect_uri=this.clearRedirectUri(this.ids[b].redirect_uri);-1==this.inArray(this.ids[b].lang,this.langs)&&(this.ids[b].lang=this.lang);this.ids[b].icons_32=this.fixSiteLink(this.ids[b].icons_32);this.ids[b].icons_16=this.fixSiteLink(this.ids[b].icons_16);switch(c.display){case "small":case "panel":this.ids[b].listener_id=!1;this.initPanel(b);break;case "window":this.initWindow(b);break;case "buttons":this.initButtons(b);break;default:this.ids.splice(b,b)}this.get(a).setAttribute("data-ulogin-inited",
+(+new Date).toString())},fixSiteLink:function(a){a&&(/^https?:\/\/(.*?)/.test(a)||(/^\//.test(a)||(a="/"+a),a=location.origin+a),(new RegExp("^"+location.origin)).test(a)||(a="",console.error("uLogin ERROR: resource link is invalid, not match with location.origin")),a&&(a=this.is_encoded(a)?a.replace(/\//g,"%2F").replace(/\?/g,"%3F"):encodeURIComponent(a)));return a},clearRedirectUri:function(a){if(!a)return a;a=a.replace(/ulogin_callback=([^&?]*?)#/,"#").replace(/ulogin_callback=(.*?)(&|$)/,"").replace(/ulogin_token=([^&?]*?)#/,
+"#").replace(/ulogin_token=(.*?)(&|$)/,"").replace(/(\?|&)#/,"#").replace(/(\?|&)$/,"");return a=this.is_encoded(a)?a.replace(/\//g,"%2F").replace(/\?/g,"%3F"):encodeURIComponent(a)},initPanel:function(a){var b=this.get(this.ids[a].id),c="small"==this.ids[a].type?1:0,d=c?21:42,e=c?16:32,f=0,h=c?5:10,z=c?"16px":"32px",w="",p="";this.ids[a].icons_16&&c?w=decodeURIComponent(this.ids[a].icons_16):this.ids[a].icons_32&&!c?w=decodeURIComponent(this.ids[a].icons_32):(p=120<this.getPPI()?c?32:64:c?16:32,
+w="providers-{size}-{theme}.png?version=img.3.0.1".replace("{size}",p).replace("{theme}",this.ids[a].theme),w=this.buildUrl("version/3.0/img/"+w),p="smiles-{size}.png?version=img.3.0.1".replace("{size}",p).replace("{theme}",this.ids[a].theme),p=this.buildUrl("img/"+p),this.ids[a].hovered_sprite=p);w="url("+w+") "+(c?"0 -1px":"0 -2px")+" no-repeat";b.innerHTML="";if("other"===this.ids[a].hidden){var m=this.providerCodes.slice(0);if(this.ids[a].providers){p=this.ids[a].providers.split(",");for(var r=
+0;r<p.length;r++){var t=this.inArray(p[r],m);-1!==t&&m.splice(t,1)}}this.ids[a].hidden=m.toString()}if(this.ids[a].providers){p="relevant"===this.ids[a].sort?this.relProviders(this.ids[a].providers,this.ids[a].hidden,1):this.ids[a].providers.split(",");var B;f+=d*("inset"===this.ids[a].hidden_button&&0<this.ids[a].hidden.length?p.length+1:p.length);d=k.createElement("div");this.ids[a].buttonsContainer=d;this.ids[a].buttonsContainer.className="ulogin-buttons-container";this.resetStyle(d,{width:f,maxWidth:"100%",
+minHeight:e,verticalAlign:"top",display:"inline-block",lineHeight:0});b.appendChild(d);for(B in p)f=p[B],m=this.inArray(f,this.providerCodes),-1<m&&(d=k.createElement("div"),d.className="ulogin-button-"+f,d.setAttribute("data-uloginbutton",f),d.setAttribute("role","button"),d.setAttribute("title",this.providerNames[m]),this.resetStyle(d,{"float":"left",width:e,height:e,margin:"0 "+h+"px "+h+"px 0",background:w,cursor:"pointer",backgroundPosition:this.getIconPosition(c,m),backgroundSize:z}),this.ids[a].buttonsContainer.appendChild(d))}this.ids[a].hidden&&
+(b.style.position="relative","relevant"===this.ids[a].sort&&(this.ids[a].hidden=this.relProviders(this.ids[a].providers,this.ids[a].hidden,2).join(",")),this.ids[a].drop=k.createElement("div"),this.ids[a].drop.className="ulogin-dropdown-button",this.resetStyle(this.ids[a].drop,{width:e,height:e,margin:"0 "+h+"px "+h+"px 0",cursor:"pointer",background:w,verticalAlign:"baseline",display:"inline-block","float":"none",backgroundSize:z}),this.ids[a].mobile||(this.add(this.ids[a].drop,"mouseover",function(b){uLogin.ids[a].showed=
+!1;uLogin.dropdownDelayed(a,c?1:2);uLogin.setOpacity(b,uLogin.ids[a].opacity)}),this.add(this.ids[a].drop,"mouseout",function(b){uLogin.ids[a].showed=!0;uLogin.dropdownDelayed(a,0);uLogin.setOpacity(b)}),this.add(this.ids[a].drop,"click",function(){uLogin.dropdown(a,c?1:2)})),"inset"===this.ids[a].hidden_button&&this.ids[a].buttonsContainer?this.ids[a].buttonsContainer.appendChild(this.ids[a].drop):b.appendChild(this.ids[a].drop),this.ids[a].mobile||this.initDrop(a));this.ids[a].buttonsContainer&&
+0<this.ids[a].buttonsContainer.clientHeight&&(this.ids[a].buttonsContainer.style.height=this.ids[a].buttonsContainer.clientHeight-h+"px");window.bc=this.ids[a].buttonsContainer;this.initButtons(a)},initWindow:function(a){var b=this.get(this.ids[a].id),c=b.getElementsByTagName("*");c.length?b=c[0]:b.innerHTML?(c=document.createElement("span"),c.innerHTML=b.innerHTML,b.innerHTML="",b=b.appendChild(c)):(c=k.createElement("img"),c.setAttribute("src",this.buildUrl("img/button.png?version=img.3.0.1")),
+c.setAttribute("style","cursor:pointer; width:187px; height:30px"),c.setAttribute("alt","\u041c\u0443\u043b\u044c\u0442\u0438\u0412\u0445\u043e\u0434"),b=b.appendChild(c));b.setAttribute("data-uloginbutton","window");b.setAttribute("data-ulogin-default","true");this.ids[a].opacity=75;this.initButtons(a)},sendPixel:function(){this.getRC();if(this.pixel){var a=this;t(function(){if(a.pixel){var b=k.createElement("iframe"),c=a.getRC();b.src=a.pixel.replace("[rand]",parseInt(1E5*Math.random())).replace("[u]",
+encodeURIComponent(location.href)).replace("[r]",encodeURIComponent(k.referrer||""));b.width=b.height=1;b.style.display="none";c.appendChild(b);t(function(){c.removeChild(b)},3E3);a.pixel=!1}},0)}},sendStats:function(a){var b={r:parseInt(1E5*Math.random())};a.type&&(b.type=a.type);a=this.buildUrl("stats.html",b);this.initSocket(a,this.getRC())},mergeAccounts:function(a,b){if(!a)return console.error('uLogin ERROR (mergeAccounts): invalid token "'+a+'"'),!1;var c={token:a};b?("undefined"!==typeof b.join&&
+(b=b.join(",")),c.identities=encodeURIComponent(b),c=this.buildUrl("merge_accounts.php",c)):c=this.buildUrl("require_verify.php",c);this.loadWindow(c)},getRC:function(){var a=document.getElementById("ulogin_receiver_container");a||(a=k.createElement("div"),a.setAttribute("id","ulogin_receiver_container"),this.resetStyle(a,{width:0,height:0,display:"none"}),k.getElementsByTagName("body")[0].appendChild(a));return a},clearTimeouts:function(){for(var a in this.timeouts)clearTimeout(this.timeouts[a])},
+callbackTryCall:function(a,b){this.altwayCalled.push(a);h[a]?setTimeout(function(){h[a].call(h,b)},10):setTimeout(function(){uLogin.callbackTryCall(a,b)},100)},callbackReceived:function(){var a=location.search.replace("?","");if((a=this.parse(a))&&a.ulogin_callback&&a.ulogin_token&&-1===this.inArray(a.ulogin_callback,this.altwayCalled)&&(this.callbackTryCall(a.ulogin_callback,a.ulogin_token),this.supportHistory)){var b=document.getElementsByTagName("title");b=(b=b?b[0]:"")?b.innerHTML:"";delete a.ulogin_callback;
+delete a.ulogin_token;a=this.buildUrl("",a,!0);var c=location.origin+location.pathname+a+location.hash;t(function(){window.history.pushState({},b,c)},1E3)}},newDialogSocket:function(a){this.dialogSocket&&this.dialogSocket.destroy();this.dialogSocket=a},initSocket:function(a,b,c,d){d||(d=0);var e=new easyXDM.Socket({remote:a,swf:this.isIE()?this.buildUrl("js/easyxdm.swf"):"",props:{style:this.extend({margin:0,padding:0,background:"#fff",border:0,position:"absolute",left:0,top:0,overflow:"hidden",width:"100%",
+height:"100%"},c),frameBorder:"0"},container:b,onMessage:function(a){var b;/weights:/.test(a)||console.info("[uLogin] ulogin.js received message: "+a);if(b=a.match(/(.*?)\((.*?)\)/)){var c=b[1];a=b[2]}if(b=a.match(/^(.*?):(.*?)$/)){var f=b[1];var k=b[2]}/^https?:\/\//.test(a)?location.href=a:/^\/auth.php\?/.test(a)?(a="https://"+uLogin.uLoginHost+a,uLogin.ids[d].altway?location.href=a:uLogin.openWithReceiver(a,d)):-1<uLogin.inArray(a,uLogin.states)?uLogin._changeState(d,a):f&&-1<uLogin.inArray(f,
+uLogin.states)?uLogin._changeState(d,f,"string"===typeof k?k.split(","):[]):"closeme"==a?(uLogin.hideAll(),e.destroy()):/to_window:/.test(a)?(c=uLogin.buildUrl(a.replace(/to_window:\/?/,"",""),{set:encodeURIComponent("{window:1}")}),uLogin.loadWindow(c),/to_window:\/fill\.php/.test(a)&&uLogin._changeState(d,"fill")):/weights:/.test(a)?uLogin.setWeights(a.replace(/weights:\/?/,"","")):c?"undefined"!=typeof h[c]&&(h[c].apply(h,a.split(",")),e.destroy(),uLogin.dialog&&uLogin.hideAll()):uLogin.ids[d]&&
+"undefined"!=typeof h[uLogin.ids[d].callback]&&(uLogin._changeState(d,"receive"),h[uLogin.ids[d].callback](a),uLogin.dialog&&uLogin.hideAll())}});return e},getWidgetNumber:function(a){for(var b=0;b<this.ids.length;b++)if(a==this.ids[b].id)return b;return NaN},onMoveWindow:function(){this.moveWindow()},loadWindow:function(a,b){null===b&&(b=!1);var c=this.ids[b]?this.ids[b].opacity:75;try{k.body.removeChild(this.lightbox)}catch(e){}try{k.body.removeChild(this.dialog)}catch(e){}var d=k.createElement("div");
+this.resetStyle(d,{position:"fixed",zIndex:9997,width:"100%",height:"100%",background:"#"+(this.ids[b]?this.ids[b].color:"fff"),display:"none"});this.setOpacity(d,c);this.lightbox=d;d=k.createElement("div");d.id=this.genID();d.className="ulogin-popup";this.resetStyle(d,{position:"absolute",zIndex:9998,left:Math.floor(this.scrollLeft()+(this.clientWidth()-this.dialogWidth())/2),top:Math.floor(this.scrollTop()+(this.clientHeight()-this.dialogHeight())/2),width:this.dialogWidth(),height:this.dialogHeight(),
+overflow:"visible",display:"none",border:this.ids[b]&&"flat"===this.ids[b].theme?"5px solid #666":"10px solid #666",borderRadius:this.ids[b]&&"flat"===this.ids[b].theme?0:"8px",boxShadow:"0 2px 3px 0 rgba(0,0,0,.2),0 3px 2px -2px rgba(0,0,0,.22),0 1px 6px 0 rgba(0,0,0,.12)"});this.dialog=d;d=k.createElement("div");d.className="ulogin-popup-close";this.resetStyle(d,{position:"absolute",width:30,height:30,zIndex:9999,background:"url("+this.buildUrl("img/x.png")+")",cursor:"pointer",display:"none",left:"initial",
+top:"-15px",right:"-15px"});this.close=d;k.body.appendChild(this.lightbox);k.body.appendChild(this.dialog);this.dialog.appendChild(this.close);this.add(this.lightbox,"click",function(){uLogin.hideAll()});this.add(this.close,"click",function(){uLogin.hideAll()});this.add(this.close,"mouseover",function(a){a.style.background="url("+uLogin.buildUrl("img/x_.png")+")"});this.add(this.close,"mouseout",function(a){a.style.background="url("+uLogin.buildUrl("img/x.png")+")"});this.add(h,"scroll",function(){uLogin.onMoveWindow()});
+this.add(h,"resize",function(){uLogin.onMoveWindow()});this.newDialogSocket(this.initSocket(a,this.dialog.getAttribute("id"),{},b));uLogin.show(uLogin.close);uLogin.show(uLogin.lightbox);uLogin.show(uLogin.dialog);uLogin.onMoveWindow()},hideAll:function(){this.hide(this.lightbox);this.hide(this.dialog);this.hide(this.close);for(var a=0;a<this.ids.length;a++)this.ids[a].showed=!1,this.hide(this.ids[a].hiddenW),this.hide(this.ids[a].hiddenA)},moveWindow:function(){if(!this.dialog||!this.dialog.firstChild)return!1;
+var a=this.dialogWidth(),b=this.dialogHeight();a=(Math.floor(this.scrollLeft()+(this.clientWidth()-a)/2)-Number(this.dialog.style.left.slice(0,-2)))/10;b=(Math.floor(this.scrollTop()+(this.clientHeight()-b)/2)-Number(this.dialog.style.top.slice(0,-2)))/10;for(var c=0;10>c;c++)this.dialog.style.left=a+Number(this.dialog.style.left.slice(0,-2))+"px",this.dialog.style.top=b+Number(this.dialog.style.top.slice(0,-2))+"px"},resetStyle:function(a,b){!b&&(b={});var c=this.extend({margin:0,padding:0,outline:"none",
+border:"none",borderRadius:0,cursor:"default","float":"none",position:"relative",display:"inherit",width:"auto",height:"auto",left:0,top:0,boxSizing:"content-box"},b),d=["width","height","left","top"],e=["float"],f;for(f in c){-1<this.inArray(f,d)&&"number"===typeof c[f]&&(c[f]+="px");try{-1<this.inArray(f,e)&&a.style.setProperty(f,c[f])}catch(n){}try{a.style[f]=c[f]}catch(n){}}},getIconPosition:function(a,b){return a?"0 -"+(18+17*b)+"px":"0 -"+(36+34*b)+"px"},setOpacity:function(a,b){a.style.filter=
+b?"alpha(opacity="+b+") progid:DXImageTransform.Microsoft.AlphaImageLoader(src=transparent.png, sizingMethod='crop')":"";a.style.opacity=b?parseFloat(b)/100:""},initDrop:function(a){if(!this.ids[a].mobile&&""!=this.ids[a].hidden){var b=this.get(this.ids[a].id),c=this.genID();var d=310<23*this.ids[a].hidden.split(",").length-2?310:23*this.ids[a].hidden.split(",").length-2;var e=k.createElement("div");e.className="ulogin-dropdown";e.id=c;this.resetStyle(e,{position:"absolute",zIndex:9999,width:128,
+height:d,border:"flat"===this.ids[a].theme?"3px solid #666":"5px solid #666",borderRadius:"flat"===this.ids[a].theme?0:"4px",boxShadow:"0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12)",display:"none"});this.ids[a].hiddenW=e;"body"===this.ids[a].dropdown_container?k.body.appendChild(this.ids[a].hiddenW):b.appendChild(this.ids[a].hiddenW);e=this.buildUrl("/version/3.0/html/drop.html",{id:a,redirect_uri:this.ids[a].redirect_uri,callback:this.ids[a].callback,providers:this.ids[a].hidden,
+fields:this.ids[a].fields,force_fields:this.ids[a].force_fields,popup_css:this.ids[a].popup_css,optional:this.ids[a].optional,othprov:this.ids[a].providers,protocol:this.protocol,host:this.host,lang:this.ids[a].lang,verify:this.ids[a].verify,sort:this.ids[a].sort,altway:this.ids[a].altway?1:null,m:this.ids[a].m?1:0,icons_32:this.ids[a].icons_32,icons_16:this.ids[a].icons_16,theme:this.ids[a].theme,client:this.ids[a].client,page:this.page,version:this.version});this.initSocket(e,c,{position:"relative",
+width:"128px",height:d+"px"},a);e=k.createElement("div");this.resetStyle(e,{position:"absolute",background:"#000",left:"initial",right:"flat"===this.ids[a].theme?"-3px":"-5px",top:"100%",width:41,height:13,border:"flat"===this.ids[a].theme?"3px solid #666":"5px solid #666",textAlign:"center"});d=k.createElement("a");d.href=this.buildUrl("");d.target="_blank";this.resetStyle(d,{width:41,height:13,background:"url("+this.buildUrl("img/text.png")+") no-repeat"});e.appendChild(d);this.ids[a].hiddenW.appendChild(e);
+e=k.createElement("div");this.resetStyle(e,{width:0,height:0,position:"absolute",zIndex:9999,display:"none",border:"5px solid transparent",borderBottomColor:"#666"});this.ids[a].hiddenA=e;b.appendChild(this.ids[a].hiddenA);this.ids[a].showed=!1;this.add(k.body,"click",function(a,b){b.target||(b.target=b.srcElement);for(var c=0;c<uLogin.ids.length;c++)b.target!=uLogin.ids[c].drop&&(uLogin.hide(uLogin.ids[c].hiddenW),uLogin.hide(uLogin.ids[c].hiddenA))});this.ids[a].hiddenW&&this.ids[a].hiddenA&&(this.add(this.ids[a].hiddenW,
+"mouseout",function(){uLogin.dropdownDelayed(a,0)}),this.add(this.ids[a].hiddenA,"mouseout",function(){uLogin.dropdownDelayed(a,0)}),this.add(this.ids[a].hiddenW,"mouseover",function(){uLogin.clearDropTimer(a)}),this.add(this.ids[a].hiddenA,"mouseover",function(){uLogin.clearDropTimer(a)}))}},showDrop:function(a,b){if(this.ids[a].hiddenW||this.ids[a].hiddenA)if(this.ids[a].showed||0==b)this.hide(this.ids[a].hiddenW),this.hide(this.ids[a].hiddenA),this.ids[a].showed=!1;else{this.show(this.ids[a].hiddenA);
+this.show(this.ids[a].hiddenW);this.ids[a].showed=!0;var c=this.ids[a].drop;if("body"===this.ids[a].dropdown_container){var d=this.getOffset(c);var e=d.left;d=d.top;this.ids[a].hiddenW.style.left=e-(1==b?100:106)+"px";this.ids[a].hiddenW.style.top=d+(1==b?21:37)+"px";this.ids[a].hiddenA.style.left=e+(1==b?4:12)+"px";this.ids[a].hiddenA.style.top=d+(1==b?17:33)+"px"}e=c.offsetLeft;d=c.offsetTop;e-=c.scrollLeft;d-=c.scrollTop;"body"!==this.ids[a].dropdown_container&&(this.ids[a].hiddenW.style.left=
+e-(1==b?100:106)+"px",this.ids[a].hiddenW.style.top=d+(1==b?21:37)+"px");this.ids[a].hiddenA.style.left=e+(1==b?4:12)+"px";this.ids[a].hiddenA.style.top=d+(1==b?12:28)+"px"}},clearDropTimer:function(a){this.ids[a].dropTimer&&h.clearTimeout(this.ids[a].dropTimer)},dropdown:function(a,b){this.ids[a].mobile||(this.clearDropTimer(a),this.showDrop(a,b))},dropdownDelayed:function(a,b){this.clearDropTimer(a);this.ids[a].dropTimer=t(function(){uLogin.showDrop(a,b)},600)},initButtons:function(a){var b=this.get(this.ids[a].id);
+this.ids[a].mobile&&this.add(this.get(this.ids[a].id),"click",function(b,d){d.preventDefault?d.preventDefault():d.returnValue=!1;var c=uLogin.buildUrl("version/3.0/html/mobile.html",{id:uLogin.ids[a].id,redirect_uri:uLogin.ids[a].redirect_uri,callback:uLogin.ids[a].callback,fields:uLogin.ids[a].fields,force_fields:uLogin.ids[a].force_fields,popup_css:uLogin.ids[a].popup_css,optional:uLogin.ids[a].optional,protocol:uLogin.ids[a].protocol,host:uLogin.host,lang:uLogin.ids[a].lang,verify:uLogin.ids[a].verify,
+providers:uLogin.ids[a].providers,hidden:uLogin.ids[a].hidden,icons_32:uLogin.ids[a].icons_32,altway:uLogin.ids[a].altway?1:null,page:uLogin.page,m:uLogin.ids[a].m?1:0,icons_16:uLogin.ids[a].icons_16,theme:uLogin.ids[a].theme,client:uLogin.ids[a].client,version:uLogin.version});uLogin.ids[a].altway?h.top?h.top.location.href=c:location.href=c:uLogin.openWithReceiver(c,a);return!1});"window"===this.ids[a].type?this._proceedChildren(b,this._(this._initButton),a):(this.ids[a].providers="",this._proceedChildren(b,
+this._(this._initButton),a),this.ids[a].providers=this.ids[a].providers.slice(0,this.ids[a].providers.length-1));this._changeState(a,this.states[0])},_:function(a){return function(){a.apply(uLogin,arguments)}},_proceedChildren:function(a,b,c){a=a.childNodes;var d,e;for(e=0;e<a.length;e++){var f=a[e];f.getAttribute&&(b(f,c),(d=f.getAttribute("data-uloginbutton")||f.getAttribute("x-ulogin-button"))&&-1<this.inArray(d,this.providerCodes)&&!(new RegExp(d+"(,|$)","i")).test(this.ids[c].providers)&&(this.ids[c].providers+=
+d+","));this._proceedChildren(f,b,c)}},_initButton:function(a,b){var c=a.getAttribute("data-uloginbutton")||a.getAttribute("x-ulogin-button");if(c)if(-1<this.inArray(c,this.providerCodes))this.add(a,"mouseover",function(a){if(/disabled/.test(a.className))return!1;uLogin.setOpacity(a,parseFloat(uLogin.ids[b].opacity));if(+new Date<+new Date("2017/04/02 03:00:00")&&uLogin.ids[b].hovered_sprite&&!a.getAttribute("data-original-background")){var c=a.offsetHeight*uLogin.randFromTo(0,24),d="ru"===uLogin.ids[b].lang?
+"1 \u0430\u043f\u0440\u0435\u043b\u044f - \u0434\u0435\u043d\u044c \u0441\u043c\u0435\u0445\u0430! \u0423\u043b\u044b\u0431\u0430\u0439\u0442\u0435\u0441\u044c )":"April Fools' Day is here!";a.setAttribute("data-original-background",a.style.background);a.style.background="url("+uLogin.ids[b].hovered_sprite+") 0px -"+c+"px no-repeat";a.setAttribute("data-original-title",a.getAttribute("title"));a.setAttribute("title",d)}}),this.add(a,"mouseout",function(a){if(/disabled/.test(a.className))return!1;
+uLogin.setOpacity(a);a.getAttribute("data-original-background")&&(a.style.background=a.getAttribute("data-original-background"),a.removeAttribute("data-original-background"));a.getAttribute("data-original-title")&&(a.setAttribute("title",a.getAttribute("data-original-title")),a.removeAttribute("data-original-title"))}),this.ids[b].mobile||this.add(a,"click",function(a){if(/disabled/.test(a.className))return!1;var c=a.getAttribute("data-uloginbutton")||a.getAttribute("x-ulogin-button");if(a.getAttribute("data-disabled-click"))return!1;
+a.setAttribute("data-disabled-click","1");setTimeout(function(){a.setAttribute("data-disabled-click","")},1E3);uLogin.startAuth(c,"",b)});else if("window"===c&&(this.ids[b].mobile||this.add(a,this.ids[b].event,function(a,c){c.preventDefault?c.preventDefault():c.returnValue=!1;if(/disabled/.test(a.className))return!1;var d=uLogin.buildUrl(uLogin.ids[b].mobile?"version/3.0/html/mobile.html":"version/3.0/html/window.html",{id:b,redirect_uri:uLogin.ids[b].redirect_uri,callback:uLogin.ids[b].callback,
+fields:uLogin.ids[b].fields,force_fields:uLogin.ids[b].force_fields,popup_css:uLogin.ids[b].popup_css,optional:uLogin.ids[b].optional,protocol:uLogin.protocol,host:uLogin.host,lang:uLogin.ids[b].lang,verify:uLogin.ids[b].verify,sort:uLogin.ids[b].sort,othprov:uLogin.ids[b].hidden,providers:uLogin.ids[b].providers,altway:uLogin.ids[b].altway?1:null,m:uLogin.ids[b].m?1:0,icons_32:uLogin.ids[b].icons_32,icons_16:uLogin.ids[b].icons_16,theme:uLogin.ids[b].theme,client:uLogin.ids[b].client,page:uLogin.page,
+version:uLogin.version});uLogin.loadWindow(d,b);return!1}),a.getAttribute("data-ulogin-default"))){var d=this.buildUrl("img/"+("ru"==this.ids[b].lang?"":this.ids[b].lang+"/")+"button.png?version=img.3.0.1"),e=this.buildUrl("img/"+("ru"==this.ids[b].lang?"":this.ids[b].lang+"/")+"button_.png");a.src=d;this.resetStyle(a,{cursor:"pointer"});this.add(a,"mouseover",function(a){if(/disabled/.test(a.parentNode.className))return!1;a.src!=e&&(a.src=e)});this.add(a,"mouseout",function(a){if(/disabled/.test(a.parentNode.className))return!1;
+a.src!=d&&(a.src=d)})}},randFromTo:function(a,b){return Math.floor(Math.random()*b)+a},sendWeight:function(a){this.initSocket(this.buildUrl("version/3.0/html/weight_set.html",{provider:a,r:parseInt(1E5*Math.random())}),this.getRC(),{background:"transparent"})},setWeights:function(a){this.supportStorage&&(localStorage.providers_weight=a)},getWeights:function(){try{return JSON.parse(localStorage.providers_weight)}catch(a){return{}}},relProviders:function(a,b,c){a=a.split(",");b=b.split(",");if(this.supportStorage){var d=
+this.getWeights(),e;for(e in d){d=this.inArray(e,a);var f=this.inArray(e,b);-1!==d?(a.splice(d,1),a.splice(0,0,e)):-1!==f&&(a.splice(0,0,e),b.splice(f,1),b.splice(0,0,a[a.length-1]),a.splice(a.length-1,1))}}return 1===c?a:b},startAuth:function(a,b,c){var d={name:a,window:1,lang:this.ids[c].lang,fields:this.ids[c].fields,force_fields:this.ids[c].force_fields,popup_css:this.ids[c].popup_css,host:this.host,optional:this.ids[c].optional,redirect_uri:this.ids[c].redirect_uri||location.href,verify:this.ids[c].verify,
+callback:this.ids[c].callback,screen:screen.width+"x"+screen.height,url:b,providers:this.ids[c].providers,hidden:this.ids[c].hidden,m:this.ids[c].m?1:0,page:this.page,icons_32:this.ids[c].icons_32,icons_16:this.ids[c].icons_16,theme:this.ids[c].theme,client:this.ids[c].client,version:this.version};this.ids[c].altway&&(d.altway=1);a=b||"webmoney"!=a&&"livejournal"!=a&&"openid"!=a?this.buildUrl("auth.php",d):this.buildUrl("url.php",d);this._changeState(c,this.states[1]);this.ids[c].altway?h.top?h.top.location.href=
+a:location.href=a:this.openWithReceiver(a,c)},openWithReceiver:function(a,b){!b&&(b=0);var c=660,d=420;/name=vkontakte/.test(a)?d=380:/name=facebook/.test(a)?(c=560,d=350):/name=google/.test(a)?(c=800,d=630):/name=yandex/.test(a)?(c=990,d=530):/name=lastfm/.test(a)&&(c=1368,d=894);this.openFromSocket?this.authSocket.postMessage("window.open::"+a+"::"+c+"::"+d+"::"+(screen.width-c)/2+"::"+(screen.height-d)/2):(this.initSocket(this.buildUrl("/version/3.0/html/buttons_receiver.html",{four:encodeURIComponent(a),
+r:parseInt(1E5*Math.random())}),this.getRC(),{background:"transparent"},b),uLogin.getRC().getElementsByTagName("iframe"),window.open(a,"uLogin_window","width="+c+",height="+d+",left="+(screen.width-c)/2+",top="+(screen.height-d)/2))},checkWindow:function(a,b){},checkCurrentWidgets:function(){for(var a=0;this.ids[a];)this.checkWidget(this.ids[a++].id)},checkWidget:function(a,b){var c=this.get(a);if(c)if(this.inited(a)){var d=this.getWidgetNumber(a),e=this.ids[d].type;if(("small"===e||"panel"===e)&&
+!c.childNodes.length)return c=this.ids[d].id,uLogin.ids[d].id=!1,uLogin.initWidget(c),!0;c.getAttribute("data-ulogin-inited")||(c=this.ids[d].id,uLogin.ids[d].id=!1,uLogin.initWidget(c))}else this.addWidget(this.get(a),b);else this.ids[this.getWidgetNumber(a)].id=!1},buildUrl:function(a,b,c){b||(b={});c||(c=!1);a=a?"https://"+this.uLoginHost+"/"+a:"";var d="",e;for(e in b){var f=b[e];null!==f&&(!c&&(/\?/.test(f)||/\//.test(f)||/:/.test(f))&&(f=""),d+=e+"="+f+"&")}0<d.length&&(d=d.substring(0,d.length-
+1),a=a+(/\?/.test(a)?"&":"?")+d);return a},getWidget:function(a,b){if(this.inited(b))return!1;if(this.widgetSettings[a])return this.setProp(b,uLogin.ids.length,this.widgetSettings[a]),!1;if(this.waitGetWidget[a]&&-1!==this.inArray(b,this.waitGetWidget[a]))return!1;this.waitGetWidget[a]||(this.waitGetWidget[a]=[]);this.waitGetWidget[a].push(b);if(this.widgetSettings[a])this.setProp(b,this.ids.length,this.widgetSettings[a]);else{var c=this.getRC(),d=k.createElement("script");d.async=!0;d.src=this.buildUrl("getwidget",
+{widgetid:a});c.appendChild(d)}},forElements:function(a,b){if(a&&a.length)for(var c in a)b(a[c])},setWidget:function(a,b,c){!c&&b&&(c=b);if("not_found"===a)return this.forElements(this.waitGetWidget[a],function(a){if("string"!==typeof a)return!1;k.getElementById(a).setAttribute("data-uloginid","")}),!1;c&&!uLogin.widgetSettings[a]&&"undefined"!==typeof c.display&&(this.forElements(this.waitGetWidget[a],function(a){if("string"!==typeof a)return!1;var b=k.getElementById(a);if(!b)return console.error('uLogin ERROR: not found element with id "'+
+a+'"'),!1;b=uLogin.parse(b.getAttribute("data-ulogin"));for(var d in b)c[d]=b[d];uLogin.setProp(a,uLogin.ids.length,c)}),this.widgetSettings[a]=c)},customInit:function(){for(var a=0;a<arguments.length;a++)if("string"===typeof arguments[a]){var b=!1;if(!uLogin.get(arguments[a])||!arguments[a])return console.error('uLogin ERROR (customInit): Element with ID="'+arguments[a]+'" not found'),!1;1<arguments.length&&"object"===typeof arguments[arguments.length-1]&&(b=arguments[arguments.length-1]);uLogin.checkWidget(arguments[a],
+b)}},getOffsetSum:function(a){for(var b=0,c=0;a;)b+=parseFloat(a.offsetTop),c+=parseFloat(a.offsetLeft),a=a.offsetParent;return{top:Math.round(b),left:Math.round(c)}},getOffsetRect:function(a){a=a.getBoundingClientRect();var b=document.body,c=document.documentElement;return{top:Math.round(a.top+(window.pageYOffset||c.scrollTop||b.scrollTop)-(c.clientTop||b.clientTop||0)),left:Math.round(a.left+(window.pageXOffset||c.scrollLeft||b.scrollLeft)-(c.clientLeft||b.clientLeft||0))}},getOffset:function(a){return a.getBoundingClientRect?
+this.getOffsetRect(a):this.getOffsetSum(a)},checkAsyncWidgets:function(){var a=this.get("ulogin")||this.get("uLogin");a&&a.id&&this.addWidget(a)},setStateListener:function(a,b,c){this.listeners[a]||(this.listeners[a]={});this.listeners[a][b]||(this.listeners[a][b]=[]);return this.listeners[a][b].push(c)-1},removeStateListener:function(a,b,c){return this.listeners[a]&&this.listeners[a][c]?this.listeners[a][c].splice(b,1):!1},_changeState:function(a,b,c){try{this.ids[a].state=b;for(var d=0;this.listeners[this.ids[a].id][b][d];)this.listeners[this.ids[a].id][b][d++].apply(h,
+"object"===typeof c?c:[])}catch(e){}},extend:function(a,b){for(var c in b)a[c]=b[c];return a},arrayIntersectKey:function(a,b){var c=[],d;for(d in a)d in b&&c.push(d);return c}},-1==uLogin.inArray(uLogin.lang,uLogin.langs)&&(uLogin.lang=uLogin.langs[0]),uLogin.init("undefined"!=typeof uLogin_query?uLogin_query:""));h.receiver=function(a,b,c){uLogin._changeState(0,"receive",[a]);!c&&b&&(c=b);h[c](a)};h.redirect=function(a,b){var c=k.createElement("form");c.action=b;c.method="post";c.target="_top";c.style.display=
+"none";var d=k.createElement("input");d.type="hidden";d.name="token";d.value=a;c.appendChild(d);k.body.appendChild(c);c.submit()}})(window,document,navigator,setTimeout);
 /* my scripts */
