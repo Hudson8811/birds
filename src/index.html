@@ -18,8 +18,12 @@
         <a href="#" class="logo">
             <img src="./img/logo.png" alt="logo">
         </a>
-            <nav>
-                <ul id="menu">
+            <nav class="over-menu">
+              <div class="close-btn">
+                <div></div>
+                <div></div>
+              </div>
+                <ul class="menu">
                     <li>
                         <a href="/first" class="header__item">Главная</a>
                     </li>
@@ -32,7 +36,7 @@
                 </ul>
             </nav>
         <div>
-            <ul id="soc-link">
+            <ul class="soc-link">
                 <li>
                     <a href="#">
                         <img src="./img/soc-link-1.png" alt="twitter">
@@ -54,6 +58,45 @@
                     </a>
                 </li>
             </ul>
+        </div>
+        <div class="btn-burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="mobile-menu">
+          <div class="overlay-bag"></div>
+          <div class="mobile-logo">
+            <img src="./images/TT.png" alt="logo">
+          </div>
+          <ul class="soc-link">
+            <li>
+                <a href="#">
+                    <img src="./img/soc-link-1.png" alt="twitter">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/soc-link-2.png" alt="odnoklassniki">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/soc-link-3.png" alt="facebook">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/soc-link-4.png" alt="vk">
+                </a>
+            </li>
+          </ul>
+          <div class="brand mobile">
+            <img src="./images/brand-y.png" alt="dc">
+        </div>
+        <div class="pagi mobile">
+            <img src="./images/18-y.png" alt="pag">
+        </div>
         </div>
     </header>
 
@@ -139,7 +182,6 @@
                 </div>
                 <div class="game">
                     <div class="close-button"></div>
-                <div class="next-button-game pink" onclick="ga('send','event','bottom_gallery');"><span>Победители<br>и участники</span></div>
                 <div class="popup__container">
                   <div class="gallery__cp-popup" data-cur="-1">
                     <div class="popup-close"></div>
@@ -9419,7 +9461,8 @@
                         <!--things[i].name-->        <div class="menu__item " onclick="ga('send','event','contest_block_5');">Обувь</div>
                         <!--things[i].name-->        <div class="menu__item " onclick="ga('send','event','contest_block_6');">Фоны</div>
                         <!--things[i].name-->      </div>
-                      <div class="choose__groups">        <div class="choose__group selected">
+                      <div class="choose__groups">        
+                        <div class="choose__group selected">
                           <div class="slider_wrap1">
                             <div class="slider__button left"></div>
                             <div class="slider__button right"></div>
@@ -9470,297 +9513,41 @@
                                 <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
                               </div>            </div>
                           </div>
-                        </div>        <div class="choose__group ">
-                          <div class="slider_wrap1">
-                            <div class="slider__button left"></div>
-                            <div class="slider__button right"></div>
-                            <div class="group__slider1">              <div class="slider1__item"><img src="/site/assets/files/1873/blusa.png" title="Блуза"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1905/blusa2.png" title="Блуза"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1906/futbolka.png" title="Футболка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1907/futbolka2.png" title="Футболка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1908/jemper.png" title="Джемпер"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1909/jemper2.png" title="Джемпер"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1910/kardigan.png" title="Кардиган"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1911/platie1.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1912/platie2.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1913/platie2_2.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1914/platie3.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1915/platie3_2.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1916/platie4.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1917/platie5.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1918/platie6.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1919/platie8.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1920/platie9.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1921/rubashka.png" title="Рубашка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1922/rubashka2.png" title="Рубашка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1923/vodolazka.png" title="Водолазка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>            </div>
-                          </div>
-                          <div class="slider_wrap">
-                            <div class="slider__button left"></div>
-                            <div class="slider__button right"></div>
-                            <div class="group__slider2">              <div class="slider2__item"><img src="/site/assets/files/1873/blusa.png" title="Блуза"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1905/blusa2.png" title="Блуза"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1906/futbolka.png" title="Футболка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1907/futbolka2.png" title="Футболка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1908/jemper.png" title="Джемпер"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1909/jemper2.png" title="Джемпер"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1910/kardigan.png" title="Кардиган"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1911/platie1.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1912/platie2.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1913/platie2_2.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1914/platie3.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1915/platie3_2.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1916/platie4.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1917/platie5.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1918/platie6.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1919/platie8.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1920/platie9.png" title="Платье"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1921/rubashka.png" title="Рубашка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1922/rubashka2.png" title="Рубашка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1923/vodolazka.png" title="Водолазка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>            </div>
-                          </div>
-                        </div>        <div class="choose__group ">
-                          <div class="slider_wrap1">
-                            <div class="slider__button left"></div>
-                            <div class="slider__button right"></div>
-                            <div class="group__slider1">              <div class="slider1__item"><img src="/site/assets/files/1863/bruki-1.png" title="Брюки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1864/bruki2.png" title="Брюки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1865/bruki3.png" title="Брюки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1866/bruki4.png" title="Джинсы"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1867/bruki5.png" title="Джинсы"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1868/ubka1.png" title="Юбка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1869/ubka2.png" title="Юбка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1870/ubka3.png" title="Юбка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1871/ubka4.png" title="Юбка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1872/ubka5.png" title="Юбка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>            </div>
-                          </div>
-                          <div class="slider_wrap">
-                            <div class="slider__button left"></div>
-                            <div class="slider__button right"></div>
-                            <div class="group__slider2">              <div class="slider2__item"><img src="/site/assets/files/1863/bruki-1.png" title="Брюки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1864/bruki2.png" title="Брюки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1865/bruki3.png" title="Брюки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1866/bruki4.png" title="Джинсы"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1867/bruki5.png" title="Джинсы"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1868/ubka1.png" title="Юбка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1869/ubka2.png" title="Юбка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1870/ubka3.png" title="Юбка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1871/ubka4.png" title="Юбка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1872/ubka5.png" title="Юбка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>            </div>
-                          </div>
-                        </div>        <div class="choose__group ">
-                          <div class="slider_wrap1">
-                            <div class="slider__button left"></div>
-                            <div class="slider__button right"></div>
-                            <div class="group__slider1">              <div class="slider1__item"><img src="/site/assets/files/1853/braslet-1.png" title="Браслет"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1854/kepka-1.png" title="Кепка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1855/ochki-1.png" title="Очки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1856/ochki2-1.png" title="Очки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1857/sergi-1.png" title="Серьги"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1858/sharf-1.png" title="Шарф"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1859/shlapa-1.png" title="Шляпа"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1860/sumka-1.png" title="Сумка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1861/sumka2-1.png" title="Сумка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1862/sumka3-1.png" title="Сумка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>            </div>
-                          </div>
-                          <div class="slider_wrap">
-                            <div class="slider__button left"></div>
-                            <div class="slider__button right"></div>
-                            <div class="group__slider2">              <div class="slider2__item"><img src="/site/assets/files/1853/braslet-1.png" title="Браслет"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1854/kepka-1.png" title="Кепка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1855/ochki-1.png" title="Очки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1856/ochki2-1.png" title="Очки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1857/sergi-1.png" title="Серьги"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1858/sharf-1.png" title="Шарф"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1859/shlapa-1.png" title="Шляпа"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1860/sumka-1.png" title="Сумка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1861/sumka2-1.png" title="Сумка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1862/sumka3-1.png" title="Сумка"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>            </div>
-                          </div>
-                        </div>        <div class="choose__group ">
-                          <div class="slider_wrap1">
-                            <div class="slider__button left"></div>
-                            <div class="slider__button right"></div>
-                            <div class="group__slider1">              <div class="slider1__item"><img src="/site/assets/files/1874/botilioni.png" title="Ботильоны"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1884/botilioni2.png" title="Ботильоны"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1885/kedi.png" title="Кеды"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1886/krosovki.png" title="Кроссовки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1887/loferi.png" title="Лоферы"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1888/sapogi.png" title="Сапоги"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1889/sapogi2.png" title="Сапоги"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1890/tufli.png" title="Туфли"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1891/tufli2.png" title="Туфли"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1892/tufli3.png" title="Туфли"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>            </div>
-                          </div>
-                          <div class="slider_wrap">
-                            <div class="slider__button left"></div>
-                            <div class="slider__button right"></div>
-                            <div class="group__slider2">              <div class="slider2__item"><img src="/site/assets/files/1874/botilioni.png" title="Ботильоны"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1884/botilioni2.png" title="Ботильоны"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1885/kedi.png" title="Кеды"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1886/krosovki.png" title="Кроссовки"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1887/loferi.png" title="Лоферы"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1888/sapogi.png" title="Сапоги"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1889/sapogi2.png" title="Сапоги"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1890/tufli.png" title="Туфли"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1891/tufli2.png" title="Туфли"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1892/tufli3.png" title="Туфли"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>            </div>
-                          </div>
-                        </div>        <div class="choose__group ">
-                          <div class="slider_wrap1">
-                            <div class="slider__button left"></div>
-                            <div class="slider__button right"></div>
-                            <div class="group__slider1">              <div class="slider1__item"><img src="/site/assets/files/1836/01-1.png" title="Фон 1"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1875/02-1.png" title="Фон 2"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1876/03.png" title="Фон 3"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1877/04.png" title="Фон 4"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider1__item"><img src="/site/assets/files/1878/05.png" title="Фон 5"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>            </div>
-                          </div>
-                          <div class="slider_wrap">
-                            <div class="slider__button left"></div>
-                            <div class="slider__button right"></div>
-                            <div class="group__slider2">              <div class="slider2__item"><img src="/site/assets/files/1836/01-1.png" title="Фон 1"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1875/02-1.png" title="Фон 2"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1876/03.png" title="Фон 3"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1877/04.png" title="Фон 4"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>              <div class="slider2__item"><img src="/site/assets/files/1878/05.png" title="Фон 5"/>
-                                <!--(src='/img/things/group_'+i+'/item_'+(j+1)+'.png' title=things[i].items[j])-->
-                              </div>            </div>
-                          </div>
-                        </div>      </div>
-                      <div class="choose__tooltip">
-                        <div class="tooltip__object"></div><a class="tooltip__link" href="/#third" onclick="ga('send','event','expert_advice');"><span>Совет эксперта по уходу</span></a>
+                        </div>    
                       </div>
                     </div>
-                    <div class="game__intro">Мой <span>#ласкафрешлук</span> для <span>#MBFWR</span>. А в каком образе ты отправишься на модный показ? <span>#ласка #womanru</span></div>
                     <div class="game__send" onclick="ga('send','event','create_look_contest');"><span>Собрать fresh-лук</span></div>
                     <form class="game__form" method="post" action="/create_collage/">
                       <input type="hidden" name="data"/>
                     </form>
                   </div>
-                </div>  </div>
+                </div>  
+              </div>
             </div>
 
             <div class="section section--03" id="section-3">
-
+              <div class="main-block">
+                <div class="abs-qeen">
+                  <img src="./images/1.png" alt="hq">
+                </div>
+                <div class="video-block">
+                  <div class="video">
+                    <img src="./images/video.png" alt="video">
+                  </div>
+                  <a href="#" class="black-button">купить билет</a>
+                </div>
+                <div class="text-block">
+                  <div class="img">
+                    <img src="./images/title.png" alt="logo">
+                  </div>
+                  <div class="date">
+                    <img src="./images/date.png" alt="date">
+                  </div>
+                  <p>Харли Квинн, которую вновь сыграла Марго Робби («Тоня против всех»), рассказывает, чем лучше всего вылечить разбитое сердце после расставания с Джокером!</p>
+                  <p>Вместе с четырьмя обворожительными красотками - Охотницей, Черной Канарейкой, Кассандрой Кейн и Рене Монтойей – они ввязываются в потрясающую войну и противостоят гнусному злодею Готэма, Роману Сайонису (Юэн МакГрегор). </p>
+                  <p>Тебя ждет совершенно потрясающая история, ведь для получения долгожданной свободы "птичкам" придется выпустить коготки. Правда делают они это в своем формате – ярко, стильно, с юмором и… потрясающе!</p>
+                </div>
+              </div>
             </div>
 
         </div>

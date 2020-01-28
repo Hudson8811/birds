@@ -206,7 +206,7 @@ if ($('.wrapper--iv').length) {
         responsive: [{
           breakpoint: 768,
           settings: {
-            touchMove: false,
+            touchMove: true,
             touchThreshold: 100
           }
         }]
@@ -264,3 +264,12 @@ if ($('.wrapper--iv').length) {
 if ($('.wrapper--ig').length) {
   $('.header__item').eq(2).addClass('active');
 }
+
+$('.btn-burger').on('click', function () {
+  $('.mobile-menu').toggleClass('active');
+  $('.over-menu').toggleClass('active');
+});
+$('.close-btn').on('click', function () {
+  $('.mobile-menu').removeClass('active');
+  $('.over-menu').removeClass('active');
+});
