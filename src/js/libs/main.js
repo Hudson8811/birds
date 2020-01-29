@@ -10,9 +10,8 @@ $('body').on('click', '.header__button', function () {
   $('.nav').toggleClass('active');
 });
 
-// Р“Р»Р°РІРЅР°СЏ
 
-if ($('.wrapper--main').length) {
+
   var nextButton = $('.next-button');
   var headerItem = $('.header__item');
 
@@ -157,7 +156,6 @@ if ($('.wrapper--main').length) {
   //     $('.interview__list li:first-child .interview__photo').addClass('active');
   //   });
   // }
-}
 
 // РРЅС‚РµСЂРІСЊСЋ
 
