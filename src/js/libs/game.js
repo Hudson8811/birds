@@ -395,7 +395,7 @@ function slickGroup() {
     swipeToSlide: true,
     //infinite: false,
     speed: 600,
-    slidesToShow: 4,
+    slidesToShow: 3,
     infinite: false
   });
   slider2.slick({

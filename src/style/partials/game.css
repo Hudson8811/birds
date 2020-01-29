@@ -377,8 +377,6 @@
 .game__container .game__inner .game__block {
   display: inline-block;
   vertical-align: top;
-  width: 30vw;
-  height: 30vw;
   box-sizing: border-box;
 }
 .game__container .game__inner .game__block.game__collage {

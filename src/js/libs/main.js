@@ -89,63 +89,12 @@ $('body').on('click', '.header__button', function () {
     });
   }
 
-  var interviewNames = [{
-    name: 'Igor Gulyaev',
-    href: '/interview#igor_gulyaev',
-    src: '/img/interview/gulyaev/cover.jpg',
-    mark: 'designer_1'
-  }, {
-    name: 'Yuliya Bazhina',
-    href: '/interview#yuliya_bazhina',
-    src: '/img/interview/bazhina/cover.jpg',
-    mark: 'designer_2'
-  }, {
-    name: 'Julia Dalakian',
-    href: '/interview#julia_dalakian',
-    src: '/img/interview/dalakian/cover.jpg',
-    mark: 'designer_3'
-  }, {
-    name: 'BellaВ Potemkina',
-    href: '/interview#bella_potemkina',
-    src: '/img/interview/potemkina/cover.jpg',
-    mark: 'designer_4'
-  }, {
-    name: 'Elena Zemtsova',
-    href: '/interview#elena_zemtsova',
-    src: '/img/interview/zemtsova/cover.jpg',
-    mark: 'designer_5'
-  }, {
-    name: 'ChloС‘',
-    href: '/interview#chloe',
-    src: '/img/interview/chloe/cover.jpg',
-    mark: 'designer_6'
-  }];
 
   // interviewNames.sort(function () {
   //   return Math.random() - 0.5;
   // });
 
-  var app2 = new Vue({
-    el: '.interview__list',
-    data: {
-      interviews: interviewNames
-    },
-    methods: {
-      ga: function (_ga) {
-        function ga(_x) {
-          return _ga.apply(this, arguments);
-        }
 
-        ga.toString = function () {
-          return _ga.toString();
-        };
-
-        return ga;
-      }(function (mark) {
-        ga('send', 'event', mark);
-      })
-    }
-  });
 
   // if (window.innerWidth > 767) {
   //   $('.interview__name').hover(function () {
@@ -182,51 +131,6 @@ if ($('.wrapper--iv').length) {
         break;
     }
   };
-
-  var app = new Vue({
-    el: '.wrapper--iv',
-    data: {
-      designer: interviewData[0],
-      slider: interviewData[0],
-      all: interviewData
-    },
-    mounted: function mounted() {
-      var ivSlider = $('.iv-slider');
-
-      ivSlider.slick({
-        speed: 800,
-        cssEase: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
-
-        prevArrow: '<button class="slick-arrow slick-prev" type="button" onclick="ga(\'send\',\'event\',\'prev_designer\');"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M145.188 238.575l215.5-215.5c5.3-5.3 5.3-13.8 0-19.1s-13.8-5.3-19.1 0l-225.1 225.1c-5.3 5.3-5.3 13.8 0 19.1l225.1 225c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.3-5.3 5.3-13.8 0-19.1l-215.4-215.5z"/></svg></button>',
-
-        nextArrow: '<button class="slick-arrow slick-next" type="button" onclick="ga(\'send\',\'event\',\'next_designer\');"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.731 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg></button>',
-
-        responsive: [{
-          breakpoint: 768,
-          settings: {
-            touchMove: true,
-            touchThreshold: 100
-          }
-        }]
-      });
-
-      ivSlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-        app.slider = interviewData[nextSlide];
-
-        setTimeout(function () {
-          app.designer = interviewData[nextSlide];
-        }, 400);
-
-        location.hash = interviewData[nextSlide].hash;
-      });
-    },
-
-    methods: {
-      otherClick: function otherClick(index) {
-        $('.iv-slider').slick('slickGoTo', index, true);
-      }
-    }
-  });
 
   var ivSlider = $('.iv-slider');
 

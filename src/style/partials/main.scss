@@ -3,6 +3,7 @@ $Nova-bold: "Conv_ProximaNova-Bold", sans-serif;
 $Nova-reg: "Conv_ProximaNova-Reg", sans-serif;
 $Marker: "Conv_MarkerFelt-Thin_0", sans-serif;
 $Apple: "Conv_15345", sans-serif;
+$Impact: "Conv_Impact", sans-serif;
 
 a{
 	text-decoration: none;
@@ -403,6 +404,32 @@ body{
     transform: none
 }
 .game{
+	.close-button{
+				right: -.5vw!important;
+				top: 1vw!important;
+				width: 4.5vw;
+				height: 4.5vw;
+				cursor: pointer;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-left: auto;
+				margin-right: 1.5vw;
+				margin-top: 1vw;
+				z-index: 100;
+				> div{
+					width: 100%;
+					height: 0.2vw;
+					background-color: #000;
+					&:nth-child(1){
+						transform: rotate(45deg);
+						margin-right: -4.5vw;
+					}
+					&:nth-child(2){
+						transform: rotate(-45deg);
+					}
+				}
+	}
 	.description{
 		position: relative;
 		display: block!important;
@@ -435,8 +462,26 @@ body{
 			background: center/cover url(../../images/HandB.png) no-repeat;
 			z-index: 53;
 		}
+		.name-block{
+			margin-right: -28.5vw;
+			span{
+				font-family: $Impact;
+				font-size: 3.8vw;
+				color: #edc200;
+				&:nth-child(2){
+					color: #000;
+				}
+			}
+			p{
+				font-size: 1.55vw;
+				font-family: $Nova-reg;
+				color: #fff;
+				margin-top: 0.5vw;
+			}
+		}
 		.title-game{
 			display: block;
+			width: 100%;
 			position: relative;
 			z-index: 52;
 		}
@@ -471,14 +516,186 @@ body{
 			}
 		}
 	}
-	.game__collage{
-		margin-top: 5vw;
-		margin-left: 5vw;
-		width: 40vw;
-		height: 40vw;
+	.game_choose{
+		width: 25vw!important;
+		height: 50vw!important;
+		box-sizing: border-box!important;
+		padding: 1vw!important;
+		padding-top: 8vw!important;
+		.choose__groups{
+			margin-top: 2.5vw!important;
+			.group__slider2{
+				margin-bottom: 10vw!important;
+				.slider2__item{
+					img{
+						width: 100%;
+					}
+				}
+			}
+			.group__slider1{
+				overflow: hidden;
+				.slider1__item{
+					img{
+						width: 100%;
+					}
+				}
+			}
+			.slider__button{
+				width: 1vw!important;
+				height: 2vw!important;
+				margin-top: -1vw!important;
+			}
+			.slider__button.left{
+				left: 3%!important;
+				background: center / cover url(./../img/arrow-left.png)no-repeat!important;
+			}
+			.slider__button.right{
+				right: 3%!important;
+				background: center / cover url(./../img/arrow-right.png)no-repeat!important;
+			}
+		}
 	}
-	.game__choose{
-		width: 25vw;
+	.day-look{
+		position: absolute;
+		width: 28vw;
+		bottom: 1%;
+		left: 50%;
+		margin-left: -14.5vw;
+		span{
+			font-family: $Apple;
+			font-size: 2.2vw;
+			color: #000;
+		}
+		div{
+			left: 0;
+			top: 0;
+			position: absolute;
+			width: 100%;
+			height: 3vw;
+			background-color: #fff001;
+			z-index: -1;
+			transform: rotate(-2deg);
+
+		}
+	}
+	.game__collage{
+		margin-top: 5vw!important;
+		margin-left: 5vw!important;
+		width: 40vw!important;
+		height: 40vw!important;
+		border:0.2vw solid #fff001!important;
+		padding: 1vw!important;
+		box-sizing: border-box!important;
+		.collage__logo{
+			position: absolute!important;
+		}
+		.collage_intro{
+			display: block!important;
+			z-index: 0!important;
+			background: center / cover url(../images/bg-game-colaj.png) no-repeat !important;
+			border: none!important;
+			position: relative!important;
+		}
+		.collage__logo{
+			width: 13.5vw!important;
+			height: 19vw!important;
+			left: 2vw!important;
+			z-index: 60;
+			img{
+				display: block!important;
+				width: 100%!important;
+			}
+		}
+		.day-look{
+			z-index: 60;
+			span{
+				font-family: $Apple;
+			}
+		}
+		.collage__items{
+			.item_1{
+				left: auto!important;
+				top: 0!important;
+				right: 10vw!important;
+				bottom: auto!important;
+			}
+			.item_2{
+				left: auto!important;
+				top: 0!important;
+				right: 0!important;
+				bottom: auto!important;
+			}
+			.item_3{
+				top: 15vw!important;
+    			left: 12vw!important;
+			}
+			.item_4{
+				left: auto!important;
+				top: auto!important;
+				right: 0!important;
+				bottom: 0!important;
+			}
+			.item_5{
+    			left: 11vw!important;
+			}
+			.item_6{
+				width: 12vw!important;
+				left: auto!important;
+				top: auto!important;
+				right: 0!important;
+				bottom: 0!important;
+			}
+		}
+	}
+	.choose__menu{
+		display: flex!important;
+		justify-content: space-between!important;
+		flex-wrap: wrap!important;
+		.menu__item{
+			position: relative!important;
+			font-family: $Beba-reg!important;
+			text-transform: uppercase!important;
+			background: transparent!important;
+			margin: 0.5vw;
+			padding: 0!important;
+			&.selected{
+				&:before{
+					content:'';
+					position: absolute;
+					display: block;
+					width: 100%;
+					height: 0.1vw;
+					background-color: #fff;
+					left: 0;
+					bottom: -0.1vw;
+				}
+			}
+		}
+	}
+	.game__send{
+		margin: 0 auto!important;
+		text-align: center!important;
+		span{
+			font-size: 2vw!important;
+			font-family: $Impact!important;
+			color: #000!important;
+			text-transform: uppercase;
+			padding: 0.8vw 2.5vw!important;
+			border-radius: .8vw;
+			background-color: #fff001!important;
+		}
+		ul{
+			display: flex;
+			justify-content: center;
+			li{
+				background-color: #fff001;
+				a{
+					display: block;
+					
+				}
+			}
+			
+		}
 	}
 }
 
