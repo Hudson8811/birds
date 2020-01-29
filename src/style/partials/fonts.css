@@ -109,3 +109,11 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
+@font-face {
+	font-family: 'Conv_15345';
+	src: url('./../fonts/15345.eot');
+	src: local('☺'), url('./../fonts/15345.woff') format('woff'), url('./../fonts/15345.ttf') format('truetype'), url('./../fonts/15345.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

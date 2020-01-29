@@ -2,7 +2,7 @@ $Beba-reg: "Conv_BebasNeue Regular", sans-serif;
 $Nova-bold: "Conv_ProximaNova-Bold", sans-serif;
 $Nova-reg: "Conv_ProximaNova-Reg", sans-serif;
 $Marker: "Conv_MarkerFelt-Thin_0", sans-serif;
-
+$Apple: "Conv_15345", sans-serif;
 
 a{
 	text-decoration: none;
@@ -258,7 +258,7 @@ body{
 
 #section-2{
     position: relative;
-    background: 0 3vw /  101vw  url(./../images/bg2.jpg) no-repeat;
+    background: center / 100% 100%  url(./../images/bg2.jpg) no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -389,7 +389,7 @@ body{
     right: 0;
     width: 100%;
     height: 100vh;
-    background-color: #000;
+    background-color: #ecc12b;
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
     will-change: transform;
@@ -404,10 +404,81 @@ body{
 }
 .game{
 	.description{
+		position: relative;
 		display: block!important;
-		width: 40vw!important;
+		width: 30vw!important;
 		height: auto!important;
-		background-color: #fff001;
+		background-color: #000;
+		padding-top: 1vw;
+		padding-left: 2vw;
+		&:after{
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: -14vw;
+			display: block;
+			width: 28vw;
+    		height: 37vw;
+			margin-top: -20.5vw;
+			background: center / cover url(../images/romb.png) no-repeat;
+			z-index: 51;
+		}
+		&:before{
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: -9vw;
+			display: block;
+			width: 20vw;
+			height: 38vw;
+			margin-top: -21vw;
+			background: center/cover url(../../images/HandB.png) no-repeat;
+			z-index: 53;
+		}
+		.title-game{
+			display: block;
+			position: relative;
+			z-index: 52;
+		}
+		.top{
+			position: relative;
+			display: block;
+			font-size: 1.24vw;
+			line-height: 1.5vw;
+			font-family: $Nova-reg;
+			margin-top: 1vw;
+			text-align: left;
+			padding-right: 2vw;
+			color: #ecc12b;
+			z-index: 52;
+		}
+		ul{
+			position: relative;
+			z-index: 52;
+			text-align: left;
+			margin-top: 3vw;
+			.heading{
+				font-family: $Apple;
+				font-size: 1.9vw;
+				color: #ecc12b;
+			}
+			li{
+				font-family: $Nova-reg;
+				color: #ecc12b;
+				font-size: 1.1vw;
+				padding-right: 12vw;
+				margin-top: 1.5vw;
+			}
+		}
+	}
+	.game__collage{
+		margin-top: 5vw;
+		margin-left: 5vw;
+		width: 40vw;
+		height: 40vw;
+	}
+	.game__choose{
+		width: 25vw;
 	}
 }
 
