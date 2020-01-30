@@ -12,6 +12,7 @@
 //= libs/js.cookie.js
 //= libs/json2.js
 //= libs/ulogin.js
+//= libs/jquery.fancybox.min.js
 /* my scripts */
 
 //= partials/main.js

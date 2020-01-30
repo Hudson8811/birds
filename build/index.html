@@ -166,7 +166,11 @@
         Продемонстрируй и ты свое в обмен на потрясающие <span class="b"></span> призы – билеты в кино на двоих и стильный мерч фильма! 
                         </div>
                     </div>
-                    <a href="#" class="y-button contest-button js-game" onclick="ga('send','event','create_look')">правила</a>
+                    <div class="button-block">
+                      <a href="javascript:;" onclick="modalpreeze(); return false;" class="y-button fancybox">Призы</a>
+                      <a href="#" class="y-button contest-button js-game" onclick="ga('send','event','create_look')">правила</a>
+                      <a href="javascript:;" onclick="modalgallery(); return false;" class="y-button fancybox">Галлерея работ</a>
+                    </div>
                     <div class="logo-block">
                         <img src="./images/TT.png" alt="tt">
                     </div>
@@ -796,7 +800,116 @@
     </div>
 
 </div>
+<div id="modalpreeze" class="modal-fancy" style="display:none">
+  <div class="top-block">
+    <div class="title">
+      <img src="images/preeze-title.png" alt="title">
+    </div>
+    <p>для победителей конкурса "Собери потрясающий лук в стиле Харли Квинн и хищных птиц Готэма"</p>
+  </div>
+  <div class="bottom-block">
+    <div>
+      <span class="heading">1-5 место:</span>
+      <div class="left-img">
+        <img src="images/preeze1.png" alt="preeze">
+      </div>
+     <div class="text">
+      <p>
+        сертификат в ozon.ru на покупку аксессуаров для потрясающе стильного образа номиналом 3 000 руб. 
++ фирменный мерч фильма + носки+ набор татуировок
+      </p>
+     
+     </div>
+    </div>
+    <div>
+      <span class="heading">6-10 место:</span>
+      <div class="right-img">
+        <img src="images/preeze2.png" alt="preeze">
+      </div>
+      <div class="text">
+        <p>наборы футболок + носки 
+          + набор татуировок</p>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div id="modalgallery" class="modal-fancy" style="display:none">
+  <div class="brand">
+    <img src="./images/brand.png" alt="dc">
+</div>
+<div class="pagi">
+    <img src="./images/18.png" alt="pag">
+</div>
+<div class="gallery-block">
+  <div class="title">
+    <img src="images/g-title.png" alt="title">
+  </div>
+  <div class="flex-block">
+   <div class="block">
+    <div class="img-block">
+      <img src="images/g-photo.png" alt="photo">
+    </div>
+    <div class="bottom-block">
+      <div class="name">мария
+        иванова</div>
+      <div class="like-count">
+        <div>355</div>
+        <div>
+          <img src="img/like.png" alt="like">
+        </div>
+      </div>
+    </div>
+   </div>
+   <div class="block">
+    <div class="img-block">
+      <img src="images/g-photo.png" alt="photo">
+    </div>
+    <div class="bottom-block">
+      <div class="name">мария
+        иванова</div>
+      <div class="like-count">
+        <div>355</div>
+        <div>
+          <img src="img/like.png" alt="like">
+        </div>
+      </div>
+    </div>
+   </div>
+   <div class="block">
+    <div class="img-block">
+      <img src="images/g-photo.png" alt="photo">
+    </div>
+    <div class="bottom-block">
+      <div class="name">мария
+        иванова</div>
+      <div class="like-count">
+        <div>355</div>
+        <div>
+          <img src="img/like-b.png" alt="like">
+        </div>
+      </div>
+    </div>
+   </div>
+   <div class="block">
+    <div class="img-block">
+      <img src="images/g-photo.png" alt="photo">
+    </div>
+    <div class="bottom-block">
+      <div class="name">мария
+        иванова</div>
+      <div class="like-count">
+        <div>355</div>
+        <div>
+          <img src="img/like-b.png" alt="like-b">
+        </div>
+      </div>
+    </div>
+   </div>
+  </div>
+  <a href="#" class="y-button">загрузить еще</a>
+</div>
+</div>
   <script src="js/main.js"></script>
 </body>
 </html>
