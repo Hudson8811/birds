@@ -8,6 +8,7 @@ $(window).on('load', function () {
 $('body').on('click', '.header__button', function () {
   $(this).toggleClass('is-active');
   $('.nav').toggleClass('active');
+  $('.nav').toggleClass('active');
 });
 
 

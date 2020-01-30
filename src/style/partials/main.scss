@@ -347,18 +347,14 @@ body{
     align-items: center;
     .bottom-block{
         margin-top: auto;
-        padding-bottom: 2.6vw;
-        display: flex;
-        justify-content: space-between;
+        padding-bottom: 1.875vw;
+		position: relative;
 		width: 100%;
         .text-block{
-			margin-top: 1.5vw;
-            margin-left: 3vw;
-			margin-right: 3vw;
-			width: 29vw;
+            margin-left: 4.89vw;
 			img{
 				display: block;
-				width: 100%;
+				width: 29.7vw;
 			}
             .text{
                 font-size: 1.08vw;
@@ -418,26 +414,28 @@ body{
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
+		cursor: pointer;
         span{
             display: block;
         }
         .big{
-            font-family: $Marker;
-            font-size: 2.5vw;
+            font-family: $Impact;
+            font-size: 1.875vw;
             text-align: center;
+			color: #000000;
         }
         .small{
             font-family: $Nova-reg;
             font-size: 1.25vw;
             line-height: 2vw;
-            color:#fff001;
+            color:#d7246d;
         }
         &.abs-1{
             top: 13vw;
             left: 7vw;
 			width: 19.5vw;
 			height: 8.5vw;
-            background-image: url(./../images/abs1.png);
+            background-image: url(./../images/abs-1.png);
             padding-right: 6vw;
 			padding-top: 1vw;
 			padding-bottom: 0.6vw;
@@ -447,7 +445,7 @@ body{
             left: 13.5vw;
             width: 16.5vw;
             height: 11.7vw;
-            background-image: url(./../images/abs2.png);
+            background-image: url(./../images/abs-2.png);
             padding-top: 7vw;
         }
         &.abs-3{
@@ -455,7 +453,7 @@ body{
             left: 31.5vw;
             width: 18vw;
             height: 17.2vw;
-            background-image: url(./../images/abs3.png);
+            background-image: url(./../images/abs-3.png);
             padding-top: 10vw;
             .big{
                 padding: 0 0.2vw;
@@ -466,7 +464,7 @@ body{
             right: 38vw;
             width: 15.5vw;
             height: 15.3vw;
-            background-image: url(./../images/abs4.png);
+            background-image: url(./../images/abs-4.png);
             padding-top: 10.5vw;
         }
         &.abs-5{
@@ -474,7 +472,7 @@ body{
             right: 9vw;
             width: 23.5vw;
             height: 8.5vw;
-            background-image: url(./../images/abs5.png);
+            background-image: url(./../images/abs-5.png);
             padding-top: 3.7vw;
 			padding-right: 6vw;
 			padding-bottom: 2vw;
