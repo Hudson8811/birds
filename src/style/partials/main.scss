@@ -20,7 +20,86 @@ body{
 .hide{
 	display: none;
 }
-
+#modalgallery{
+	.pagi{
+		display: none;
+	}
+	.brand{
+		display: none;
+	}
+		width: 100vw;
+		height: 100vh;
+		background-color: #edc200;
+	.gallery-block{
+		.title{
+			max-width: 40vw;
+			margin: 0 auto;
+			img{
+				display: block;
+				width: 100%;
+			}
+		}
+		.flex-block{
+			margin-top: 4vw;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			.block{
+				width: 22vw;
+				.img-block{
+					width: 100%;
+					img{
+						display: block;
+						width: 100%;
+					}
+				}
+				.bottom-block{
+					margin-top: 1vw;
+					display: flex;
+					justify-content: space-between;
+					.name{
+						font-family: $Apple;
+						font-size: 1vw;
+						color: #000;
+						max-width: 150px;
+					}
+					.like-count{
+						display: flex;
+						div{
+							font-family: $Apple;
+							font-size: 2.2vw;
+							color: #000;
+							&:nth-child(1){
+								margin-right: 1vw;
+							}
+							&:nth-child(2){
+								width: 4vw;
+								img{
+									display: block;
+									width: 100%;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.y-button{
+			margin: 0 auto;
+			margin-top: 4vw;
+			text-transform: uppercase;
+			font-family: $Impact;
+			line-height: 3.5vw;
+		}
+	}
+	.fancybox-button svg path{
+		fill:#000
+	}
+	.fancybox-button{
+		width: 10vw;
+		height: 10vw;
+	}
+}
 .header{
 	position: fixed;
 	z-index: 100;
@@ -118,6 +197,9 @@ body{
 	overflow: hidden;
 	box-sizing: border-box;
 	padding-top: 3vw;
+}
+.slider-wrapper{
+	overflow: hidden;
 }
 #section-1{
 	position: relative;
@@ -249,7 +331,7 @@ body{
 	color: #111815;
 	background-color: #fff001;
 	font-size: 2vw;
-	line-height: 3.5vw;
+	line-height: 1.5vw;
 	font-family: $Marker;
 	width: 14.6vw;
 	height: 3.5vw;
@@ -296,23 +378,27 @@ body{
             }
         }
         .y-button{
-
+			white-space: nowrap;
 			width: auto;
 			height: auto;
 			position: relative;
+			margin: 0 1vw; 
 			margin-top: auto;
 			background: transparent;
 			color: #fff;
 			font-size: $Apple;
 			text-transform: uppercase;
-			font-size: 1.6vw;
+			font-size: 1.4vw;
+		}
+		.button-block{
+			display: flex;
 		}
 		.y-button{
 			&:before{
 				content: '';
 				position: absolute;
 				left: 0;
-				bottom: 1vw;
+				bottom: 0;
 				display: block;
 				height: 0.2vw;
 				width: 100%;
@@ -895,6 +981,102 @@ body{
 }
 
 @media screen and (max-width:768px){
+	#modalgallery .gallery-block .flex-block{
+		flex-direction: column;
+		.block{
+			width: 90%;
+			margin: 0 auto;
+		}
+	}
+	#modalgallery .fancybox-button{
+		width: 20vw;
+		height: 20vw;
+	}
+	#modalgallery{
+		.fancybox-button svg path{
+			fill:#fff001;
+		}
+		position: relative;
+		.pagi{
+			display: block;
+			width: 10vw;
+			top: auto;
+			bottom:-66vw;
+			right: 0;
+		}
+		.brand{
+			display: block;
+			left: auto;
+			right: 0;
+			bottom: -50vw;
+			width: 3vw;
+		}
+	}
+	#modalgallery .gallery-block .title{
+		max-width: 100%;
+	}
+	#modalgallery .gallery-block .flex-block .block .bottom-block{
+		margin-top: 5vw;
+		margin-bottom: 5vw;
+	}
+	#modalgallery .gallery-block .y-button{
+		font-size: 6vw;
+		width: 48vw;
+		height: 9vw;
+		line-height: 9vw;
+	}
+	#modalgallery .gallery-block .flex-block .block .bottom-block .name{
+		font-size: 4vw;
+	}
+	#modalgallery .gallery-block .flex-block .block .bottom-block .like-count div:nth-child(1){
+		font-size: 8vw;
+		margin-right: 7vw;
+	}
+	#modalgallery .gallery-block .flex-block .block .bottom-block .like-count div:nth-child(2){
+		width: 10vw;
+	}
+	#modalpreeze .bottom-block{
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	#modalpreeze .top-block .title img{
+		width: 35vw!important;
+	}
+	#modalpreeze .top-block p{
+		font-size: 2.4vw!important;
+	}
+	#modalpreeze .bottom-block .heading{
+		font-size: 5vw!important;
+	}
+	#modalpreeze .bottom-block .left-img img{
+		width: 60vw!important;
+	}
+	#modalpreeze .bottom-block .left-img, #modalpreeze .bottom-block .right-img{
+		width: 100%;
+		height: 35vw!important;
+	}
+	#modalpreeze .bottom-block>div{
+		width: 100%!important;
+	}
+	#modalpreeze .bottom-block .text{
+		width: 100%!important;
+		p{
+			font-size: 3vw!important;
+			text-align: center;
+		}
+	}
+	#modalpreeze .bottom-block .right-img img{
+		width: 35vw!important;
+	}
+	#modalpreeze .fancybox-button{
+		height: 18vw!important;
+		width: 18vw!important;
+	}
+	#modalpreeze .bottom-block>div:nth-child(1) .heading{
+		margin-left: auto!important;
+		text-align: center!important;
+	}
 	.over-menu{
 		display: none;
 		.close-btn{
@@ -1104,27 +1286,27 @@ body{
 					line-height: 3.3vw;
 				}
 			}
-			.y-button{
+			.button-block{
 				position: absolute;
-				left: 50%;
-				bottom: 3vw;
-				margin-left: -100px;
+				width: 100%;
+				justify-content: space-around;
+				bottom: 20px;
+			}
+			.y-button{
+				z-index: 60;
 				background: transparent;
 				color: #fff;
-				width: 200px;
 				text-align: center;
 				height: auto;
-				font-size: 5vw;
+				font-size: 4vw;
 				line-height: 6vw;
 				&:before{
 					content: '';
 					position: absolute;
-					left: 50%;
 					bottom: 0;
 					display: block;
 					height: 0.5vw;
-					width: 24vw;
-					margin-left: -12vw;
+					width: 100%;
 					background-color: #7f7f7f;
 				}
 			}
@@ -1448,6 +1630,95 @@ body{
 	.game .game_choose .choose__groups .slider__button{
 		width: 2vw!important;
 		height: 4vw!important;
+	}
+	
+}
+
+#modalpreeze{
+	box-sizing: border-box;
+	padding-left:4vw;
+	padding-right:4vw;
+	background-color: #edc200;
+	.top-block{
+		.title{
+			img{
+				width: 16vw;
+				display: block;
+				margin: 0 auto;
+			}
+		}
+		p{
+			display: block;
+			font-family: $Nova-reg;
+			font-size: 1.5vw;
+			color: #000;
+			text-align: center;
+			margin: 0 auto;
+			margin-top: 1vw;
+			max-width: 62%;
+		}
+	}
+	.bottom-block{
+		display: flex;
+		> div{
+			width: 50%;
+			&:nth-child(2){
+				.text{
+					p{
+						text-align: center;
+					}
+				}
+			}
+			&:nth-child(1){
+				.heading{
+					text-align: left;
+					margin-left: 27%;
+				}
+			}
+		}
+		.heading{
+			display: block;
+			font-family: $Apple;
+			font-size: 2vw;
+			color: #000;
+			margin-top: 4vw;
+			margin-bottom: 2vw;
+			text-align: center;
+		}
+		.left-img{
+			img{
+				display: block;
+				width: 28vw;
+				margin: 0 auto;
+			}
+		}
+		.left-img, .right-img{
+			height: 16vw;
+		}
+		.right-img{
+			img{
+				display: block;
+				width: 15vw;
+				margin: 0 auto;
+			}
+		}
+		.text{
+			width: 28vw;
+			margin: 0 auto;
+			p{
+				font-family: $Nova-reg;
+				color: #000;
+				font-size: 1vw;
+				margin-bottom: 1vw;
+			}
+		}
+	}
+	.fancybox-button{
+		width: 9vw;
+		height: 9vw;
+	}
+	.fancybox-button svg path{
+		fill: #000;
 	}
 	
 }
