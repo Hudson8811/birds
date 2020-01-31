@@ -690,3 +690,8 @@ $('.close-btn').on('click', function () {
     $('.mobile-menu').removeClass('active');
     $('.over-menu').removeClass('active');
 });
+
+$('.over-menu .header__item').click(function () {
+    $('.over-menu').removeClass('active');
+    $('.mobile-menu').removeClass('active');
+});
