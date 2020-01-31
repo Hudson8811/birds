@@ -1738,8 +1738,24 @@ body{
 }
 
 @media screen and (max-width:768px){
+	.header .soc-link button img{
+		height: auto;
+		width: 100%;
+	}
+	.header .soc-link button.ok{
+		width: 1.948vw;
+	}
+	.header .soc-link button.fb{
+		width: 1.6883vw;
+	}
+	.header .soc-link button.vk{
+		width: 2.207vw;
+	}
 	.header .soc-link button{
 		height: auto;
+	}
+	.header .soc-link button.tw{
+		width: 3.2467vw;
 	}
 	#modalgallery .gallery-block .flex-block{
 		flex-direction: column;
@@ -2193,6 +2209,8 @@ body{
 		}
 	}
 	#section-3{
+		height: 227.27272vw !important;
+
 		.brand{
 			margin: 0;
 			display: block;
@@ -2207,18 +2225,29 @@ body{
 			top: 50%;
 			width: 10vw;
 		}
+		.abs-qeen{
+			z-index: -1;
+			width: 120%;
+			left:-15%;
+			height: auto;
+			top: 9vw;
+			img{
+				height: auto;
+			}
+		}
 		.main-block{
+			padding-right: 0;
 			position: relative;
 			padding-top: 0;
 			width: 100%;
-			height: 100vh;
+			height: 100%;
 			flex-direction: column;
 			justify-content: center;
 			.video-block{
 				width: 100%;
 				justify-content: center;
 				align-items: center;
-				margin-top: 64vw;
+				margin-top: 55vw;
 				.video{
 					width: 68vw;
 					height: 39vw;
@@ -2236,6 +2265,7 @@ body{
 					margin-top: 1vw;
 					text-transform: uppercase;
 					font-size: 4vw;
+					margin-bottom: 6.5vw;
 				}
 			}
 			.text-block{
@@ -2255,16 +2285,17 @@ body{
 				.date{
 					left: auto;
 					right: 3vw;
-					top: 35vw;
-					width: 27vw;
+					top: 41vw;
+					width: 28vw;
 					span{
-						font-size: 5vw;
+						font-size: 5.1948vw;
+						text-transform: uppercase;
 					}
 				}
 				p{
 					padding: 0;
-					font-size: 4vw;
-					line-height: 5vw;
+					font-size: 3.8961vw;
+					line-height: 4.6753vw;
 					margin-bottom: 3vw;
 				}
 			}
