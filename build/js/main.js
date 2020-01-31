@@ -130,7 +130,7 @@ $(document).ready(function() {
     function getData() {
         $.ajax({
             type: "POST",
-            url: "http://localhost/get_items/",
+            url: "/get_items/",
             success: function(data) {
                 if (data.length){
                     images = JSON.parse(data);
@@ -425,7 +425,7 @@ $(document).ready(function() {
     window.auth = function (data) {
         $.ajax({
             type: "POST",
-            url: "http://localhost/authorize/",
+            url: "/authorize/",
             data: data,
             success: function(data) {
                 if (data.length > 0) {
@@ -441,7 +441,7 @@ $(document).ready(function() {
     function checkAuth(type) {
         $.ajax({
             type: "POST",
-            url: "http://localhost/get_hashcode/",
+            url: "/get_hashcode/",
             success: function(data) {
                 if (JSON.parse(data).hashcode != '' && JSON.parse(data).hashcode != undefined) {
                     if (type != 'only_hash')
@@ -454,7 +454,93 @@ $(document).ready(function() {
     checkAuth();
 
 
+    function objLength(obj){
+        var i=0;
+        for (var x in obj){
+            if(obj.hasOwnProperty(x)){
+                i++;
+            }
+        }
+        return i;
+    }
+
+    //gallery
+    var collages = "";
+    var collagesCount = "";
+    var showedCollages = 0;
+
+    var collagesData = function() {
+        return $.ajax({
+            type: "POST",
+            url: "/get_collages/"
+        });
+    }
+    collagesData().then(function(response) {
+        collages = JSON.parse(response).collages;
+        collagesCount = objLength(collages);
+
+        addGallery();
+    });
+
+
+
+    function addGallery() {
+        var htmlOut = '';
+
+        showedCollages = showedCollages + 4;
+        start = showedCollages - 4;
+        if (showedCollages > collagesCount) {
+            showedCollages = collagesCount;
+            $('.js-add-gallery').hide();
+        }
+
+        for (var i = start; i < showedCollages; i++) {
+
+            var name = collages[i+1].name != undefined ? collages[i+1].name : '';
+            var likes = collages[i+1].likes != undefined ? collages[i+1].likes : '0';
+            var image = collages[i+1].image;
+            htmlOut += '<div class="block" data-id="'+image+'">';
+            htmlOut += '<div class="img-block">';
+            htmlOut += '<img src="/collages/'+image+'.jpg" alt="photo">';
+            htmlOut += '</div>';
+            htmlOut += '<div class="bottom-block">';
+            htmlOut += '<div class="name">'+name+'</div>';
+            htmlOut += '<div class="like-count">';
+            htmlOut += '<div class="likes">'+likes+'</div>';
+            htmlOut += '<div class="like-block"><img src="img/like.png" alt="like" onclick="addLike('+image+');"></div>';
+            htmlOut += '</div>';
+            htmlOut += '</div>';
+            htmlOut += '</div>';
+        }
+        $('#modalgallery .flex-block').append(htmlOut);
+    }
+
+    $('.js-add-gallery').click(function () {
+        addGallery();
+    });
+
+
+
+
+
+
 });
+
+function addLike(id) {
+    $.ajax({
+        type: "POST",
+        url: "/add_like/",
+        data: { id : id },
+        success: function(data) {
+            var parse = JSON.parse(data);
+            var likes = parse.likes;
+
+            var block = $('#modalgallery div[data-id='+id+']');
+            block.find('.likes').html(likes);
+            block.find('.like-block').html('<img src="img/like-b.png" alt="like">');
+        }
+    });
+}
 
 function sendCollage(elem) {
     $(elem).attr('disabled',true);
@@ -484,7 +570,7 @@ function sendCollage(elem) {
 
     $.ajax({
         type: "POST",
-        url: "http://localhost/save_collage/",
+        url: "/save_collage/",
         data: { person : persId, items: dataCollage, theme: theme },
         success: function(data) {
 
@@ -503,28 +589,6 @@ function sendCollage(elem) {
             }
         }
     });
-
-
-    //gallery
-    var collages = "";
-    var showedCollages = 0;
-    function getGallery() {
-        $.ajax({
-            type: "POST",
-            url: "http://localhost/get_collages/",
-            success: function(data) {
-                if (data.length){
-                    collages = JSON.parse(data);
-                } else {
-                    console.log('empty data');
-                }
-            },
-            error: function () {
-                alert('Ошибка получения галереи');
-            }
-        });
-    }
-    getGallery();
 }
 
 
@@ -610,7 +674,7 @@ $(function () {
 function afterShare(social) {
     $.ajax({
         type: "POST",
-        url: "http://localhost/new_share/",
+        url: "/new_share/",
         data: { social_share : social },
         success: function(data) {
             console.log('share ok');
