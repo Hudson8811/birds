@@ -97,11 +97,11 @@ body{
 	.fancybox-button{
 		background: url(../images/close.png) center center no-repeat;
 		background-size: contain;
-		width: 3.64vw;
-		height: 3.64vw;
+		width: vw(70);
+		height: vw(70);
 		padding: 0;
-		right: 1.30vw;
-		top: 1.30vw;
+		right: vw(24);
+		top: vw(24);
 		svg{
 			display: none;
 		}

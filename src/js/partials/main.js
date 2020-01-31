@@ -624,3 +624,12 @@ function afterShare(social) {
         }
     });
 }
+
+$('.btn-burger').on('click', function () {
+    $('.mobile-menu').toggleClass('active');
+    $('.over-menu').toggleClass('active');
+});
+$('.close-btn').on('click', function () {
+    $('.mobile-menu').removeClass('active');
+    $('.over-menu').removeClass('active');
+});

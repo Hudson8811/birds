@@ -169,11 +169,3 @@ if ($('.wrapper--ig').length) {
   $('.header__item').eq(2).addClass('active');
 }
 
-$('.btn-burger').on('click', function () {
-  $('.mobile-menu').toggleClass('active');
-  $('.over-menu').toggleClass('active');
-});
-$('.close-btn').on('click', function () {
-  $('.mobile-menu').removeClass('active');
-  $('.over-menu').removeClass('active');
-});
