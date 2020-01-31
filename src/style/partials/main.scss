@@ -1811,26 +1811,47 @@ body{
 	#modalgallery .gallery-block .flex-block .block .bottom-block .like-count div:nth-child(2){
 		width: 10vw;
 	}
+	#modalpreeze{
+		width: 85.714vw;
+		padding-top: 4.6753vw;
+		padding-left: 2.5974vw;
+		padding-right:  2.5974vw
+	}
+	#modalpreeze .fancybox-button.fancybox-close-small{
+		width: 9.35vw !important;
+		height: 9.35vw !important;;
+		right: 2.5974vw;
+		top:2.5974vw
+	}
 	#modalpreeze .bottom-block{
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		margin-top: 7.7922vw;
 	}
 	#modalpreeze .top-block .title img{
 		width: 35vw!important;
 	}
 	#modalpreeze .top-block p{
-		font-size: 2.4vw!important;
+		font-size: 3.16vw!important;
+		max-width: none;
+		line-height: 3.5vw!important;
+		padding-left: 2vw;
+		padding-right: 2vw;
+		margin-top: 3.20vw;
 	}
 	#modalpreeze .bottom-block .heading{
-		font-size: 5vw!important;
+		font-size: 6vw!important;
+		margin-bottom: 2.5974vw;
 	}
 	#modalpreeze .bottom-block .left-img img{
-		width: 60vw!important;
+		width: 76.62vw!important;
+		margin-left: 2.5974vw;
+		margin-bottom: 5.1948vw;
 	}
 	#modalpreeze .bottom-block .left-img, #modalpreeze .bottom-block .right-img{
 		width: 100%;
-		height: 35vw!important;
+		height: auto!important;
 	}
 	#modalpreeze .bottom-block>div{
 		width: 100%!important;
@@ -1838,12 +1859,22 @@ body{
 	#modalpreeze .bottom-block .text{
 		width: 100%!important;
 		p{
-			font-size: 3vw!important;
+			font-size: 3.1168vw!important;
+			line-height: 3.1168vw!important;
 			text-align: center;
 		}
 	}
+	#modalpreeze .bottom-block>div:nth-child(1) .text{
+		padding-left: 10vw;
+		padding-right: 10vw;
+		margin-bottom: 3.63636363vw;
+	}
+	#modalpreeze .bottom-block .right-img{
+		justify-content:center;
+		margin-bottom: 5px;
+	}
 	#modalpreeze .bottom-block .right-img img{
-		width: 35vw!important;
+		width: 58.44vw!important;
 	}
 	#modalpreeze .fancybox-button{
 		height: 18vw!important;
