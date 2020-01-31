@@ -4,8 +4,7 @@
 //= libs/fullpage.min.js
 //= libs/slick.min.js
 //= libs/jquery.fancybox.min.js
+//= libs/auth.js
 /* my scripts */
 
 //= partials/main.js
-
-//= libs/game-new.js
