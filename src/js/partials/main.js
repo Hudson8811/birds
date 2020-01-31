@@ -60,11 +60,12 @@ $(document).ready(function() {
 
     //change group
     $('.menu__item').click(function () {
-        if ($(this).hasClass('selected')) return;
-        $(this).addClass('selected').siblings().removeClass('selected');
-        var group = $('.choose__group').eq($(this).index());
-        group.addClass('selected').siblings().removeClass('selected');
         var id = $('.game.active').data('id');
+        if ($(this).hasClass('selected')) return;
+        $('.menu__item').removeClass('selected');
+        $(this).addClass('selected').siblings().removeClass('selected');
+        var group = $('#game-'+id+' .choose__group').eq($(this).index());
+        group.addClass('selected').siblings().removeClass('selected');
         setGroup(id);
         slickGroup();
     });
@@ -227,7 +228,7 @@ $(document).ready(function() {
     }
 
     function sliderControl(){
-        $('.group__slider1, .group__slider2, .slider_wrap .slider__button, .slider_wrap1 .slider__buttonm, .slider2__item, .slider1__item').off();
+        $('.group__slider1, .group__slider2, .slider_wrap .slider__button, .slider_wrap1 .slider__button, .slider2__item, .slider1__item').off();
         // sinhronize sliders
         $('.game.active .group__slider1, .group__slider2').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
             if (!inClick) {
@@ -251,7 +252,7 @@ $(document).ready(function() {
         $('.game.active .slider_wrap1 .slider__button').click(function () {
             var inc = $(this).hasClass('right');
             var command = inc ? 'slickNext' : 'slickPrev';
-            var slider1 = group.find('.group__slider2');
+            var slider1 = group.find('.group__slider1');
             slider1.slick(command);
         });
 
@@ -283,8 +284,8 @@ $(document).ready(function() {
                 count = countItems(collage1);
                 break;
             case 2:
-                collage2[catId] = collage2;
-                count = countItems(collage1);
+                collage2[catId] = itemId;
+                count = countItems(collage2);
                 break;
             case 3:
                 collage3[catId] = itemId;
@@ -490,26 +491,26 @@ function sendCollage(elem) {
     var persId = $('.game.active').data('id');
     var theme = $('.game.active .day-look span').html();
     var dataCollage = '';
+    console.log(persId);
     switch (persId) {
         case 1:
             dataCollage = collage1;
             break;
         case 2:
-            dataCollage = collage3;
+            dataCollage = collage2;
             break;
         case 3:
-            dataCollage = collage4;
+            dataCollage = collage3;
             break;
         case 4:
-            dataCollage = collage5;
+            dataCollage = collage4;
             break;
         case 5:
-            dataCollage = collage6;
+            dataCollage = collage5;
             break;
         default:
             return false;
     }
-
 
     $.ajax({
         type: "POST",

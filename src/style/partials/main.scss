@@ -625,7 +625,11 @@ body{
 					.collage__items {
 						.collage__item {
 							position: absolute;
-							padding: 1vw;
+							padding: vw(5);
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							box-sizing: content-box;
 							.delete_cross {
 								position: absolute;
 								display: none;
@@ -637,34 +641,46 @@ body{
 								background-size: contain;
 							}
 							img {
-								width: 100%;
-								object-fit: contain;
+								max-height: 100%;
+								max-width: 100%;
 							}
 							&.item_1 {
-								width: 14vw;
-								top: 1vw;
-								left: 0vw;
+								width: vw(188);
+								height: vw(188);
+								top: vw(25);
+								left: vw(275);
+								z-index: 2;
 							}
 							&.item_2 {
-								z-index: 2;
-								width: 14vw;
-								top: 8vw;
-								left: 10vw;
+								width: vw(280);
+								height: vw(280);
+								top: vw(20);
+								right: vw(20);
 							}
 							&.item_3 {
-								width: 14vw;
-								top: 1vw;
-								left: 18vw;
+								width: vw(162);
+								height: vw(162);
+								top: vw(220);
+								left: vw(275);
+								z-index: 3;
 							}
 							&.item_4 {
-								width: 12vw;
-								top: 12vw;
-								left: 1vw;
+								width: vw(267);
+								height: vw(313);
+								bottom: vw(52);
+								right: vw(24);
 							}
 							&.item_5 {
-								width: 12vw;
-								top: 17vw;
-								left: 19vw;
+								width: vw(119);
+								height: vw(160);
+								left: vw(39);
+								bottom: vw(31);
+							}
+							&.item_6 {
+								width: vw(126);
+								height: vw(368);
+								bottom: vw(36);
+								left: vw(176);
 							}
 							&[data-imaged="1"]:hover {
 								background-color: rgba(255,255,255,0.5);
@@ -898,7 +914,7 @@ body{
 		box-sizing: border-box;
 		height: auto;
 		background-color: #000;
-		padding-top: vw(28);
+		padding-top: vw(15);
 		padding-left: vw(28);
 		&:after{
 			content: '';
@@ -946,7 +962,7 @@ body{
 		}
 		.title-game{
 			display: block;
-			width: 80%;
+			width: vw(458);
 			position: relative;
 			z-index: 52;
 		}
@@ -1043,49 +1059,19 @@ body{
 			}
 		}
 		.collage__items{
-			.item_1{
-				left: auto!important;
-				top: 0!important;
-				right: 10vw!important;
-				bottom: auto!important;
-			}
-			.item_2{
-				left: auto!important;
-				top: 0!important;
-				right: 0!important;
-				bottom: auto!important;
-			}
-			.item_3{
-				top: 15vw!important;
-    			left: 12vw!important;
-			}
-			.item_4{
-				left: auto!important;
-				top: auto!important;
-				right: 0!important;
-				bottom: 0!important;
-			}
-			.item_5{
-    			left: 11vw!important;
-			}
-			.item_6{
-				width: 12vw!important;
-				left: auto!important;
-				top: auto!important;
-				right: 0!important;
-				bottom: 0!important;
-			}
+
 		}
 	}
 	.choose__menu{
 		display: flex!important;
 		flex-wrap: wrap!important;
+		justify-content: center;
 		.menu__item{
 			position: relative!important;
 			font-family: $Beba-reg!important;
 			text-transform: uppercase!important;
 			background: transparent!important;
-			margin: 0.5vw;
+			margin: 0.5vw 0.6vw;
 			padding: 0!important;
 			&.selected{
 				&:before{
@@ -1143,7 +1129,7 @@ body{
 
 	.game__auth{
 		position: relative;
-		//display: none;
+		display: none;
 		.title{
 			color: #ffffff;
 			font-family: $Nova-reg;
