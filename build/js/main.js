@@ -139,7 +139,7 @@ $(document).ready(function() {
         // 5 - Рене - 5
 
         var persId = id;
-        console.log(images.items);
+
         var persName = images.items[id].name;
 
         var gamePop = $('#game-'+persId);
