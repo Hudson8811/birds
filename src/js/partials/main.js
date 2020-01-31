@@ -306,7 +306,6 @@ $(document).ready(function() {
         if (group.index() === $('.game.active .choose__group').length)
             $('.game__collage .collage__back img').attr('src', img);
         else {
-            $('.game__send').show();
             var ind = group.index();
             var cur_item = $('.game.active .collage__item').eq(ind);
             cur_item.attr('data-imaged',1);
@@ -447,6 +446,28 @@ function sendCollage(elem) {
             }
         }
     });
+
+
+    //gallery
+    var collages = "";
+    var showedCollages = 0;
+    function getGallery() {
+        $.ajax({
+            type: "POST",
+            url: "/get_collages/",
+            success: function(data) {
+                if (data.length){
+                    collages = JSON.parse(data);
+                } else {
+                    console.log('empty data');
+                }
+            },
+            error: function () {
+                alert('Ошибка получения галереи');
+            }
+        });
+    }
+    getGallery();
 }
 
 
