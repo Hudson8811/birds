@@ -1,59 +1,6 @@
-/*var things = [
-  {name: 'Фоны', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']},
-  {name: 'Топы и платья', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']},
-  {name: 'Брюки и юбки', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']},
-  {name: 'Верхняя одежда', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']},
-  {name: 'Обувь', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']},
-  {name: 'Аксессуары', items: ['Вещь_1','Вещь_2','Вещь_3','Вещь_4','Вещь_5','Вещь_6','Вещь_7','Вещь_8','Вещь_9','Вещь_10']}
-];*/
-
-var collage_items = $('.collage__item');
-var game_button = $('.next-button-game');
-var groups = $('.choose__group');
-
 var cur_collages;
 
 $(function () {
-
-  //ulogin
-  /*uLogin.customInit('uLogin_main', {
-    redirect_uri: '',
-    display: 'buttons',
-    fields: 'first_name,last_name,email,sex,city',
-    providers: 'vkontakte,facebook,odnoklassniki,twitter',
-    mobilebuttons: 0,
-    hidden: 'other',
-    callback: 'authorise'
-  });*/
-
-
-  //region rules checkbox
-  var rules = $('.form__checks');
-  var checker = $('.social-checker');
-  checker.click(function () {
-    rules.animate({'opacity': 0}, 300).animate({'opacity': 1}, 300);
-  });
-
-  $('.form__checks input').change(function () {
-    checker.toggle();
-  });
-  //endregion
-
-  //likes
-  $('body').on('click', '.info__likes', function(){
-    if ($(this).is('.checked')) return;
-    var obj = $(this);
-    var id = $(this).attr('data-id');
-    //console.log($(this).attr('data-id'));
-    $.post('/add_like',{id:id},function(data) {
-      //console.log(data);
-      if (data.result) return;
-      $('.item__info .info__likes[data-id='+id+']').text(data.count);
-      obj.html(data.count);
-      //obj.addClass('checked');
-    },'json')
-  });
-
 
   //region init game
   setGroup();
@@ -66,7 +13,6 @@ $(function () {
     cur_collages = data;
     //console.log(data);
   },'json');
-
 
   //show game view
   if (window.showGame !== undefined) {
@@ -87,24 +33,6 @@ $(function () {
       }
     }
   }
-
-  //close game view
-  $('.close-button').click(function () {
-    /*$.fn.fullpage.setAllowScrolling(true);
-    $('.overlay').hide();
-    $('.game').removeClass('active');*/
-    window.history.pushState("", "", "http://freshlook.woman.ru/");
-  });
-  //endregion
-
-
-  $('.next-button-game').click(function () {
-    toggleView();
-  });
-
-  //region Sliding
-
-
 
 
   // sinhronize sliders
@@ -178,7 +106,7 @@ $(function () {
     item.addClass('selected');
 
     var img = item.find('img').attr('src');
-    if (group.index() === groups.length-1)
+    if (group.index() === $('.choose__group').length-1)
       $('.game__collage .collage__back img').attr('src', img);
     else {
       $('.game__send').show();
@@ -189,19 +117,8 @@ $(function () {
     }
   }
 
-  //hover thing
-  /*collage_items.hover(function () {
-    //console.log($(this).find('img').attr('src'));
-    if ($(this).find('img').attr('src') === undefined) return;
-    $(this).css({'backgroundColor':'rgba(255, 255, 255,.5)','zIndex':'10'});
-    $(this).find('.delete_cross').show();
-  }, function () {
-    $(this).css({'backgroundColor':'transparent','zIndex':'1'});
-    $(this).find('.delete_cross').hide();
-  });*/
-
   //click thing
-  collage_items.click(function () {
+  $('.collage__item').click(function () {
     $(this).removeAttr('data-imaged');
     $(this).find('img').removeAttr('src');
     //$(this).css({'backgroundColor':'transparent','zIndex':'1'});
@@ -213,8 +130,8 @@ $(function () {
   //collage send
   $('.game__send').click(function () {
     var items = [];
-    for (var i = 0; i < collage_items.length; i++) {
-      var obj = $(collage_items[i]);
+    for (var i = 0; i < $('.collage__item').length; i++) {
+      var obj = $($('.collage__item')[i]);
       var img = obj.find('img').attr('src');
       if (img === undefined) continue;
       items[items.length] = {group: obj.index(),img:img}
@@ -231,38 +148,12 @@ $(function () {
   });
 */
 
-
-// handle items
-  var gallery_items = $('.gallery__item');
-  var load_count = 21;
-  var gallery_container = $('.gallery__items');
-  function loadGallery() {
-    var loaded = Number(gallery_container.attr('data-loaded'));
-    var end_item = loaded + load_count;
-    if (end_item > gallery_items.length) {
-      end_item = gallery_items.length;
-      $('.galery__load').hide();
-    }
-    for (var i = loaded; i < end_item; i++) {
-      var item = gallery_items.eq(i);
-      var img = item.find('img');
-      img.attr('src',item.attr('data-img'));
-      item.css('display','inline-block');
-    }
-    gallery_container.attr('data-loaded',end_item);
-  }
-
-  $('.galery__load').click(function () {
-    loadGallery();
-  });
-  loadGallery();
 });
 
 //region toggle game/gallery
 var inGame = true;
 var game = $('.game__container');
 var gallery = $('.gallery__container');
-var toggle_button = $('.next-button-game span');
 function toggleView() {
   inGame = !inGame;
   if (!inGame) {
@@ -273,7 +164,6 @@ function toggleView() {
   else {
     game.show();
     gallery.hide();
-    toggle_button.html('Победители<br>и участники');
     slickGroup();
   }
 
@@ -371,7 +261,7 @@ function setGroup() {
 
 function updateTooltip(slide) {
   var tooltip = $('.choose__tooltip');
-  if (group.index() == groups.length - 1) {
+  if (group.index() == $('.choose__group').length - 1) {
     tooltip.hide();
     return;
   }
@@ -413,8 +303,8 @@ function slickGroup() {
 function makeData() {
   var items = [];
   var add = undefined;
-  for (var i = 0; i < collage_items.length; i++) {
-    var item = $(collage_items[i]);
+  for (var i = 0; i < $('.collage__item').length; i++) {
+    var item = $($('.collage__item')[i]);
     var img_owner = item.find('img');
     var img = img_owner.attr('src');
     //console.log('curitem',item,img_owner,img);

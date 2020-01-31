@@ -70,10 +70,11 @@ $('body').on('click', '.header__button', function () {
   var closeButton = $('.close-button');
   var gameButton = $('.next-button-game');
 
-  $('.js-game, .js-winners').on('click', function (e) {
+  $('.js-game').on('click', function (e) {
     e.preventDefault();
+    var game = $(this).data('game');
     $('.overlay').show();
-    $('.game').addClass('active');
+    $('#game-'+game).addClass('active');
     $.fn.fullpage.setAllowScrolling(false);
   });
 
