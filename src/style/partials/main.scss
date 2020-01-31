@@ -21,18 +21,17 @@ body{
 	display: none;
 }
 #modalgallery{
+	background-color: #edc200;
 	.pagi{
 		display: none;
 	}
 	.brand{
 		display: none;
 	}
-		width: 100vw;
-		height: 100vh;
-		background-color: #edc200;
+
 	.gallery-block{
 		.title{
-			max-width: 40vw;
+			max-width: 34.16vw;
 			margin: 0 auto;
 			img{
 				display: block;
@@ -40,12 +39,12 @@ body{
 			}
 		}
 		.flex-block{
-			margin-top: 4vw;
+			margin-top: 4.166666vw;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
 			.block{
-				width: 22vw;
+				width: 24%;
 				.img-block{
 					width: 100%;
 					img{
@@ -96,8 +95,16 @@ body{
 		fill:#000
 	}
 	.fancybox-button{
-		width: 10vw;
-		height: 10vw;
+		background: url(../images/close.png) center center no-repeat;
+		background-size: contain;
+		width: 3.64vw;
+		height: 3.64vw;
+		padding: 0;
+		right: 1.30vw;
+		top: 1.30vw;
+		svg{
+			display: none;
+		}
 	}
 }
 .header{
