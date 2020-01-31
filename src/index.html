@@ -36,28 +36,13 @@
                 </ul>
             </nav>
         <div>
-            <ul class="soc-link">
-                <li>
-                    <a href="#">
-                        <img src="./img/soc-link-1.png" alt="twitter">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="./img/soc-link-2.png" alt="odnoklassniki">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="./img/soc-link-3.png" alt="facebook">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="./img/soc-link-4.png" alt="vk">
-                    </a>
-                </li>
-            </ul>
+            <div class="soc-link" data-url="" data-image="" data-title="" data-description="">
+                <button data-share="tw"  class="tw"><img src="./img/soc-link-1.png" alt="twitter"></button>
+                <button data-share="ok"  class="ok"><img src="./img/soc-link-2.png" alt="odnoklassniki"></button>
+                <button data-share="fb"  class="fb"><img src="./img/soc-link-3.png" alt="facebook"></button>
+                <button data-share="vk"  class="vk"><img src="./img/soc-link-4.png" alt="vk"></button>
+
+            </div>
         </div>
         <div class="btn-burger">
           <div></div>
@@ -106,35 +91,35 @@
                 <div class="hq-block">
                     <img src="./images/hq.png" alt="hq">
                 </div>
-                    <div class="top-block">
-                        <div class="tagline">
-                            <img src="./images/logo.png" alt="logo">
-                        </div>
-                        <div class="title">
-                            <img src="./images/title.png" alt="title">
-                        </div>
+                <div class="top-block">
+                    <div class="tagline">
+                        <img src="./images/logo.png" alt="logo">
                     </div>
-                    <div class="bottom-big-block">
-                        <div class="text-block">
-                            <p>Собери свой уникальный образ в стиле героинь фильма <span class="bold">«Хищные птицы: потрясающая история Харли Квинн».</span> Выбери одну героиню, подбери наряд для особого события 
-                                в ее стиле и поделись результатом с друзьями! </p>
-                            <p>Порази их всех, собирая лайки,
-                                <span class="b"></span>
-                                и выиграй потрясающие призы!</p>
-                                <a href="#" class="arrow next-button">
-                                    <img src="./images/arrow.png" alt="arrow">
-                                </a>
-                        </div>      
+                    <div class="title">
+                        <img src="./images/title.png" alt="title">
                     </div>
-                    <div class="brand">
-                        <img src="./images/brand.png" alt="dc">
+                </div>
+                <div class="bottom-big-block">
+                    <div class="text-block">
+                        <p>Собери свой уникальный образ в стиле героинь фильма <span class="bold">«Хищные птицы: потрясающая история Харли Квинн».</span> Выбери одну героиню, подбери наряд для особого события
+                            в ее стиле и поделись результатом с друзьями! </p>
+                        <p>Порази их всех, собирая лайки,
+                            <span class="b"></span>
+                            и выиграй потрясающие призы!</p>
+                            <a href="#" class="arrow next-button">
+                                <img src="./images/arrow.png" alt="arrow">
+                            </a>
                     </div>
-                    <div class="date">
-                        <img src="./images/date.png" alt="date">
-                    </div>
-                    <div class="pagi">
-                        <img src="./images/18.png" alt="pag">
-                    </div>
+                </div>
+                <div class="brand">
+                    <img src="./images/brand.png" alt="dc">
+                </div>
+                <div class="date">
+                    <img src="./images/date.png" alt="date">
+                </div>
+                <div class="pagi">
+                    <img src="./images/18.png" alt="pag">
+                </div>
             </div>
 
             <div class="section section--02" id="section-2">
@@ -168,9 +153,9 @@
                     </div>
 
                     <div class="button-block">
-                      <a href="javascript:;" onclick="modalpreeze(); return false;" class="y-button fancybox">Призы</a>
-                      <a href="#" class="y-button contest-button js-game" onclick="ga('send','event','create_look')">правила</a>
-                      <a href="javascript:;" onclick="modalgallery(); return false;" class="y-button fancybox">Галлерея работ</a>
+                      <a href="#modalpreeze" class="y-button" data-fancybox data-touch="false">Призы</a>
+                      <a href="/files/rules.pdf" target="_blank" class="y-button" >правила</a>
+                      <a href="#modalgallery" class="y-button" data-fancybox  data-touch="false">Галлерея работ</a>
                     </div>
                     <div class="logo-block">
                         <img src="./images/TT.png" alt="tt">
@@ -754,27 +739,22 @@
                           </li>
                         </ul>
                       </div>
-                      <div class="game__send" onclick="ga('send','event','create_look_contest');">
+                      <div class="game__send">
                         <span>Сохранить</span>
                       </div>
                     </div>
-                    <form class="game__form" method="post" action="/create_collage/">
-                      <input type="hidden" name="data"/>
-                    </form>
                   </div>
                 </div>  
               </div>
             </div>
 
             <div class="section section--03" id="section-3">
+
               <div class="main-block">
                 <div class="video-block">
-                  <div class="video">
+                  <a href="" class="video"  data-fancybox>
                     <img src="./images/video.png" alt="video">
-                    <div class="abs-qeen">
-                      <img src="./images/1.png" alt="hq">
-                    </div>
-                  </div>
+                  </a>
                   <a href="#" class="black-button">купить билет</a>
                 </div>
                 <div class="text-block">
@@ -787,14 +767,18 @@
                   <div class="brand">
                     <img src="./images/brand.png" alt="dc">
                 </div>
-                <div class="pagi">
-                    <img src="./images/18-y.png" alt="pag">
-                </div>
                   <p>Харли Квинн, которую вновь сыграла Марго Робби («Тоня против всех»), рассказывает, чем лучше всего вылечить разбитое сердце после расставания с Джокером!</p>
                   <p>Вместе с четырьмя обворожительными красотками - Охотницей, Черной Канарейкой, Кассандрой Кейн и Рене Монтойей – они ввязываются в потрясающую войну и противостоят гнусному злодею Готэма, Роману Сайонису (Юэн МакГрегор). </p>
                   <p>Тебя ждет совершенно потрясающая история, ведь для получения долгожданной свободы "птичкам" придется выпустить коготки. Правда делают они это в своем формате – ярко, стильно, с юмором и… потрясающе!</p>
                 </div>
               </div>
+
+                <div class="abs-qeen">
+                    <img src="./images/1.png" alt="hq">
+                </div>
+                <div class="pagi">
+                    <img src="./images/18-y.png" alt="pag">
+                </div>
             </div>
 
         </div>
@@ -816,8 +800,8 @@
       </div>
      <div class="text">
       <p>
-        сертификат в ozon.ru на покупку аксессуаров для потрясающе стильного образа номиналом 3 000 руб. 
-+ фирменный мерч фильма + носки+ набор татуировок
+          сертификат в ozon.ru на покупку аксессуаров для потрясающе стильного образа номиналом 3 000 руб.<br>
+          + фирменный мерч фильма + носки+ набор татуировок
       </p>
      
      </div>
@@ -828,8 +812,10 @@
         <img src="images/preeze2.png" alt="preeze">
       </div>
       <div class="text">
-        <p>наборы футболок + носки 
-          + набор татуировок</p>
+        <p>
+            наборы футболок + носки<br>
+            + набор татуировок
+        </p>
       </div>
     </div>
   </div>

@@ -1,0 +1,4 @@
+$resolution: 1920;
+@function vw($px) {
+  @return (($px/$resolution) * 100)+vw;
+}
