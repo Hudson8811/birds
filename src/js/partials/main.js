@@ -525,5 +525,17 @@ $(function () {
         $slink += '&u='+encodeURIComponent(hash);
         // Вызываем шаринг
         window.open(socialTypes[socialType]+$slink,socialType,'width=500,height=500,resizable=yes,scrollbars=yes,status=yes');
+        afterShare(socialType);
     });
 });
+
+function afterShare(social) {
+    $.ajax({
+        type: "POST",
+        url: "/new_share/",
+        data: { social_share : social },
+        success: function(data) {
+            console.log('share ok');
+        }
+    });
+}
