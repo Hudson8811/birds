@@ -316,7 +316,7 @@ $(document).ready(function() {
 
     function countItems(array){
         var m = 0;
-        for (var i = 1; i < 6; i++) {
+        for (var i = 1; i < 7; i++) {
             if (array[i] != ''){
                 m++;
             }

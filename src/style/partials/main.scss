@@ -856,27 +856,43 @@ body{
 					}
 				}
 				p{
-					font-size: 1.4vw;
 					margin-bottom: 1vw;
+					color: #ffffff;
+					font-family: $Nova-reg;
+					font-size: vw(18);
+					font-weight: 400;
+					text-align: center;
 				}
 				ul{
 					display: flex;
-					justify-content: space-between;
+					justify-content: center;
 					max-width: 280px;
 					margin: 0 auto;
 					margin-bottom: 1.5vw;
 					li{
-						width: 2.5vw;
-						height: 2.5vw;
-						background-color: #fff001;
-						border-radius: 0.5vw;
 						flex-shrink: 0;
+						width: vw(41);
+						height: vw(41);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						background-color: #fff001;
+						border-radius: vw(5);
+						color: #000;
+						border: none;
+						cursor: pointer;
+						transition: 0.1s ease;
+						&:hover{
+							transform: scale(1.1);
+						}
+						+li{
+							margin-left: vw(10);
+						}
 						a{
 							height: 100%;
 							display: flex;
 							justify-content: center;
 							align-items: center;
-
 						}
 					}
 				}
@@ -924,6 +940,7 @@ body{
 		background-color: #000;
 		padding-top: vw(15);
 		padding-left: vw(28);
+		pointer-events: none;
 		&:after{
 			content: '';
 			position: absolute;
@@ -2408,9 +2425,6 @@ body{
 	}
 	.game .description{
 		padding: 2vw;
-	}
-	.game.active{
-		z-index: 10;
 	}
 	.game .description:before{display: none;}
 	.game .description:after{display: none;}
