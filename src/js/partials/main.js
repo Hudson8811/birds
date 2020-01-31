@@ -1,9 +1,17 @@
+var collage1 = {"1":'',"2":'',"3":'',"4":'',"5":'',"6":''},
+    collage2 = {"1":'',"2":'',"3":'',"4":'',"5":'',"6":''},
+    collage3 = {"1":'',"2":'',"3":'',"4":'',"5":'',"6":''},
+    collage4 = {"1":'',"2":'',"3":'',"4":'',"5":'',"6":''},
+    collage5 = {"1":'',"2":'',"3":'',"4":'',"5":'',"6":''};
+
+var hash = '';
 $(document).ready(function() {
 
     var nextButton = $('.next-button');
     var headerItem = $('.header__item');
 
     var group, slider1, slider2;
+
 
     //fullpage init
     $('.slider').fullpage({
@@ -265,8 +273,36 @@ $(document).ready(function() {
 
         var img = item.find('img').attr('src');
 
-        console.log(group.index());
-        console.log($('.game.active .choose__group').length);
+        var persId = $('.game.active').data('id');
+        var catId = item.data('cat');
+        var itemId = item.data('item');
+        var count = 0;
+        switch (persId) {
+            case 1:
+                collage1[catId] = itemId;
+                count = countItems(collage1);
+                break;
+            case 2:
+                collage2[catId] = collage2;
+                count = countItems(collage1);
+                break;
+            case 3:
+                collage3[catId] = itemId;
+                count = countItems(collage3);
+                break;
+            case 4:
+                collage4[catId] = itemId;
+                count = countItems(collage4);
+                break;
+            case 5:
+                collage5[catId] = itemId;
+                count = countItems(collage5);
+                break;
+            default:
+                break;
+        }
+        checkCount(count);
+
         if (group.index() === $('.game.active .choose__group').length)
             $('.game__collage .collage__back img').attr('src', img);
         else {
@@ -278,12 +314,216 @@ $(document).ready(function() {
         }
     }
 
+    function countItems(array){
+        var m = 0;
+        for (var i = 1; i < 6; i++) {
+            if (array[i] != ''){
+                m++;
+            }
+        }
+        return m;
+    }
+
+    function checkCount(count){
+        if (count >= 4){
+            $('.game.active .game__auth').show();
+        } else {
+            $('.game.active .game__auth').hide();
+        }
+    }
+
     $('.collage__item').click(function () {
         $(this).removeAttr('data-imaged');
-        $(this).find('img').removeAttr('src');
+        $(this).find('img').removeAttr('src')
+        var persId = $('.game.active').data('id');
+        var catId = $(this).data('cat');
+        var count = 0;
+        switch (persId) {
+            case 1:
+                collage1[catId] = '';
+                count = countItems(collage1);
+                break;
+            case 2:
+                collage2[catId] = '';
+                count = countItems(collage2);
+                break;
+            case 3:
+                collage3[catId] = '';
+                count = countItems(collage3);
+                break;
+            case 4:
+                collage4[catId] = '';
+                count = countItems(collage4);
+                break;
+            case 5:
+                collage5[catId] = '';
+                count = countItems(collage5);
+                break;
+            default:
+                break;
+        }
+        checkCount(count);
     });
 
 
+    window.auth = function (data) {
+        $.ajax({
+            type: "POST",
+            url: "/authorize/",
+            data: data,
+            success: function(data) {
+                if (data.length > 0) {
+                    $('.game__auth_top').html('<button class="btn" onclick="sendCollage(this);">Подтвердить</button>');
+                }
+            },
+            error: function () {
+                alert('Ошибка авторизации для продолжения');
+            }
+        });
+    }
+
+    function checkAuth(type) {
+        $.ajax({
+            type: "POST",
+            url: "/get_hashcode/",
+            success: function(data) {
+                if (JSON.parse(data).hashcode != '' && JSON.parse(data).hashcode != undefined) {
+                    if (type != 'only_hash')
+                        $('.game__auth_top').html('<button class="btn" onclick="sendCollage(this);">Подтвердить</button>');
+                    hash = JSON.parse(data).hashcode;
+                }
+            }
+        });
+    }
+    checkAuth();
 
 
+});
+
+function sendCollage(elem) {
+    $(elem).attr('disabled',true);
+    var persId = $('.game.active').data('id');
+    var theme = $('.game.active .day-look span').html();
+    var dataCollage = '';
+    switch (persId) {
+        case 1:
+            dataCollage = collage1;
+            break;
+        case 2:
+            dataCollage = collage3;
+            break;
+        case 3:
+            dataCollage = collage4;
+            break;
+        case 4:
+            dataCollage = collage5;
+            break;
+        case 5:
+            dataCollage = collage6;
+            break;
+        default:
+            return false;
+    }
+
+
+    $.ajax({
+        type: "POST",
+        url: "/save_result/",
+        data: { person : persId, items: dataCollage, theme: theme },
+        success: function(data) {
+
+            //ответ от сервера
+            var parse = JSON.parse(data);
+            var image = parse.image;
+
+            if (image != '' && image != undefined){
+                $(elem).hide();
+                $('.game.active .save_image').attr('href','/collages/'+image+'.jpg');
+                $('.game.active .game__send').show();
+
+                $('.game.active').addClass('inactive');
+                $('.game.active .game_choose').prepend('<div class="game__thnaks"><div class="title">ПОЗДРАВЛЯЕМ!</div><div class="text">Теперь ты участник конкурса "Собери потрясающий лук в стиле Харли Квинн и хищных птиц Готэма". Теперь дело за малым - стать лучше всех! Делись своим потрясающим луком в социальных сетях и набери больше всех лайков!</div></div>')
+
+            }
+        }
+    });
+}
+
+
+
+var socialTypes =  {
+    "fb": "http://www.facebook.com/share.php?u=",
+    "vk": "http://vkontakte.ru/share.php?url=",
+    "tw": "https://twitter.com/intent/tweet?url=",
+    "ok": "http://connect.ok.ru/dk?st.cmd=WidgetSharePreview&service=odnoklassniki&st.shareUrl=",
+    "mm": "http://connect.mail.ru/share?url=",
+    "pin": "http://pinterest.com/pin/create/link/?url=",
+    "gp": "https://plus.google.com/share?url="
+};
+
+
+function getMeta(name) {
+    var meta = $('meta[property="og:'+name+'"]');
+    return meta.length ? meta.attr('content') : '';
+}
+
+$(function () {
+    // переход по шарингу
+    $('.sharing__button').click(function() {
+        var no_sharing = $(this).parent().attr('data-nosharing');
+        if (no_sharing) return;
+        // Находим тип кнопки
+        var socialType;
+        for (var name in socialTypes)
+            if ($(this).hasClass(name)) { socialType = name; break; }
+        if (socialType == undefined) return;
+
+        // get Meta tags
+        var url = getMeta('url');
+        var title = getMeta('title');
+        var description = getMeta('description');
+        var image = getMeta('image');
+
+        var parent = $(this).parent();
+        var new_url = parent.attr('data-url');
+        if (new_url) {
+            url = new_url;
+            image = '';
+        }
+        if (url == '') url = window.location.toString();
+
+        var p_desc = parent.attr('data-description');
+        if (p_desc) description = p_desc;
+        var p_title = parent.attr('data-title');
+        if (p_title) title = p_title;
+        var p_image = parent.attr('data-image');
+        if (p_image) image = p_image;
+
+        var $slink = encodeURIComponent(url);
+        switch (socialType) {
+            case 'tw':
+                $slink += '&text='+encodeURIComponent(title); break;
+            /*case 'pin':
+                $slink += '&media='+encodeURIComponent(image); break;*/
+            /* case 'mm':
+                if (image != '') $slink += '&imageurl='+encodeURIComponent(image); break;*/
+            case 'vk':
+              if (image != '') $slink += '&image='+encodeURIComponent(image);
+              if (title != '') $slink += '&title='+encodeURIComponent(title);
+              if (description != '') $slink += '&description='+encodeURIComponent(description); break;
+            case 'ok':
+                if (image != '') $slink += '&st.imageUrl='+encodeURIComponent(image);
+                //if (title != '') $slink += '&title='+encodeURIComponent(title);
+                if (description != '') $slink += '&st.comments='+encodeURIComponent(description); break;
+            case 'fb':
+              if (image != '') $slink += '&p[images][0]='+encodeURIComponent(image);
+              if (title != '') $slink += '&p[title]='+encodeURIComponent(title);
+              if (description != '') $slink += '&p[summary]='+encodeURIComponent(description); break;
+        }
+
+        if (hash === '') checkAuth('only_hash');
+        $slink += '&u='+encodeURIComponent(hash);
+        // Вызываем шаринг
+        window.open(socialTypes[socialType]+$slink,socialType,'width=500,height=500,resizable=yes,scrollbars=yes,status=yes');
+    });
 });
