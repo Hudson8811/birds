@@ -571,10 +571,14 @@ body{
 			.game__block {
 				box-sizing: border-box;
 				&.game__collage {
-					width: 30vw;
-					height: 30vw;
 					position: relative;
-					padding: 0;
+					margin-top: 2vw;
+					margin-left: vw(90);
+					width: vw(730);
+					height: vw(730);
+					border:0.2vw solid #fff001;
+					padding: vw(25);
+					box-sizing: border-box;
 					.collage__back {
 						img {
 							width: 100%;
@@ -582,16 +586,18 @@ body{
 						}
 					}
 					.collage_intro {
-						position: absolute;
-						z-index: 50;
 						left: 0;
 						top: 0;
 						width: 100%;
 						height: 100%;
 						line-height: 30vw;
 						box-sizing: border-box;
-						border: 0.2vw solid #aaa;
 						background: #fff;
+						display: block;
+						z-index: 0;
+						background: center / cover url(../images/bg-game-colaj.png) no-repeat;
+						border: none;
+						position: relative;
 						.intro__inner {
 							text-align: left;
 							line-height: 1;
@@ -616,11 +622,15 @@ body{
 					.collage__logo {
 						position: absolute;
 						top: 1vw;
-						width: 6vw;
-						height: 6vw;
-						left: 12vw;
-						z-index: 15;
 						background-size: cover;
+						width: 13.5vw;
+						height: 19vw;
+						left: 2vw;
+						z-index: 60;
+						img{
+							display: block;
+							width: 100%;
+						}
 					}
 					.collage__items {
 						.collage__item {
@@ -693,50 +703,72 @@ body{
 					}
 				}
 				&.game_choose {
-					width: 25vw!important;
-					height: 50vw!important;
-					box-sizing: border-box!important;
-					padding: 1vw!important;
-					padding-top: 5vw!important;
+					width: 25vw;
+					height: 50vw;
+					box-sizing: border-box;
+					padding: 1vw;
+					padding-top: 5vw;
 					.choose__menu {
 						font-size: 0;
 						text-align: left;
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: center;
 						.menu__item {
 							display: inline-block;
 							vertical-align: top;
 							font-size: vw(18);
-							font-family: $Nova-reg;
-							padding: 0.5vw;
 							color: #000;
 							cursor: pointer;
+							position: relative;
+							font-family: $Beba-reg;
+							text-transform: uppercase;
+							background: transparent;
+							margin: 0.5vw 0.6vw;
+							padding: 0;
 							&.selected {
 								color: #fff;
-								background: #000;
+								&:before{
+									content:'';
+									position: absolute;
+									display: block;
+									width: 100%;
+									height: 0.1vw;
+									background-color: #fff;
+									left: 0;
+									bottom: -0.1vw;
+								}
 							}
 							&:hover {
 								transform: scale(1.1, 1.1);
-								background: #aaa;
 							}
 						}
 					}
 					.choose__groups {
-						margin-top: 0.5vw;
+						margin-top: 2.5vw;
 						.choose__group {
 							display: none;
 							overflow: hidden;
 							&.selected {
 								display: block;
 							}
+							.slider__button{
+								width: 1vw;
+								height: 2vw;
+								margin-top: -1vw;
+								&.left{
+									left: 3%;
+									background: center / cover url(./../img/arrow-left.png)no-repeat;
+								}
+								&.right{
+									right: 3%;
+									background: center / cover url(./../img/arrow-right.png)no-repeat;
+								}
+							}
 							.slider_wrap1 {
 								position: relative;
 								padding: 0 2vw;
 								.slider__button{
-									&.left {
-										left: 0;
-									}
-									&.right {
-										right: 0;
-									}
 								}
 								.group__slider1 {
 									.slider1__item {
@@ -755,6 +787,7 @@ body{
 											max-width: 6vw;
 											max-height: 6vw;
 											object-fit: contain;
+											width: 100%;
 										}
 									}
 								}
@@ -778,65 +811,14 @@ body{
 											max-width: 14vw;
 											max-height: 16vw;
 											object-fit: contain;
+											width: 100%;
 										}
 									}
 								}
 							}
 						}
 					}
-					.choose__tooltip {
-						display: none;
-						text-align: left;
-						font-size: 0.8vw;
-						font-family: $Nova-reg;
-						color: #000;
-						.tooltip__link {
-							span {
-								display: inline-block;
-								vertical-align: top;
-								font-weight: bold;
-								text-decoration: underline;
-								padding-right: 1vw;
-								background: url("/img/i_tooltip.png") no-repeat right top;
-								background-size: auto 100%;
-							}
-							&:hover {
-								color: #f9b82b;
-							}
-						}
-					}
 
-					.choose__groups{
-						margin-top: 2.5vw!important;
-						.group__slider2{
-							.slider2__item{
-								img{
-									width: 100%;
-								}
-							}
-						}
-						.group__slider1{
-							overflow: hidden;
-							.slider1__item{
-								img{
-									width: 100%;
-								}
-							}
-						}
-						.slider__button{
-							width: 1vw!important;
-							height: 2vw!important;
-							margin-top: -1vw!important;
-						}
-						.slider__button.left{
-							left: 3%!important;
-							background: center / cover url(./../img/arrow-left.png)no-repeat!important;
-						}
-						.slider__button.right{
-							right: 3%!important;
-							background: center / cover url(./../img/arrow-right.png)no-repeat!important;
-						}
-					}
 				}
 			}
 			.game__intro {
@@ -855,21 +837,47 @@ body{
 			}
 			.game__send {
 				display: none;
-				text-align: left;
-				margin-top: 1vw;
-				margin-left: 2.5vw;
+				margin: 0 auto;
+				text-align: center;
 				span {
 					display: inline-block;
 					vertical-align: top;
-					padding: 0.5vw;
-					font-family: $Nova-reg;
-					font-size: 1vw;
-					color: #fff;
-					background-color: #f08080;
 					cursor: pointer;
+					font-size: 2vw;
+					font-family: $Impact;
+					color: #000;
+					text-transform: uppercase;
+					padding: 0.8vw 2.5vw;
+					border-radius: .8vw;
+					background-color: #fff001;
 					&:hover {
 						background-color: #f9b82b;
 						color: #000;
+					}
+				}
+				p{
+					font-size: 1.4vw;
+					margin-bottom: 1vw;
+				}
+				ul{
+					display: flex;
+					justify-content: space-between;
+					max-width: 280px;
+					margin: 0 auto;
+					margin-bottom: 1.5vw;
+					li{
+						width: 2.5vw;
+						height: 2.5vw;
+						background-color: #fff001;
+						border-radius: 0.5vw;
+						flex-shrink: 0;
+						a{
+							height: 100%;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+
+						}
 					}
 				}
 			}
@@ -945,6 +953,9 @@ body{
 		}
 		.name-block{
 			margin-right: -28.5vw;
+			margin-top: -14vh;
+			position: relative;
+			z-index: 66;
 			span{
 				font-family: $Impact;
 				font-size: 3.8vw;
@@ -997,16 +1008,13 @@ body{
 			}
 		}
 	}
-	.game_choose{
-
-
-	}
 	.day-look{
 		position: absolute;
 		width: 28vw;
 		bottom: 1%;
 		left: 50%;
 		margin-left: -14.5vw;
+		z-index: 60;
 		span{
 			font-family: $Apple;
 			font-size: 2.2vw;
@@ -1024,109 +1032,6 @@ body{
 
 		}
 	}
-	.game__collage{
-		margin-top: 2vw!important;
-		margin-left: vw(90)!important;
-		width: vw(730)!important;
-		height: vw(730)!important;
-		border:0.2vw solid #fff001!important;
-		padding: vw(25)!important;
-		box-sizing: border-box!important;
-		.collage__logo{
-			position: absolute!important;
-		}
-		.collage_intro{
-			display: block!important;
-			z-index: 0!important;
-			background: center / cover url(../images/bg-game-colaj.png) no-repeat !important;
-			border: none!important;
-			position: relative!important;
-		}
-		.collage__logo{
-			width: 13.5vw!important;
-			height: 19vw!important;
-			left: 2vw!important;
-			z-index: 60;
-			img{
-				display: block!important;
-				width: 100%!important;
-			}
-		}
-		.day-look{
-			z-index: 60;
-			span{
-				font-family: $Apple;
-			}
-		}
-		.collage__items{
-
-		}
-	}
-	.choose__menu{
-		display: flex!important;
-		flex-wrap: wrap!important;
-		justify-content: center;
-		.menu__item{
-			position: relative!important;
-			font-family: $Beba-reg!important;
-			text-transform: uppercase!important;
-			background: transparent!important;
-			margin: 0.5vw 0.6vw;
-			padding: 0!important;
-			&.selected{
-				&:before{
-					content:'';
-					position: absolute;
-					display: block;
-					width: 100%;
-					height: 0.1vw;
-					background-color: #fff;
-					left: 0;
-					bottom: -0.1vw;
-				}
-			}
-		}
-	}
-	.game__send{
-		margin: 0 auto!important;
-		text-align: center!important;
-		span{
-			font-size: 2vw!important;
-			font-family: $Impact!important;
-			color: #000!important;
-			text-transform: uppercase;
-			padding: 0.8vw 2.5vw!important;
-			border-radius: .8vw;
-			background-color: #fff001!important;
-		}
-		p{
-			font-size: 1.4vw;
-			margin-bottom: 1vw;
-		}
-		ul{
-			display: flex;
-			justify-content: space-between;
-			max-width: 280px;
-			margin: 0 auto;
-			margin-bottom: 1.5vw;
-			li{
-				width: 2.5vw;
-				height: 2.5vw;
-				background-color: #fff001;
-				border-radius: 0.5vw;
-				flex-shrink: 0;
-				a{
-					height: 100%;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-
-				}
-			}
-
-		}
-	}
-
 	.game__auth{
 		position: relative;
 		display: none;
@@ -1252,6 +1157,38 @@ body{
 			font-weight: 400;
 			line-height: vw(28);
 			margin-top: vw(45);
+		}
+	}
+
+	&#game-2{
+		.description {
+			.name-block{
+				margin-right: -21.2vw;
+				span{
+					font-size: 2.8vw;
+				}
+			}
+		}
+	}
+	&#game-3{
+		.description {
+			 .name-block{
+				 margin-right: -28.9vw
+			 }
+		}
+	}
+	&#game-4{
+		.description {
+			 .name-block{
+				 margin-right: -34.2vw;
+			 }
+		}
+	}
+	&#game-5{
+		.description {
+			 .name-block{
+				 margin-right: -35vw;
+			 }
 		}
 	}
 }
@@ -1848,9 +1785,6 @@ body{
 	}
 	.game .game__container .game__inner .game__block.game_choose .choose__groups .choose__group .slider_wrap {
 		display: none;
-	}
-	.game .game__container .game__inner .game__block.game_choose .choose__tooltip {
-		display: none !important;
 	}
 	.game .game__container .game__inner .game__intro {
 		margin: 1vw 6vw;
