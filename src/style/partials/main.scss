@@ -1117,10 +1117,10 @@ body{
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					
+
 				}
 			}
-			
+
 		}
 	}
 
@@ -1267,7 +1267,7 @@ body{
 			}
 		}
 	}
-	
+
 }
 .btn-burger{
 	display: none;
@@ -1738,6 +1738,9 @@ body{
 }
 
 @media screen and (max-width:768px){
+	.header .soc-link button{
+		height: auto;
+	}
 	#modalgallery .gallery-block .flex-block{
 		flex-direction: column;
 		.block{
@@ -1929,7 +1932,7 @@ body{
 			cursor: pointer;
 			> div{
 				width: 100%;
-				height: 4px;
+				height: 3px;
 				background-color: #edc200;
 			}
 		}
@@ -1938,11 +1941,19 @@ body{
 		padding-top: 9vw;
 	}
 	#section-1 {
+		height: 133.26vw !important;
 		.hq-block{
-			width: 120vw;
+			width: auto;
 			bottom: 9vw;
-			right: auto;
-			left: -15vw;
+			top: auto;
+			height: 80vw;
+			max-height: none;
+			right: -5vw;
+			img{
+				height: 100%;
+				max-height: none;
+				width: auto;
+			}
 		}
 		.top-block {
 			.tagline{
@@ -1998,6 +2009,7 @@ body{
 		}
 	}
 	#section-2{
+		height: 189.610389vw !important;
 		&:before{
 			content: '';
 			position: absolute;
@@ -2026,24 +2038,35 @@ body{
 			z-index: 1;
 			height: 100%;
 			.logo-block{
+				top:0;
 				margin: 0 auto;
-				margin-top: 4vw;
+				margin-top: 1vw;
 				width: 82vw;
+				bottom:0;
 			}
 			.text-block{
+				position: absolute;
 				margin: 0 auto;
-				margin-bottom: 13vw;
-				width: 74vw;
+				width: 75vw;
+				bottom:13.6363vw;
+				left:12.5vw;
+				img{
+					width: 71.4285vw;
+				}
 				.text{
 					padding: 0;
 					margin: 0;
-					margin-top: 4vw;
+					margin-top: 2vw;
 					width: 100%;
 					font-size: 2.7vw;
 					line-height: 3.3vw;
 				}
 			}
 			.button-block{
+				padding-left: 5.1948vw;
+				padding-right: 5.1948vw;
+				box-sizing: border-box;
+				left: 0;
 				position: absolute;
 				width: 100%;
 				justify-content: space-around;
@@ -2052,19 +2075,20 @@ body{
 			.y-button{
 				z-index: 60;
 				background: transparent;
-				color: #fff;
 				text-align: center;
 				height: auto;
 				font-size: 4vw;
 				line-height: 6vw;
+				text-decoration: none;
+				color: #e0b82a;
 				&:before{
 					content: '';
 					position: absolute;
-					bottom: 0;
+					bottom: 2px;
 					display: block;
-					height: 0.5vw;
+					height: 0.4vw;
 					width: 100%;
-					background-color: #7f7f7f;
+					background-color: #e0b82a;
 				}
 			}
 		}
@@ -2078,11 +2102,11 @@ body{
 		.date{
 			right: auto;
 			bottom: auto;
-			width: 29vw;
-			left: 8.5vw;
-			top:30vw;
+			width: 22.078vw;
+			left: 11vw;
+			top:27.922vw;
 			span{
-				font-size: 5vw;
+				font-size: 3.89vw;
 			}
 		}
 		.pagi{
@@ -2092,33 +2116,39 @@ body{
 		}
 		.abs{
 			.big{
-				font-size: 6vw;
+				font-size: 5.1948vw;
 				color: #000;
+				line-height: 6vw;
 			}
 			.small{
-				font-size: 3vw;
+				font-size: 3.11vw;
 				line-height: 4vw;
 				color: #d7246d;
 			}
 			&.abs-1{
 				background-image: url(./../images/abs1-mob.png);
+				background-size: 100% 100%;
 				padding: 0;
-				padding-top: 2vw;
-				padding-left: 18vw;
+				padding-top: 0;
+				padding-left: 14.93vw;
 				top: 39vw;
 				left: 21vw;
-				width: 50vw;
-				height: 20vw;
+				width: 48vw;
+				height: 20.779vw;
+				&:before{
+					display: none;
+				}
 			}
 			&.abs-2{
 				background-image: url(./../images/abs2-mob.png);
 				padding: 0;
-				padding-top: 17vw;
+				padding-top: 15vw;
 				top: 74vw;
 				left: 1vw;
 				width: 41vw;
 				height: 29vw;
-				z-index: 2;
+				z-index: 4;
+
 			}
 			&.abs-3{
 				background-image: url(./../images/abs3-mob.png);
@@ -2129,7 +2159,7 @@ body{
 				left: 8vw;
 				width: 47vw;
 				height: 45vw;
-				z-index: 1;
+				z-index: 3;
 				.big{
 					padding: 0 3vw;
 				}
@@ -2148,13 +2178,17 @@ body{
 			&.abs-5{
 				background-image: url(./../images/abs5-mob.png);
 				padding: 0;
+				padding-top: 1.5vw;
 				top: 60vw;
 				left: auto;
 				right: 1vw;
 				width: 41vw;
 				height: 28vw;
-				padding-top: 1vw;
-				z-index: 2;
+				z-index: 3;
+				justify-content:start;
+				&:before{
+					display: none;
+				}
 			}
 		}
 	}
@@ -2257,7 +2291,7 @@ body{
 	.game .description:after{display: none;}
 	.game .game__collage{
 		margin: 0!important;
-		
+
 	}
 	.game .game__container{
 		padding: 0!important;
@@ -2388,6 +2422,6 @@ body{
 		width: 2vw!important;
 		height: 4vw!important;
 	}
-	
+
 }
 
