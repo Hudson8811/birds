@@ -427,7 +427,7 @@ function sendCollage(elem) {
 
     $.ajax({
         type: "POST",
-        url: "/save_result/",
+        url: "/save_collage/",
         data: { person : persId, items: dataCollage, theme: theme },
         success: function(data) {
 

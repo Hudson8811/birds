@@ -130,7 +130,7 @@ $(document).ready(function() {
     function getData() {
         $.ajax({
             type: "POST",
-            url: "/get_items/",
+            url: "http://localhost/get_items/",
             success: function(data) {
                 if (data.length){
                     images = JSON.parse(data);
@@ -425,7 +425,7 @@ $(document).ready(function() {
     window.auth = function (data) {
         $.ajax({
             type: "POST",
-            url: "/authorize/",
+            url: "http://localhost/authorize/",
             data: data,
             success: function(data) {
                 if (data.length > 0) {
@@ -441,7 +441,7 @@ $(document).ready(function() {
     function checkAuth(type) {
         $.ajax({
             type: "POST",
-            url: "/get_hashcode/",
+            url: "http://localhost/get_hashcode/",
             success: function(data) {
                 if (JSON.parse(data).hashcode != '' && JSON.parse(data).hashcode != undefined) {
                     if (type != 'only_hash')
@@ -484,7 +484,7 @@ function sendCollage(elem) {
 
     $.ajax({
         type: "POST",
-        url: "/save_result/",
+        url: "http://localhost/save_collage/",
         data: { person : persId, items: dataCollage, theme: theme },
         success: function(data) {
 
@@ -511,7 +511,7 @@ function sendCollage(elem) {
     function getGallery() {
         $.ajax({
             type: "POST",
-            url: "/get_collages/",
+            url: "http://localhost/get_collages/",
             success: function(data) {
                 if (data.length){
                     collages = JSON.parse(data);
@@ -610,7 +610,7 @@ $(function () {
 function afterShare(social) {
     $.ajax({
         type: "POST",
-        url: "/new_share/",
+        url: "http://localhost/new_share/",
         data: { social_share : social },
         success: function(data) {
             console.log('share ok');
