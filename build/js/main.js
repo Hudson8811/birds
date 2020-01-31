@@ -285,13 +285,15 @@ $(document).ready(function() {
         item.addClass('selected');
 
         var img = item.find('img').attr('src');
-        if (group.index() === $('.game.active .choose__group').length-1)
+
+        console.log(group.index());
+        console.log($('.game.active .choose__group').length);
+        if (group.index() === $('.game.active .choose__group').length)
             $('.game__collage .collage__back img').attr('src', img);
         else {
             $('.game__send').show();
             var ind = group.index();
             var cur_item = $('.game.active .collage__item').eq(ind);
-            console.log(cur_item);
             cur_item.attr('data-imaged',1);
             cur_item.find('img').attr('src',img);
         }
