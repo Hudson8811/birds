@@ -648,4 +648,5 @@ $('.close-btn').on('click', function () {
 $('.over-menu .header__item').click(function () {
     $('.over-menu').removeClass('active');
     $('.mobile-menu').removeClass('active');
+    $.fn.fullpage.setAllowScrolling(true);
 });
