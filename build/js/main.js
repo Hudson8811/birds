@@ -191,56 +191,58 @@ $(document).ready(function() {
 
 
         var chooseGroups = gamePop.find('.choose__groups');
-        var n = 0;
-        $.each( images.items[id].part, function( index, value ) {
-            var outHtml = '';
-            var outHtml1 = '';
-            var outHtml2 = '';
-            var selected = '';
-            if (n === 0 ){
-                selected = 'selected';
-            }
+        if (chooseGroups.children().length === 0) {
+            var n = 0;
+            $.each( images.items[id].part, function( index, value ) {
+                var outHtml = '';
+                var outHtml1 = '';
+                var outHtml2 = '';
+                var selected = '';
+                if (n === 0 ){
+                    selected = 'selected';
+                }
 
-            var catId = index;
-            // 1 - шорты
-            // 2  топы
-            // 3 - обувь
-            // 4 - верхняя одежда
-            // 5 - Аксессуары
-            // 6 - Сумки
+                var catId = index;
+                // 1 - шорты
+                // 2  топы
+                // 3 - обувь
+                // 4 - верхняя одежда
+                // 5 - Аксессуары
+                // 6 - Сумки
 
-            outHtml += '<div class="choose__group '+selected+'">';
+                outHtml += '<div class="choose__group '+selected+'">';
 
-            outHtml1 += '<div class="slider_wrap1">';
-            outHtml2 += '<div class="slider_wrap">';
-            outHtml1 += '<div class="slider__button left"></div>';
-            outHtml2 += '<div class="slider__button left"></div>';
-            outHtml1 += '<div class="slider__button right"></div>';
-            outHtml2 += '<div class="slider__button right"></div>';
-            outHtml1 += '<div class="group__slider1">';
-            outHtml2 += '<div class="group__slider2">';
-            $.each(value, function( index, value ) {
-                var itemId = index;
-                var itemLink = value;
+                outHtml1 += '<div class="slider_wrap1">';
+                outHtml2 += '<div class="slider_wrap">';
+                outHtml1 += '<div class="slider__button left"></div>';
+                outHtml2 += '<div class="slider__button left"></div>';
+                outHtml1 += '<div class="slider__button right"></div>';
+                outHtml2 += '<div class="slider__button right"></div>';
+                outHtml1 += '<div class="group__slider1">';
+                outHtml2 += '<div class="group__slider2">';
+                $.each(value, function( index, value ) {
+                    var itemId = index;
+                    var itemLink = value;
 
-                outHtml1 += ' <div class="slider1__item" data-item="'+itemId+'" data-cat="'+catId+'">';
-                outHtml1 += '<img src="'+itemLink+'" alt="" >';
-                outHtml1 += '</div>';
+                    outHtml1 += ' <div class="slider1__item" data-item="'+itemId+'" data-cat="'+catId+'">';
+                    outHtml1 += '<img src="'+itemLink+'" alt="" >';
+                    outHtml1 += '</div>';
 
-                outHtml2 += ' <div class="slider2__item" data-item="'+itemId+'" data-cat="'+catId+'">';
-                outHtml2 += '<img src="'+itemLink+'" alt="" >';
-                outHtml2 += '</div>';
+                    outHtml2 += ' <div class="slider2__item" data-item="'+itemId+'" data-cat="'+catId+'">';
+                    outHtml2 += '<img src="'+itemLink+'" alt="" >';
+                    outHtml2 += '</div>';
+                });
+                outHtml1 += '</div></div>';
+                outHtml2 += '</div></div>';
+
+                outHtml += outHtml1 + outHtml2;
+                outHtml += '</div>';
+
+                chooseGroups.append(outHtml);
+                n++;
             });
-            outHtml1 += '</div></div>';
-            outHtml2 += '</div></div>';
-
-            outHtml += outHtml1 + outHtml2;
-            outHtml += '</div>';
-
-            chooseGroups.append(outHtml);
-            n++;
-        });
-        setGroup(1);
+        }
+        setGroup(persId);
         slickGroup();
     }
 
@@ -271,7 +273,15 @@ $(document).ready(function() {
             //infinite: false,
             speed: 600,
             slidesToShow: 3,
-            infinite: false
+            infinite: false,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 5
+                    }
+                }
+            ]
         });
         slider2.slick({
             //lazyLoad: 'ondemand',

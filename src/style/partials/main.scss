@@ -23,8 +23,8 @@ body{
 #modalgallery{
 	background-color: #edc200;
 	width: 100%;
-	height: 100%;
-	padding: vw(10) !important;
+	min-height: 100%;
+	padding: vw(10);
 	.pagi{
 		display: none;
 	}
@@ -33,7 +33,7 @@ body{
 	}
 
 	.gallery-block{
-		min-height: 100%;
+		min-height: 95vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -69,7 +69,7 @@ body{
 					.name{
 						font-family: $Apple;
 						font-size: vw(30);
-						line-height: vw(24);
+						line-height: vw(26);
 						color: #000;
 						max-width: vw(220);
 					}
@@ -87,6 +87,8 @@ body{
 								img{
 									display: block;
 									width: 100%;
+									height: 100%;
+									object-fit: contain;
 								}
 							}
 						}
@@ -121,7 +123,7 @@ body{
 }
 .header{
 	position: fixed;
-	z-index: 100;
+	z-index: 999;
 	left: 0;
 	top: 0;
 	height: vw(63);
@@ -187,6 +189,12 @@ body{
 			width: 100%;
 		}
 	}
+}
+
+
+.wrapper{
+	overflow: hidden;
+	position: relative;
 }
 
 .section{
@@ -540,9 +548,11 @@ body{
 .game{
 	position: fixed;
 	z-index: 100;
+	top: 0;
 	right: 0;
 	width: 100%;
 	height: 100vh;
+	padding-top: vw(63);
 	background-color: #ecc12b;
 	-webkit-transform: translateX(100%);
 	transform: translateX(100%);
@@ -622,7 +632,7 @@ body{
 					.collage__logo {
 						position: absolute;
 						top: 1vw;
-						background-size: cover;
+						background-size: contain;
 						width: 13.5vw;
 						height: 19vw;
 						left: 2vw;
@@ -655,9 +665,9 @@ body{
 								max-width: 100%;
 							}
 							&.item_1 {
-								width: vw(188);
-								height: vw(188);
-								top: vw(25);
+								width: vw(160);
+								height: vw(160);
+								top: vw(32);
 								left: vw(275);
 								z-index: 2;
 							}
@@ -687,7 +697,7 @@ body{
 								bottom: vw(31);
 							}
 							&.item_6 {
-								width: vw(126);
+								width: vw(156);
 								height: vw(368);
 								bottom: vw(36);
 								left: vw(176);
@@ -893,6 +903,12 @@ body{
 							display: flex;
 							justify-content: center;
 							align-items: center;
+							width: 100%;
+							img{
+								width: 45%;
+								height: 45%;
+								object-fit: contain;
+							}
 						}
 					}
 				}
@@ -905,7 +921,7 @@ body{
 		position: absolute;
 		cursor: pointer;
 		right: vw(24);
-		top: vw(15);
+		top: vw(90);
 		width: vw(70);
 		height: vw(70);
 		display: flex;
@@ -968,26 +984,6 @@ body{
 				object-fit: contain;
 			}
 		}
-		.name-block{
-			margin-right: -28.5vw;
-			margin-top: -14vh;
-			position: relative;
-			z-index: 66;
-			span{
-				font-family: $Impact;
-				font-size: 3.8vw;
-				color: #edc200;
-				&:nth-child(2){
-					color: #000;
-				}
-			}
-			p{
-				font-size: 1.55vw;
-				font-family: $Nova-reg;
-				color: #fff;
-				margin-top: 0.5vw;
-			}
-		}
 		.title-game{
 			display: block;
 			width: vw(458);
@@ -1023,6 +1019,27 @@ body{
 				padding-right: 12vw;
 				margin-top: 1.5vw;
 			}
+		}
+	}
+	.name-block{
+		z-index: 66;
+		position: absolute;
+		left: vw(377);
+		bottom: 8vh;
+		white-space: nowrap;
+		span{
+			font-family: $Impact;
+			font-size: 3.8vw;
+			color: #edc200;
+			&:nth-child(2){
+				color: #000;
+			}
+		}
+		p{
+			font-size: 1.55vw;
+			font-family: $Nova-reg;
+			color: #fff;
+			margin-top: 0.5vw;
 		}
 	}
 	.day-look{
@@ -1178,35 +1195,27 @@ body{
 	}
 
 	&#game-2{
-		.description {
-			.name-block{
-				margin-right: -21.2vw;
-				span{
-					font-size: 2.8vw;
-				}
+		.name-block{
+			left: vw(321);
+			span{
+				font-size: 2.8vw;
 			}
 		}
 	}
 	&#game-3{
-		.description {
-			 .name-block{
-				 margin-right: -28.9vw
-			 }
-		}
+		 .name-block{
+			 left: vw(403);
+		 }
 	}
 	&#game-4{
-		.description {
-			 .name-block{
-				 margin-right: -34.2vw;
-			 }
-		}
+		 .name-block{
+			 left: vw(339);
+		 }
 	}
 	&#game-5{
-		.description {
-			 .name-block{
-				 margin-right: -35vw;
-			 }
-		}
+		 .name-block{
+			 left: vw(420);
+		 }
 	}
 }
 
@@ -1672,151 +1681,6 @@ body{
 	}
 }
 
-@media screen and (max-width: 767px) {
-	.close-button {
-		top: 20vw;
-		width: 5vw;
-		height: 5vw;
-	}
-
-	.game {
-		height: 100vh;
-		overflow: hidden;
-	}
-	.game .next-button-game {
-		width: 44vw;
-		height: 7vw;
-	}
-	.game .next-button-game span {
-		font-size: 3vw;
-	}
-	.game .next-button-game:before {
-		margin: -3vw auto 0.5vw;
-		height: 2vw;
-	}
-	.game .next-button-game:after {
-		width: 44vw;
-		height: 44vw;
-		top: -4vw;
-	}
-	.game .game__container {
-		height: 100%;
-		overflow-y: auto;
-		overflow-x: hidden;
-		padding-top: 16vw;
-		box-sizing: border-box;
-		line-height: 1;
-	}
-	.game .game__container .game__inner {
-		display: block;
-		margin-top: 14vw;
-		padding-bottom: 15vw;
-	}
-	.game .game__container .game__inner .game__block {
-		margin: 0 auto;
-		display: block;
-		width: 90vw;
-		height: 90vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage__logo {
-		top: 3vw;
-		width: 18vw;
-		height: 18vw;
-		left: 36vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage_intro {
-		line-height: 90vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage_intro .intro__inner {
-		margin: 0 6vw 0 12vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage_intro .intro__inner .inner__header {
-		margin-bottom: 4vw;
-		font-size: 6vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage_intro .intro__inner li {
-		margin-bottom: 3vw;
-		font-size: 4.5vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage__items .collage__item {
-		padding: 3vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage__items .collage__item .delete_cross {
-		right: 0.6vw;
-		top: 0.6vw;
-		height: 1.5vw;
-		width: 1.5vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage__items .collage__item.item_1 {
-		width: 42vw;
-		top: 3vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage__items .collage__item.item_2 {
-		width: 42vw;
-		top: 24vw;
-		left: 30vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage__items .collage__item.item_3 {
-		width: 42vw;
-		top: 3vw;
-		left: 54vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage__items .collage__item.item_4 {
-		width: 36vw;
-		top: 36vw;
-		left: 3vw;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage__items .collage__item.item_5 {
-		width: 36vw;
-		top: 51vw;
-		left: 57vw;
-	}
-	.game .game__container .game__inner .game__block.game_choose {
-		margin-top: 3vw;
-		width: 90vw;
-		height: auto;
-	}
-	.game .game__container .game__inner .game__block.game_choose .choose__menu .menu__item {
-		font-size: 2.4vw;
-		padding: 1.1vw;
-	}
-	.game .game__container .game__inner .game__block.game_choose .choose__groups {
-		margin-top: 1.5vw;
-	}
-	.game .game__container .game__inner .game__block.game_choose .choose__groups .choose__group .slider_wrap1 {
-		padding: 0 5vw;
-	}
-	.game .game__container .game__inner .game__block.game_choose .choose__groups .choose__group .slider_wrap1 .slider__button {
-		margin-top: -3vw;
-		width: 3vw;
-		height: 6vw;
-	}
-	.game .game__container .game__inner .game__block.game_choose .choose__groups .choose__group .slider_wrap1 .group__slider1 .slider1__item {
-		border-width: 0.6vw;
-	}
-	.game .game__container .game__inner .game__block.game_choose .choose__groups .choose__group .slider_wrap1 .group__slider1 .slider1__item img {
-		display: block;
-		margin: 0 auto;
-		max-width: 18vw;
-		max-height: 18vw;
-	}
-	.game .game__container .game__inner .game__block.game_choose .choose__groups .choose__group .slider_wrap {
-		display: none;
-	}
-	.game .game__container .game__inner .game__intro {
-		margin: 1vw 6vw;
-		width: auto;
-		font-size: 2.7vw;
-	}
-	.game .game__container .game__inner .game__send {
-		margin-left: 5vw;
-	}
-	.game .game__container .game__inner .game__send span {
-		padding: 1.5vw;
-		font-size: 3vw;
-	}
-}
-
 @media screen and (max-width:768px){
 	.header .soc-link button img{
 		height: auto;
@@ -1837,6 +1701,9 @@ body{
 	.header .soc-link button.tw{
 		width: 3.2467vw;
 	}
+	#modalgallery{
+		padding: vw2(86) vw2(55);
+	}
 	#modalgallery .gallery-block .flex-block{
 		flex-direction: column;
 		.block{
@@ -1845,8 +1712,8 @@ body{
 		}
 	}
 	#modalgallery .fancybox-button{
-		width: 20vw;
-		height: 20vw;
+		width: vw2(70);
+		height:  vw2(70);
 	}
 	#modalgallery{
 		.fancybox-button svg path{
@@ -1857,23 +1724,26 @@ body{
 			display: block;
 			width: 10vw;
 			top: auto;
-			bottom:-66vw;
-			right: 0;
+			bottom: vw2(15);
+			right: vw2(10);
 		}
 		.brand{
 			display: block;
 			left: auto;
-			right: 0;
-			bottom: -50vw;
-			width: 3vw;
+			right: vw2(5);
+			bottom: vw2(135);
+			width: vw2(11);
 		}
+	}
+	#modalgallery .gallery-block{
+		min-height: 0;
 	}
 	#modalgallery .gallery-block .title{
 		max-width: 100%;
 	}
 	#modalgallery .gallery-block .flex-block .block .bottom-block{
 		margin-top: 5vw;
-		margin-bottom: 5vw;
+		margin-bottom: vw2(74);
 	}
 	#modalgallery .gallery-block .y-button{
 		font-size: 6vw;
@@ -1882,14 +1752,15 @@ body{
 		line-height: 9vw;
 	}
 	#modalgallery .gallery-block .flex-block .block .bottom-block .name{
-		font-size: 4vw;
+		font-size: vw2(39);
+		line-height: vw2(32);
 	}
 	#modalgallery .gallery-block .flex-block .block .bottom-block .like-count div:nth-child(1){
-		font-size: 8vw;
-		margin-right: 7vw;
+		font-size:vw2(62);
+		margin-right: vw2(16);
 	}
 	#modalgallery .gallery-block .flex-block .block .bottom-block .like-count div:nth-child(2){
-		width: 10vw;
+		width: vw2(64);
 	}
 	#modalpreeze{
 		width: 85.714vw;
@@ -2068,11 +1939,10 @@ body{
 		padding-top: 9vw;
 	}
 	#section-1 {
-		height: 133.26vw !important;
+		height: 168.26vw!important;
 		.hq-block{
 			width: auto;
-			bottom: 9vw;
-			top: auto;
+			top: 44vw;
 			height: 80vw;
 			max-height: none;
 			right: -5vw;
@@ -2101,9 +1971,23 @@ body{
 				width: 100%;
 				margin: 0;
 				display: flex;
+				flex-direction: column;
+				justify-content: center;
 				align-items: center;
+				height: auto;
+				padding-bottom: vw2(51);
 				p{
-					display: none;
+					font-size: 3vw;
+					line-height: 3vw;
+					color: #000;
+					padding: 0 7vw;
+					&:nth-child(1) {
+						margin-bottom: 3.5625vw;
+					}
+					&:nth-child(2) {
+						font-size: 4vw;
+						line-height: 3.875vw;
+					}
 				}
 				.arrow{
 					position: relative;
@@ -2119,7 +2003,7 @@ body{
 			margin: 0;
 			left: auto;
 			right: 1vw;
-			bottom: 32vw;
+			bottom: 16vw;
 			width: 1.4vw;
 		}
 		.date{
@@ -2417,150 +2301,302 @@ body{
 			}
 		}
 	}
-	.game .game__container .game__inner .game__block{
-		width: 100vw!important;
-	}
-	.game .game__container .game__inner{
-		margin-top: 0;
-	}
-	.game .description{
-		padding: 2vw;
-	}
-	.game .description:before{display: none;}
-	.game .description:after{display: none;}
-	.game .game__collage{
-		margin: 0!important;
 
-	}
-	.game .game__container{
-		padding: 0!important;
-	}
-	.game .description .title-game{width: 78%;}
-	.game .description .top{
-		font-size: 3vw;
-		line-height: 3.5vw;
-		padding-right: 3vw;
-		padding-left: 3vw;
-	}
-	.game .description ul .heading{
-		font-size: 4.6vw;
-		padding-left: 3vw;
-		margin-top: 4.5vw;
-	}
-	.game .description ul li{
-		padding-left: 3vw;
-		font-size: 3vw;
-		line-height: 3.5vw;
-		margin-top: 3vw;
-	}
-	.game .close-button{
-		right: 2.5vw!important;
-		width: 12vw;
-		height: 12vw;
-	}
-	.game .close-button>div{
-		background-color: #fff001;
-		height: 1vw;
-			&:nth-child(1){
-				margin-right: -12vw;
-			}
-	}
-	.game .description .name-block{
-		position: absolute;
-		left: 0;
-		margin: 0;
+	.game{
 		width: 100%;
-		margin-top: 6vw;
-		p{
-			font-size: 4.4vw;
-		}
-	}
-	.game .description .name-block span{
-		font-size: 9vw;
-	}
-	.game .description .name-block span:nth-child(1){
-		color: #000;
-	}
-	.game__container .game__inner .game__block.game__collage{
-		margin-top: 23vw!important;
-		height: 97vw!important;
-	}
-	.game .game__collage .collage__logo {
-		width: 33vw!important;
-		height: 45vw!important;
-		left: 6vw!important;
-	}
-	.game .day-look{
-		width: 70vw;
-		margin-left: -35vw;
-	}
-	.game .day-look span{
-		font-size: 5.5vw;
-	}
-	.game .day-look div{
-		height: 6vw;
-		bottom: -1vw;
-		top: auto;
-	}
-	.game .game__container .game__inner .game__block.game_choose .choose__menu .menu__item{
-		font-size: 3.5vw;
-		margin-right: 1vw;
-	}
-	.game .game_choose{
-		padding: 7vw!important;
-		padding-top: 4vw!important;
-	}
-	.game .game__container .game__inner .game__block.game_choose .choose__groups .choose__group .slider_wrap{
-		display: block;
-	}
-	.game__container .game__inner .game__block.game_choose .choose__groups .choose__group .slider_wrap .group__slider2{
-		width: 50vw;
-	}
-	.game__container .game__inner .game__block.game_choose .choose__groups .choose__group .slider_wrap .group__slider2 .slider2__item img{
-		max-width: 60%;
-		max-height: none;
-	}
-	.game .game__container .game__inner .game__block.game__collage .collage__items .collage__item{
-		width: 21vw!important;
-	}
-	.game .game__collage .collage__items .item_3{
-		left: 40vw!important;
-	}
-	.game__container .game__inner .game__block.game_choose .choose__groups .choose__group .slider_wrap .group__slider2{
-		margin-top: 6vw!important;
-	}
-	.game .game__container .game__inner .game__send{
-		max-width: 35vw;
-		p{
-			font-size: 3vw;
-			margin-bottom: 2vw;
-			margin-top: 10vw!important;
-		}
-		span{
-			font-size: 4.5vw!important;
-			padding: 2vw 7vw!important;
-		}
-		ul{
-			justify-content: space-between;
-			margin-bottom: 2vw;
-			display: flex;
-			li{
-				height: 8vw;
-				width: 8vw;
-				 border-radius: 2vw;
-				 a{
-					 height: 100%;
-					 display: flex;
-					 justify-content: center;
-					 align-items: center;
-				 }
+		height: 100vh;
+		padding-top: 0;
+		.game__container {
+			.game__inner {
+				display: block;
+
+				.game__block {
+					box-sizing: border-box;
+					&.game__collage {
+						position: relative;
+						margin-top: vw2(30);
+						margin-left: 0;
+						width: 100%;
+						height: vw2(761);
+						border:vw2(6) solid #fff001;
+						padding: vw2(25);
+						.collage__logo {
+							top: vw2(20);
+							width: vw2(260);
+							height: vw2(359);
+							left: vw2(35);
+							z-index: 60;
+						}
+						.collage__items {
+							.collage__item {
+								padding: vw2(5);
+								.delete_cross {
+									right: vw2(5);
+									top: vw2(5);
+									height: vw2(9);
+									width: vw2(9);
+								}
+								&.item_1 {
+									width: vw2(180);
+									height: vw2(180);
+									top: vw2(80);
+									left: vw2(310);
+								}
+								&.item_2 {
+									width: vw2(280);
+									height: vw2(280);
+									top: vw2(40);
+									right: vw2(20);
+								}
+								&.item_3 {
+									width: vw2(162);
+									height: vw2(162);
+									top: vw2(220);
+									left: vw2(275);
+								}
+								&.item_4 {
+									width: vw2(267);
+									height: vw2(313);
+									bottom: vw2(52);
+									right: vw2(24);
+								}
+								&.item_5 {
+									width: vw2(119);
+									height: vw2(160);
+									left: vw2(39);
+									bottom: vw2(31);
+								}
+								&.item_6 {
+									width: vw2(156);
+									height: vw2(368);
+									bottom: vw2(36);
+									left: vw2(176);
+								}
+							}
+						}
+					}
+					&.game_choose {
+						width: vw2(654);
+						height: auto;
+						box-sizing: border-box;
+						padding: 1vw;
+						padding-top: vw2(53);
+						padding-bottom: vw2(85);
+						margin: 0 auto;
+						.choose__menu {
+							.menu__item {
+								font-size: vw2(24);
+								margin: vw2(8) vw2(30);
+								&.selected {
+									color: #fff;
+									&:before{
+										height: vw2(2);
+										bottom: vw2(-1);
+									}
+								}
+							}
+						}
+						.choose__groups {
+							margin-top: vw2(55);
+							.choose__group {
+								.slider__button{
+									width: vw2(18);
+									height: vw2(36);
+									margin-top: vw2(-18);
+									&.left{
+										left: 0;
+									}
+									&.right{
+										right: 0;
+									}
+								}
+								.slider_wrap1 {
+									padding: 0 vw2(20);
+									.group__slider1 {
+										.slider1__item {
+											border: vw2(4) solid transparent;
+											img {
+												max-width: vw2(128);
+												max-height: vw2(128);
+											}
+										}
+									}
+								}
+								.slider_wrap {
+									.group__slider2 {
+										margin: vw2(50) auto vw2(75);
+										width: vw2(313);
+										.slider2__item {
+											img {
+												max-width: vw2(313);
+												max-height: vw2(313);
+											}
+										}
+									}
+								}
+							}
+						}
+
+					}
+				}
+				.game__send {
+					p{
+						margin-bottom: vw2(10);
+						font-size: vw2(24);
+					}
+					ul{
+						max-width: vw2(380);
+						margin-bottom:vw2(48);
+						li{
+							width: vw2(56);
+							height: vw2(56);
+							border-radius: vw2(10);
+							+li{
+								margin-left: vw2(20);
+							}
+						}
+					}
+				}
 			}
 		}
-	}
-	.game .game_choose .choose__groups .slider__button{
-		width: 2vw!important;
-		height: 4vw!important;
-	}
 
+
+		.close-button{
+			right: vw2(24);
+			top: vw2(101);
+			width: vw2(70);
+			height: vw2(70);
+			filter: drop-shadow(0 0 6px black);
+			> div{
+				height: 4px;
+				background-color: #ffce00;
+				&:nth-child(1){
+					margin-right: vw2(-70);
+				}
+				&:nth-child(2){
+					transform: rotate2(-45deg);
+				}
+			}
+		}
+
+		.description{
+			width: 100%;
+			padding-top: vw2(90);
+			padding-bottom: vw2(38);
+			padding-left: vw2(38);
+			padding-right: vw2(38);
+			&:after{
+				display: none;
+			}
+			&__image{
+				display: none;
+			}
+			.title-game{
+				width: vw2(560);
+			}
+			.top{
+				font-size: vw2(26);
+				line-height: vw2(28);
+				font-family: $Nova-reg;
+				margin-top: vw2(8);
+				padding-right: 0;
+			}
+			ul{
+				margin-top: vw2(30);
+				padding-right: vw2(25);
+				.heading{
+					font-size: vw2(36);
+				}
+				li{
+					font-size: vw2(24);
+					padding-right: 0;
+					margin-top: vw2(15);
+				}
+			}
+		}
+		.name-block{
+			position: static;
+			left: auto;
+			bottom: auto;
+			margin-top: vw2(20);
+			span{
+				font-size: vw2(72);
+				color: #000;
+			}
+			p{
+				font-size: vw2(36);
+				margin-top: vw2(8);
+			}
+		}
+		.day-look{
+			width: vw2(550);
+			bottom: vw2(-8);
+			left: 50%;
+			margin-left: vw2(-275);
+			z-index: 60;
+			span{
+				font-size: vw2(42);
+			}
+			div{
+				height: vw2(45)
+			}
+		}
+		.game__auth{
+			.title{
+				font-size: vw2(24);
+			}
+			.info{
+				font-size: vw2(18);
+				margin-top: vw2(10);
+			}
+			.btn{
+				font-size: vw2(37);
+				padding: vw2(20) vw2(55);
+				border-radius: vw2(10);
+			}
+		}
+		.social-block{
+			margin-top: vw2(10);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.soc-link{
+				width: vw2(56);
+				height: vw2(56);
+				border-radius: vw2(10);
+				+.soc-link{
+					margin-left: vw2(20);
+				}
+				svg{
+					width: vw2(35);
+					height: vw2(35);
+				}
+			}
+		}
+
+
+		.game__thnaks{
+			margin-bottom: vw2(75);
+			padding-top: vw2(60);
+			width: vw2(587);
+			margin-left: auto;
+			margin-right: auto;
+			.title{
+				font-size: vw2(56);
+				width: vw2(480);
+				margin: 0 auto;
+				&::before{
+					top: vw2(8);
+					height: vw2(60);
+				}
+			}
+			.text{
+				font-size: vw2(30);
+				line-height: vw2(28);
+				margin-top: vw2(75);
+			}
+		}
+
+	}
 }
 
