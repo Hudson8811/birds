@@ -540,6 +540,7 @@ function sendCollage(elem) {
                 $('.game.active').addClass('inactive');
                 $('.game.active .game_choose').prepend('<div class="game__thnaks"><div class="title">ПОЗДРАВЛЯЕМ!</div><div class="text">Теперь ты участник конкурса "Собери потрясающий лук в стиле Харли Квинн и хищных птиц Готэма". Теперь дело за малым - стать лучше всех! Делись своим потрясающим луком в социальных сетях и набери больше всех лайков!</div></div>')
 
+                $('.game.active .game__auth .game__send > ul > li').attr('data-image','https://harleyquinn.woman.ru/collages/'+image+'.jpg').attr('data-url','https://harleyquinn.woman.ru/share/'+image+'/');
             }
         }
     });
