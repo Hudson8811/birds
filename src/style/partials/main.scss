@@ -2486,7 +2486,11 @@ body{
 				display: none;
 			}
 			&__image{
-				display: none;
+				height: vw2(390);
+				width: vw2(205);
+				right: vw2(37);
+				bottom: vw2(37);
+				top: auto;
 			}
 			.title-game{
 				width: vw2(560);
@@ -2500,7 +2504,7 @@ body{
 			}
 			ul{
 				margin-top: vw2(30);
-				padding-right: vw2(25);
+				padding-right: vw2(205);
 				.heading{
 					font-size: vw2(36);
 				}
